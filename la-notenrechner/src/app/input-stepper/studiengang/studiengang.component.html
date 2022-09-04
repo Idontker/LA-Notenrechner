@@ -1,0 +1,36 @@
+<mat-card-subtitle> Wähle deinen Studiengang </mat-card-subtitle>
+<div class="flex-col">
+  <mat-form-field appearance="fill">
+    <mat-label>Studiengang</mat-label>
+    <mat-select (selectionChange)="selectedDegree = $event.value">
+      <mat-option *ngFor="let degree of getStudies()" [value]="degree">
+        {{ degree }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="degrees[selectedDegree]">
+    <div *ngFor="let i of range(1, getFachCount(selectedDegree))">
+      <mat-form-field appearance="fill">
+        <!-- Titel -->
+        <mat-label>
+          <div *ngIf="getFachCount(selectedDegree) > 1">Fach {{ i }}</div>
+          <div *ngIf="getFachCount(selectedDegree) <= 1">Hauptfach</div>
+        </mat-label>
+        <!-- Optionen -->
+        <mat-select (selectionChange)="selectedSubject[i - 1] = $event.value">
+          <mat-option
+            *ngFor="let subject of getSubjects(selectedDegree)"
+            [value]="subject"
+          >
+            {{ subject }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
+<div *ngIf="duplicatedSubject()">
+  Die einzelnen Fächer müssen sich unterscheiden
+</div>
+
+<button mat-button (click)="log()">log</button>
