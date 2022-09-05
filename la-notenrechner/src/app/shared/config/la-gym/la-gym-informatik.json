@@ -1,0 +1,105 @@
+{
+  "name": "Informatik",
+  "stex": ["AuD/TI", "DB/SoSy"],
+  "wpf": 25,
+  "didaktik": [
+    {
+      "name": "Didaktik der Informatik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Informatik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Algorithmen und Datenstrukturen",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Theoretische Informatik für Lehramtsstudierende",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Parallele und Funktionale Programmierung",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Konzeptionelle Modellierung",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Softwareentwicklung in Großprojekten",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Systemprogrammierung",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundlagen der technischen Informatik",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Softwareentwicklung in Großprojekten",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Rechnerkommunikation",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Praktikum",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}

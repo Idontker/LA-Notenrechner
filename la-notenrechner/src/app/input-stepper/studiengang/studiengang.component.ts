@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
 
 @Component({
   selector: 'app-studiengang',
@@ -6,46 +7,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./studiengang.component.scss'],
 })
 export class StudiengangComponent {
+  @Output()
   selectedDegree: string = '';
-  selectedSubject: string[] = [];
+  @Output()
+  selectedSubjects: string[] = [];
 
-  degrees: { [key: string]: { subjects: string[]; n: number } } = {
-    'Lehramt Gymnasium': {
-      subjects: ['Informatik', 'Mathematik', 'Englisch'],
-      n: 2,
-    },
-    'Lehramt Realschule': {
-      subjects: ['Informatik', 'Mathematik', 'Englisch'],
-      n: 2,
-    },
-    'Lehramt Mittelschule': {
-      subjects: ['Informatik', 'Mathematik', 'Englisch'],
-      n: 1,
-    },
-  };
-
-  getStudies(): string[] {
-    return Object.keys(this.degrees);
+  getDegrees(): string[] {
+    return this.degSpec.getDegreeNames();
   }
 
-  getFachCount(degree: string): number {
-    if (this.degrees[degree]) {
-      return this.degrees[degree].n;
-    }
-    return 0;
+  getDegreeSubjectCount(degree: string): number {
+    return this.degSpec.getDegreeSubjectCount(degree);
   }
 
   getSubjects(degree: string): string[] {
-    if (this.degrees[degree]) {
-      return this.degrees[degree].subjects;
-    }
-    return [];
+    return this.degSpec.getSubjectNames(degree);
   }
 
-  constructor() {}
+  constructor(private degSpec: DegreeSpecsService) {}
 
   completed(): boolean {
-    return false;
+    if (!this.selectedDegree) {
+      return false;
+    }
+    let n = this.getDegreeSubjectCount(this.selectedDegree);
+    if (this.selectedSubjects.length != n) {
+      return false;
+    }
+
+    for (let i = 0; i < n; i++) {
+      if (this.selectedSubjects[i] == '') {
+        return false;
+      }
+    }
+
+    return this.duplicatedSubject() == false;
   }
 
   range(start: number, end: number): number[] {
@@ -61,23 +57,21 @@ export class StudiengangComponent {
   }
 
   duplicatedSubject() {
-    console.log(this);
-    let n = this.getFachCount(this.selectedDegree);
-    if (n <= 1) {
-      console.log('false n<=1');
+    if (this.selectedSubjects.length == 0) {
       return false;
     }
-    let sub = this.selectedSubject;
+    let n = this.getDegreeSubjectCount(this.selectedDegree);
+    if (n <= 1) {
+      return false;
+    }
+    let sub = this.selectedSubjects;
     for (let i = 0; i < n; i++) {
       for (let j = i + 1; j < n; j++) {
-        console.log(sub[i], sub[j], i, j);
         if (sub[i] == sub[j] && sub[i] != '') {
-          console.log(true);
           return true;
         }
       }
     }
-    console.log(false);
     return false;
   }
 }

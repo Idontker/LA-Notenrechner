@@ -2,13 +2,55 @@
 <mat-card>
   <mat-card-title>Trage deine Noten ein</mat-card-title>
   <mat-stepper linear>
-    <!-- Step 1 -->
+    <!--Step 1: Auswahl des Studiengangs  -->
     <mat-step [completed]="step1.completed()" [editable]="true">
       <ng-template matStepLabel>Studiengang</ng-template>
       <app-studiengang #step1></app-studiengang>
       <div class="actions">
         <!-- prettier-ignore -->
         <button mat-raised-button color="primary" matStepperNext [disabled]="!step1.completed()" >Next</button>
+      </div>
+    </mat-step>
+
+    <!--Step 2: Auswahl der Leistungen für das Hauptfächer  -->
+    <mat-step
+      [completed]="step2.completed()"
+      [editable]="true"
+      *ngFor="let subject of getSelectedSubjects()"
+    >
+      <ng-template matStepLabel>{{ subject }}</ng-template>
+      <app-leistungen-fach
+        [degreeName]="getSelectedDegree()"
+        [subjectName]="subject"
+        #step2
+      ></app-leistungen-fach>
+      <div class="actions">
+        <!-- prettier-ignore -->
+        <button mat-raised-button color="primary" matStepperNext [disabled]="!step2.completed()">Next</button>
+      </div>
+    </mat-step>
+    <!--Step 3: Auswahl der EWS Leistungen  -->
+    <mat-step [completed]="true" [editable]="true">
+      <ng-template matStepLabel>EWS</ng-template>
+      <app-leistungen-fach
+        [degreeName]="getSelectedDegree()"
+        [subjectName]="'EWS'"
+      ></app-leistungen-fach>
+      <div class="actions">
+        <!-- prettier-ignore -->
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <!--Step 3: Auswahl der sonstigen Leistungen  -->
+    <mat-step [completed]="true" [editable]="true">
+      <ng-template matStepLabel>Sonstiges</ng-template>
+      <app-leistungen-fach
+        [degreeName]="getSelectedDegree()"
+        [subjectName]="'Sonstiges'"
+      ></app-leistungen-fach>
+      <div class="actions">
+        <!-- prettier-ignore -->
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
   </mat-stepper>

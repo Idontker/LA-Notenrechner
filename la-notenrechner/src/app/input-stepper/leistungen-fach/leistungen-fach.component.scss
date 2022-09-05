@@ -1,0 +1,25 @@
+.mat-list-item {
+  height: 3.8rem !important;
+}
+
+.wpf-item {
+  height: auto !important;
+}
+
+.module-grade-select,
+.module-ects-select {
+  width: 5.5rem;
+}
+
+.grid-row-3 {
+  width: 100%;
+  display: grid !important;
+  align-items: center;
+  grid-gap: 1rem;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+.mat-card-subtitle {
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
