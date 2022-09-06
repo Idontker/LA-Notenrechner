@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GRADES, module } from '../input-stepper.module';
+import { GRADES, module } from 'src/app/shared/degree-specs.service';
 
 @Component({
   selector: 'app-grade-picker',

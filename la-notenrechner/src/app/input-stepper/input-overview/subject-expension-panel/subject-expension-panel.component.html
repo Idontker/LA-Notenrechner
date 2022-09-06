@@ -1,0 +1,43 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title> {{ subject.name }} </mat-panel-title>
+    <mat-panel-description class="description">
+      <div>
+        <div>{{ gradeString(getAvgGradeFachwissenschaft()) }} Fachnote</div>
+        <div *ngIf="subject.didaktik.length > 0">
+          {{ gradeString(getAvgGradeDidaktik()) }} Didaktiknote
+        </div>
+      </div>
+      <div>{{ getPassedECTS() }} von {{ getTotalECTS() }} ECTS</div>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <ng-template matExpansionPanelContent>
+    <div *ngIf="subject">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Modulname</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <!-- ECTS Column -->
+        <ng-container matColumnDef="ects">
+          <th mat-header-cell *matHeaderCellDef>ECTS</th>
+          <td mat-cell *matCellDef="let element">{{ element.ects }}</td>
+        </ng-container>
+
+        <!-- Grade Column -->
+        <ng-container matColumnDef="grade">
+          <th mat-header-cell *matHeaderCellDef>Note</th>
+          <td mat-cell *matCellDef="let element">{{ element.grade }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </ng-template>
+</mat-expansion-panel>

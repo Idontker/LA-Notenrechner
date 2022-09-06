@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ECTS, module } from '../input-stepper.module';
+import { ECTS, module } from 'src/app/shared/degree-specs.service';
 
 @Component({
   selector: 'app-ects-picker',

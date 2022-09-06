@@ -28,12 +28,12 @@
   </div>
 </mat-list>
 <!-- WPF -->
-<div class="wpf" *ngIf="getSubjectConfig()?.wpf != 0">
+<div class="wpf" *ngIf="getSubjectConfig()?.wpf_ects != 0">
   <mat-card-subtitle>
     Trage deine Wahlpflicht-Leistungen ein:
   </mat-card-subtitle>
   <mat-list>
-    <div *ngFor="let module of wpfs; let i = index">
+    <div *ngFor="let module of getSubjectConfig()?.wpfs; let i = index">
       <mat-list-item class="wpf-item">
         <div class="grid-row-3">
           <mat-form-field class="module-name">

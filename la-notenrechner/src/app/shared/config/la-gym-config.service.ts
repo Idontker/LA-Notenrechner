@@ -3,8 +3,7 @@ import * as inf from './la-gym/la-gym-informatik.json';
 import * as mat from './la-gym/la-gym-mathematik.json';
 import * as ews from './la-gym/la-gym-ews.json';
 import * as others from './la-gym/la-gym-others.json';
-
-import { subject } from 'src/app/input-stepper/input-stepper.module';
+import { subject } from 'src/app/shared/degree-specs.service';
 
 @Injectable({
   providedIn: 'root',

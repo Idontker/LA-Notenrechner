@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
-import { module, subject } from '../input-stepper.module';
+import {
+  DegreeSpecsService,
+  module,
+  subject,
+} from 'src/app/shared/degree-specs.service';
 
 @Component({
   selector: 'app-leistungen-fach',
@@ -13,18 +16,22 @@ export class LeistungenFachComponent implements OnInit {
   @Input('subjectName')
   subjectName: string = '';
 
-  wpfs: module[] = [];
-
   constructor(private degSpec: DegreeSpecsService) {}
 
   ngOnInit(): void {}
 
   completed(): boolean {
-    if (this.getSubjectConfig()?.wpf == 0) {
+    let subject = this.getSubjectConfig();
+    if (!subject) {
+      return false;
+    }
+    if (subject.wpf_ects == 0) {
       return true;
     }
-    for (let i = 0; i < this.wpfs.length; i++) {
-      let wpf = this.wpfs[i];
+
+    let wpfs = subject.wpfs;
+    for (let i = 0; i < wpfs.length; i++) {
+      let wpf = wpfs[i];
       if (wpf.name == '' || wpf.grade == '' || wpf.ects == 0) {
         return false;
       }
@@ -45,18 +52,10 @@ export class LeistungenFachComponent implements OnInit {
       ba: 'tauglich',
       options: '',
     };
-    this.wpfs.push(module);
+    this.getSubjectConfig()?.wpfs.push(module);
   }
 
   deleteWPF(i: number) {
-    console.log(this.wpfs.splice(i, 1));
-  }
-
-  log(event: any) {
-    console.log(event);
-  }
-
-  logMe() {
-    console.log(this);
+    console.log(this.getSubjectConfig()?.wpfs.splice(i, 1));
   }
 }

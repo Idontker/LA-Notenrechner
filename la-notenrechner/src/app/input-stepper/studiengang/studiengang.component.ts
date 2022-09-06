@@ -52,10 +52,6 @@ export class StudiengangComponent {
     return ans;
   }
 
-  log() {
-    console.log(this);
-  }
-
   duplicatedSubject() {
     if (this.selectedSubjects.length == 0) {
       return false;

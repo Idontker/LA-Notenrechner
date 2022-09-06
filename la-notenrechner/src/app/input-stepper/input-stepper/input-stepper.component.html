@@ -41,13 +41,23 @@
         <button mat-raised-button color="primary" matStepperNext>Next</button>
       </div>
     </mat-step>
-    <!--Step 3: Auswahl der sonstigen Leistungen  -->
+    <!--Step 4: Auswahl der sonstigen Leistungen  -->
     <mat-step [completed]="true" [editable]="true">
       <ng-template matStepLabel>Sonstiges</ng-template>
       <app-leistungen-fach
         [degreeName]="getSelectedDegree()"
         [subjectName]="'Sonstiges'"
       ></app-leistungen-fach>
+      <div class="actions">
+        <!-- prettier-ignore -->
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <!--Step 5: Abschließende Übersicht  -->
+    <mat-step [completed]="true" [editable]="true">
+      <ng-template matStepLabel>Übersicht</ng-template>
+      <app-input-overview [degree]="getDegreeObject()"></app-input-overview>
       <div class="actions">
         <!-- prettier-ignore -->
         <button mat-raised-button color="primary" matStepperNext>Next</button>

@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  degree,
+  DegreeSpecsService,
+} from 'src/app/shared/degree-specs.service';
 import { StudiengangComponent } from '../studiengang/studiengang.component';
 
 @Component({
@@ -10,7 +14,7 @@ export class InputStepperComponent implements OnInit {
   @ViewChild(StudiengangComponent)
   private studiengang!: StudiengangComponent;
 
-  constructor() {}
+  constructor(private degSpec: DegreeSpecsService) {}
 
   ngOnInit(): void {}
 
@@ -24,6 +28,13 @@ export class InputStepperComponent implements OnInit {
     if (this.studiengang && this.studiengang.selectedSubjects.length != 0) {
       return this.studiengang.selectedSubjects;
     }
-    return ['Hauptfach'];
+    return [];
+  }
+
+  getDegreeObject(): degree | undefined {
+    return this.degSpec.getDegreeObject(
+      this.getSelectedDegree(),
+      this.getSelectedSubjects()
+    );
   }
 }

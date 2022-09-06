@@ -1,0 +1,6 @@
+<mat-accordion multi="true">
+  <ng-container *ngFor="let subject of getAllSubjects()">
+    <app-subject-expension-panel [subject]="subject">
+    </app-subject-expension-panel>
+  </ng-container>
+</mat-accordion>
