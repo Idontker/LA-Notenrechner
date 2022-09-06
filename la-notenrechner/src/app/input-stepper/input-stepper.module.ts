@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { LeistungenFachComponent } from './leistungen-fach/leistungen-fach.component';
 import { FormsModule } from '@angular/forms';
 import { GradePickerComponent } from './grade-picker/grade-picker.component';
+import { EctsPickerComponent } from './ects-picker/ects-picker.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { GradePickerComponent } from './grade-picker/grade-picker.component';
     InputStepperComponent,
     LeistungenFachComponent,
     GradePickerComponent,
+    EctsPickerComponent,
   ],
   imports: [CommonModule, MaterialModule, FormsModule],
 })
@@ -28,7 +30,7 @@ export interface subject {
 
 export interface module {
   name: string;
-  ects: number;
+  ects: 0 | 2.5 | 5 | 7.5 | 10;
   grade:
     | '1.0'
     | '1.3'
@@ -47,6 +49,8 @@ export interface module {
   ba: 'pflicht' | 'tauglich' | 'nein';
   options: string;
 }
+
+export const ECTS = [2.5, 5, 7.5, 10];
 
 export const GRADES = [
   '1.0',

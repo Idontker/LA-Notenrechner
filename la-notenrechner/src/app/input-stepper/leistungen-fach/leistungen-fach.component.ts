@@ -15,8 +15,6 @@ export class LeistungenFachComponent implements OnInit {
 
   wpfs: module[] = [];
 
-  ects = [2.5, 5, 7.5, 10];
-
   constructor(private degSpec: DegreeSpecsService) {}
 
   ngOnInit(): void {}

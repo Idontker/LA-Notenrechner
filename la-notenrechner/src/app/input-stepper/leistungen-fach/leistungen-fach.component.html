@@ -48,21 +48,10 @@
           ></app-grade-picker>
 
           <!-- ECTS Picker  -->
-          <div class="module-ects">
-            <mat-form-field class="module-ects-select">
-              <mat-label>ECTS</mat-label>
-              <mat-select
-                (selectionChange)="
-                  module.ects = $event.value ? $event.value : 0
-                "
-              >
-                <mat-option></mat-option>
-                <mat-option *ngFor="let e of ects" [value]="e">
-                  {{ e }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
+          <app-ects-picker
+            [module]="module"
+            class="module-ects"
+          ></app-ects-picker>
         </div>
         <button mat-icon-button (click)="deleteWPF(i)">
           <mat-icon>delete</mat-icon>
