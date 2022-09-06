@@ -7,37 +7,18 @@
   <div *ngFor="let module of getSubjectConfig()?.modules; let i = index">
     <mat-list-item class="item">
       <div class="grid-row-3">
+        <!-- Module Name -->
         <div class="module-name">
           {{ module.name }}
         </div>
-        <!--  -->
-        <div class="module-grade">
-          <!-- select grade -->
-          <mat-form-field
-            class="module-grade-select"
-            *ngIf="module.weight != 0"
-          >
-            <mat-label>Note</mat-label>
-            <mat-select
-              (selectionChange)="
-                module.grade = $event.value ? $event.value : ''
-              "
-            >
-              <mat-option></mat-option>
-              <mat-option *ngFor="let grade of grades" [value]="grade">
-                {{ grade }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <!-- bestanden ? -->
-          <div *ngIf="module.weight == 0">
-            <mat-checkbox
-              (change)="module.grade = $event.checked ? 'bestanden' : ''"
-              >bestanden</mat-checkbox
-            >
-          </div>
-        </div>
-        <!--  -->
+
+        <!-- select grade -->
+        <app-grade-picker
+          [module]="module"
+          class="module-grade"
+        ></app-grade-picker>
+
+        <!-- ECTS -->
         <div class="module-ects">{{ module.ects }} ECTS</div>
       </div>
     </mat-list-item>
@@ -61,30 +42,13 @@
             <input matInput [(ngModel)]="module.name" />
           </mat-form-field>
 
-          <!--  -->
-          <div class="module-grade">
-            <!-- select grade -->
-            <mat-form-field
-              class="module-grade-select"
-              *ngIf="module.weight != 0"
-            >
-              <mat-label>Note</mat-label>
-              <mat-select [(ngModel)]="module.grade">
-                <mat-option></mat-option>
-                <mat-option *ngFor="let grade of grades" [value]="grade">
-                  {{ grade }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <!-- bestanden ? -->
-            <div *ngIf="module.weight == 0">
-              <mat-checkbox
-                (change)="module.grade = $event.checked ? 'bestanden' : ''"
-                >bestanden</mat-checkbox
-              >
-            </div>
-          </div>
-          <!--  -->
+          <!-- select grade -->
+          <app-grade-picker
+            [module]="module"
+            class="module-grade"
+          ></app-grade-picker>
+
+          <!-- ECTS Picker  -->
           <div class="module-ects">
             <mat-form-field class="module-ects-select">
               <mat-label>ECTS</mat-label>
@@ -124,37 +88,16 @@
     <div *ngFor="let module of getSubjectConfig()?.didaktik">
       <mat-list-item class="item">
         <div class="grid-row-3">
+          <!-- Module Name -->
           <div class="module-name">
             {{ module.name }}
           </div>
-          <!--  -->
-          <div class="module-grade">
-            <!-- select grade -->
-            <mat-form-field
-              class="module-grade-select"
-              *ngIf="module.weight != 0"
-            >
-              <mat-label>Note</mat-label>
-              <mat-select
-                (selectionChange)="
-                  module.grade = $event.value ? $event.value : ''
-                "
-              >
-                <mat-option></mat-option>
-                <mat-option *ngFor="let grade of grades" [value]="grade">
-                  {{ grade }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <!-- bestanden ? -->
-            <div *ngIf="module.weight == 0">
-              <mat-checkbox
-                (change)="module.grade = $event.checked ? 'bestanden' : ''"
-                >bestanden</mat-checkbox
-              >
-            </div>
-          </div>
-          <!--  -->
+          <!-- select grade -->
+          <app-grade-picker
+            [module]="module"
+            class="module-grade"
+          ></app-grade-picker>
+          <!-- ECTS -->
           <div class="module-ects">{{ module.ects }} ECTS</div>
         </div>
       </mat-list-item>
