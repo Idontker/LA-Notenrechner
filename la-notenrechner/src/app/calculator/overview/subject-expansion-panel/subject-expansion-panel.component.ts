@@ -4,40 +4,77 @@ import { MatTableDataSource } from '@angular/material/table';
 import { module, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
-  selector: 'app-subject-expension-panel',
-  templateUrl: './subject-expension-panel.component.html',
-  styleUrls: ['./subject-expension-panel.component.scss'],
+  selector: 'app-subject-expansion-panel',
+  templateUrl: './subject-expansion-panel.component.html',
+  styleUrls: ['./subject-expansion-panel.component.scss'],
   viewProviders: [MatExpansionPanel],
 })
-export class SubjectExpensionPanelComponent implements OnChanges {
+export class SubjectExpansionPanelComponent implements OnChanges {
   @Input()
   subject!: subject;
-
-  ngOnChanges() {
-    this.dataSource = new MatTableDataSource(this.getPassedModules());
-  }
+  @Input()
+  inputSubject!: subject;
+  @Input()
+  showPassed!: boolean;
+  @Input()
+  showOnlyBA!: boolean;
 
   displayedColumns = ['name', 'grade', 'ects'];
-  dataSource = new MatTableDataSource(this.getPassedModules());
 
-  private getPassedModules(): module[] {
-    if (!this.subject) {
-      return [];
-    }
-    let sub = this.subject;
-    let allModules: module[] = sub.modules.concat(
-      sub.didaktik.concat(sub.wpfs)
-    );
-    let passed: module[] = [];
-    allModules.forEach((m) => {
-      if (m.grade != '') {
-        passed.push(m);
-      }
-    });
-    return passed;
+  inputedModules = this.getModuleDict(this.inputSubject);
+  dataSource = new MatTableDataSource(this.getDisplayedModules());
+
+  ngOnChanges() {
+    this.inputedModules = this.getModuleDict(this.inputSubject);
+    this.dataSource = new MatTableDataSource(this.getDisplayedModules());
   }
 
   constructor() {}
+
+  moduleIsPassed(moduleName: string): boolean {
+    let inputedModule = this.inputedModules[moduleName];
+    if (inputedModule == undefined) {
+      return false;
+    }
+    return inputedModule.grade != '';
+  }
+
+  private getDisplayedModules(): module[] {
+    let allModules = this.getModuleArray(this.subject);
+
+    // filter modules to display
+    let displayedModules: module[] = [];
+    allModules.forEach((m) => {
+      if (
+        (!this.showOnlyBA || m.ba != 'nein') &&
+        (this.showPassed || !this.moduleIsPassed(m.name))
+      ) {
+        displayedModules.push(m);
+      }
+    });
+    return displayedModules;
+  }
+
+  private getModuleArray(subject: subject): module[] {
+    if (!subject) {
+      return [];
+    }
+    return subject.modules.concat(subject.didaktik.concat(subject.wpfs));
+  }
+
+  private getModuleDict(subject: subject): { [key: string]: module } {
+    let moduleDict: { [key: string]: module } = {};
+    let moduleArray = this.getModuleArray(subject);
+    moduleArray.forEach((ele) => {
+      moduleDict[ele.name] = ele;
+    });
+
+    return moduleDict;
+  }
+
+  openModule() {}
+
+  // copied from the input extension panel
 
   // TODO: create a service
   getTotalECTS() {
@@ -100,5 +137,9 @@ export class SubjectExpensionPanelComponent implements OnChanges {
     } else {
       return s;
     }
+  }
+
+  log() {
+    console.log(this);
   }
 }

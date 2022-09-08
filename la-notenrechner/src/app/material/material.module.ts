@@ -9,6 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const MaterialComponents = [
   MatCardModule,
@@ -21,6 +22,7 @@ const MaterialComponents = [
   MatIconModule,
   MatExpansionModule,
   MatTableModule,
+  MatSlideToggleModule,
 ];
 
 @NgModule({

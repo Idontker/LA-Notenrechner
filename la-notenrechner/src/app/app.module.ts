@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { InputStepperModule } from './input-stepper/input-stepper.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalculatorModule } from './calculator/calculator.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InputStepperModule,
     ReactiveFormsModule,
     FormsModule,
+    CalculatorModule
   ],
   providers: [],
   bootstrap: [AppComponent],

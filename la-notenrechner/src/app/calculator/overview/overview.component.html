@@ -1,0 +1,23 @@
+<mat-card>
+  <div class="flex-col width-40 algin-right space-around">
+    <mat-slide-toggle [(ngModel)]="showPassed"
+      >Bestandene Module anzeigen
+    </mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="showOnlyBA">
+      {{ showOnlyBA ? "Bachleor Modus" : "Staatsexamensmodus" }}
+    </mat-slide-toggle>
+  </div>
+
+  <mat-accordion multi="true">
+    <ng-container *ngFor="let subject of getAllSubjects(this.degree)">
+      <app-subject-expansion-panel
+        [subject]="subject"
+        [inputSubject]="inputedSubjects[subject.name]"
+        [showPassed]="showPassed"
+        [showOnlyBA]="showOnlyBA"
+      >
+      </app-subject-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+  <!-- <button mat-button (click)="log()">log</button> -->
+</mat-card>

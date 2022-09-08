@@ -1,0 +1,15 @@
+.mat-table {
+  width: 100%;
+  box-shadow: none;
+}
+
+.description {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.openModule{
+  background-color: red;
+  color: green;
+}

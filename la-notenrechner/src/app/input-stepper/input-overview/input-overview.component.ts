@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { degree, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
@@ -25,7 +26,14 @@ export class InputOverviewComponent implements OnInit {
 
     return ret;
   }
-  constructor() {}
+
+  handleDoneEvent() {
+    localStorage.removeItem('degree');
+    localStorage.setItem('degree', JSON.stringify(this.degree));
+    this.router.navigate(['/calc']);
+  }
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

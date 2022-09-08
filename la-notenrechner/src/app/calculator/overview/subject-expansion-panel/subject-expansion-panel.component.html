@@ -20,7 +20,10 @@
         <!-- Name Column -->
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Modulname</th>
-          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          <td mat-cell *matCellDef="let element">
+            <div [ngClass]="{ openModule: moduleIsPassed(element.name) }"></div>
+            {{ element.name }}
+          </td>
         </ng-container>
 
         <!-- ECTS Column -->
@@ -32,9 +35,7 @@
         <!-- Grade Column -->
         <ng-container matColumnDef="grade">
           <th mat-header-cell *matHeaderCellDef>Note</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.grade == "" ? "-" : element.grade }}
-          </td>
+          <td mat-cell *matCellDef="let element">{{ element.grade }}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -43,3 +44,5 @@
     </div>
   </ng-template>
 </mat-expansion-panel>
+
+<button mat-button (click)="log()">log</button>
