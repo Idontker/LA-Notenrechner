@@ -1,0 +1,16 @@
+<!-- select grade -->
+<mat-form-field class="_module-grade-select" *ngIf="_module.weight != 0">
+  <mat-label>Note</mat-label>
+  <mat-select [(value)]="_module.grade">
+    <mat-option [value]="''"></mat-option>
+    <mat-option *ngFor="let grade of grades" [value]="grade">
+      {{ grade }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<!-- bestanden ? -->
+<div *ngIf="_module.weight == 0">
+  <mat-checkbox (change)="_module.grade = $event.checked ? 'bestanden' : ''"
+    >bestanden</mat-checkbox
+  >
+</div>
