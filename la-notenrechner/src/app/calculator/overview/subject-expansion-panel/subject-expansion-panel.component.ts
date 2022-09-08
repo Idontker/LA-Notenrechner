@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatTableDataSource } from '@angular/material/table';
+import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
 import { GRADES, module, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
@@ -17,7 +18,9 @@ export class SubjectExpansionPanelComponent implements OnChanges {
   @Input()
   showPassed!: boolean;
   @Input()
-  showOnlyBA!: boolean;
+  stexMode!: boolean;
+  @Input()
+  ects!: number;
 
   displayedColumns = ['name', 'grade', 'ects'];
   GRADES = GRADES.concat(['']);
@@ -30,7 +33,7 @@ export class SubjectExpansionPanelComponent implements OnChanges {
     this.dataSource = new MatTableDataSource(this.getDisplayedModules());
   }
 
-  constructor() {}
+  constructor(private calc: DegreeCalculatorService) {}
 
   moduleIsPassed(moduleName: string): boolean {
     let inputedModule = this.inputedModules[moduleName];
@@ -47,7 +50,7 @@ export class SubjectExpansionPanelComponent implements OnChanges {
     let displayedModules: module[] = [];
     allModules.forEach((m) => {
       if (
-        (!this.showOnlyBA || m.ba != 'nein') &&
+        (this.stexMode || m.ba != 'nein') &&
         (this.showPassed || !this.moduleIsPassed(m.name))
       ) {
         displayedModules.push(m);
@@ -73,71 +76,16 @@ export class SubjectExpansionPanelComponent implements OnChanges {
     return moduleDict;
   }
 
-  openModule() {}
-
-  // copied from the input extension panel
-
-  // TODO: create a service
-  getTotalECTS() {
-    let total: number = 0.0;
-    this.subject.modules.forEach((m) => (total += m.ects));
-    this.subject.didaktik.forEach((m) => (total += m.ects));
-    total += this.subject.wpf_ects;
-    return total;
-  }
-
-  // TODO: create a service
   getPassedECTS() {
-    let total: number = 0.0;
-
-    let temp = [this.subject.modules, this.subject.didaktik, this.subject.wpfs];
-    temp.forEach((arr) => {
-      arr.forEach((m) => {
-        if (m.grade != '') {
-          total += m.ects;
-        }
-      });
-    });
-    return total;
+    return this.calc.getPassedECTS(this.subject, this.stexMode);
   }
 
-  // TODO: create a service
-  getAvgGradeFachwissenschaft() {
-    let modules = this.subject.modules.concat(this.subject.wpfs);
-    return this.getAvgGrade(modules);
+  getTotalECTS() {
+    return this.ects;
   }
 
-  // TODO: create a service
-  getAvgGradeDidaktik() {
-    return this.getAvgGrade(this.subject.didaktik);
-  }
-
-  // TODO: create a service
-  getAvgGrade(modules: module[]) {
-    let ects = 0;
-    let total = 0.0;
-    modules.forEach((m) => {
-      if (m.grade != '' && m.grade != 'bestanden') {
-        let grade = parseFloat(m.grade);
-        ects += m.weight * m.ects;
-        total += m.weight * grade * m.ects;
-      }
-    });
-
-    return total / ects;
-  }
-
-  // TODO: create a service
-  gradeString(grade: number): string {
-    var rounded = Math.round(grade * 100) / 100;
-    var s = '' + rounded;
-    if (s.indexOf('.') == -1) {
-      return s + '.00';
-    } else if (s.split('.')[1].length == 1) {
-      return s + '0';
-    } else {
-      return s;
-    }
+  getAvgGrade() {
+    return this.calc.getAvgGrade(this.subject, this.stexMode);
   }
 
   log() {

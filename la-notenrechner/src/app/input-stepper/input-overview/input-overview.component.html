@@ -1,9 +1,14 @@
 <mat-accordion multi="true">
   <ng-container *ngFor="let subject of getAllSubjects()">
-    <app-subject-expension-panel [subject]="subject">
+    <app-subject-expension-panel
+      [subject]="subject"
+      [ects]="getTotalECTS(subject)"
+    >
     </app-subject-expension-panel>
   </ng-container>
 </mat-accordion>
-<button mat-raised-button (click)="handleDoneEvent()">
-  Eingabe Abschließen
-</button>
+<div class="action-wrapper">
+  <button mat-raised-button color="primary" (click)="handleDoneEvent()">
+    Eingabe Abschließen
+  </button>
+</div>

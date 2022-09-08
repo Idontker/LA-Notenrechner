@@ -55,11 +55,13 @@ export interface degree {
     subject_ects: number;
     didaktik_ects: number;
     ews_ects: number;
+    other_ects: number;
   };
   ba_ects: {
     subject_ects: number;
     didaktik_ects: number;
     ews_ects: number;
+    other_ects: number;
   };
   n: number;
   ba: {
@@ -83,11 +85,13 @@ export class DegreeSpecsService {
         subject_ects: 95,
         didaktik_ects: 10,
         ews_ects: 35,
+        other_ects: 26,
       },
       ba_ects: {
         subject_ects: 70,
         didaktik_ects: 5,
         ews_ects: 15,
+        other_ects: 16,
       },
       ba: {
         ects: 10,
@@ -103,11 +107,13 @@ export class DegreeSpecsService {
         subject_ects: 70,
         didaktik_ects: 10,
         ews_ects: 35,
+        other_ects: 26,
       },
       ba_ects: {
         subject_ects: 70,
         didaktik_ects: 5,
         ews_ects: 15,
+        other_ects: 16,
       },
       ba: {
         ects: 10,

@@ -3,8 +3,8 @@
     <mat-slide-toggle [(ngModel)]="showPassed"
       >Bestandene Module anzeigen
     </mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="showOnlyBA">
-      {{ showOnlyBA ? "Bachleor Modus" : "Staatsexamensmodus" }}
+    <mat-slide-toggle [(ngModel)]="stexMode">
+      {{ stexMode ? "Staatsexamensmodus" : "Bachleor Modus" }}
     </mat-slide-toggle>
   </div>
 
@@ -14,7 +14,8 @@
         [subject]="subject"
         [inputSubject]="inputedSubjects[subject.name]"
         [showPassed]="showPassed"
-        [showOnlyBA]="showOnlyBA"
+        [stexMode]="stexMode"
+        [ects]="getTotalECTS(subject)"
       >
       </app-subject-expansion-panel>
     </ng-container>

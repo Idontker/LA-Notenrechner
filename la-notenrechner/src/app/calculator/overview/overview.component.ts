@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
 import { degree, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
@@ -14,12 +15,12 @@ export class OverviewComponent implements OnInit {
   degree!: degree;
 
   showPassed = true;
-  showOnlyBA = false;
+  stexMode = true;
 
-  constructor() {
+  constructor(private calc: DegreeCalculatorService) {
     // pull data
-    this.degree = this.getDegree();
     this.inputDegree = this.getInputDegree();
+    this.degree = this.getDegree();
 
     // build inputedSubjects dictionary as  an helper for later
     let allInputedSubjects = this.getAllSubjects(this.inputDegree);
@@ -52,7 +53,7 @@ export class OverviewComponent implements OnInit {
     return ret;
   }
 
-  getInputDegree() {
+  private getInputDegree() {
     let objectString = localStorage.getItem('inputDegree');
     if (!objectString) {
       return null;
@@ -61,11 +62,15 @@ export class OverviewComponent implements OnInit {
     return JSON.parse(objectString);
   }
 
-  getDegree() {
+  private getDegree() {
     let objectString = localStorage.getItem('degree');
     if (!objectString) {
       return null;
     }
     return JSON.parse(objectString);
+  }
+
+  getTotalECTS(subject: subject): number {
+    return this.calc.getTotalECTS(this.degree, subject, this.stexMode);
   }
 }

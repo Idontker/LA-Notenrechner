@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { InputStepperModule } from './input-stepper/input-stepper.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalculatorModule } from './calculator/calculator.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { CalculatorModule } from './calculator/calculator.module';
     InputStepperModule,
     ReactiveFormsModule,
     FormsModule,
-    CalculatorModule
+    CalculatorModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

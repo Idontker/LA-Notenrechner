@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
 import { degree, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
@@ -30,10 +31,19 @@ export class InputOverviewComponent implements OnInit {
   handleDoneEvent() {
     localStorage.removeItem('degree');
     localStorage.setItem('degree', JSON.stringify(this.degree));
+    localStorage.removeItem('inputDegree');
+    localStorage.setItem('inputDegree', JSON.stringify(this.degree));
     this.router.navigate(['/calc']);
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private calc: DegreeCalculatorService) {}
 
   ngOnInit(): void {}
+
+  getTotalECTS(subject: subject): number {
+    if (this.degree == undefined) {
+      return 0;
+    }
+    return this.calc.getTotalECTS(this.degree, subject, true);
+  }
 }

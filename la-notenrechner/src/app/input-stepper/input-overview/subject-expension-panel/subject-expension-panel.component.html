@@ -3,12 +3,17 @@
     <mat-panel-title> {{ subject.name }} </mat-panel-title>
     <mat-panel-description class="description">
       <div>
-        <div>{{ gradeString(getAvgGradeFachwissenschaft()) }} Fachnote</div>
+        <div *ngIf="subject.didaktik.length == 0">
+          {{ getAvgGrade() }} Fachnote
+        </div>
         <div *ngIf="subject.didaktik.length > 0">
-          {{ gradeString(getAvgGradeDidaktik()) }} Didaktiknote
+          {{ getAvgGrade()[0] }} Fachnote
+        </div>
+        <div *ngIf="subject.didaktik.length > 0">
+          {{ getAvgGrade()[1] }} Didaktiknote
         </div>
       </div>
-      <div>{{ getPassedECTS() }} von {{ getTotalECTS() }} ECTS</div>
+      <div>{{ getPassedECTS() }} von {{ ects }} ECTS</div>
     </mat-panel-description>
   </mat-expansion-panel-header>
   <ng-template matExpansionPanelContent>
