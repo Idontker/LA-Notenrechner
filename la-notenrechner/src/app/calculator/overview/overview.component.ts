@@ -14,7 +14,7 @@ export class OverviewComponent implements OnInit {
   degree!: degree;
 
   showPassed = true;
-  showOnlyBA = true;
+  showOnlyBA = false;
 
   constructor() {
     // pull data

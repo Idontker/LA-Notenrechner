@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatTableDataSource } from '@angular/material/table';
-import { module, subject } from 'src/app/shared/degree-specs.service';
+import { GRADES, module, subject } from 'src/app/shared/degree-specs.service';
 
 @Component({
   selector: 'app-subject-expansion-panel',
@@ -20,6 +20,7 @@ export class SubjectExpansionPanelComponent implements OnChanges {
   showOnlyBA!: boolean;
 
   displayedColumns = ['name', 'grade', 'ects'];
+  GRADES = GRADES.concat(['']);
 
   inputedModules = this.getModuleDict(this.inputSubject);
   dataSource = new MatTableDataSource(this.getDisplayedModules());

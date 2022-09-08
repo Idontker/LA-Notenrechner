@@ -9,7 +9,12 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.openModule{
-  background-color: red;
-  color: green;
+.openModule {
+  font-weight: 500;
+}
+
+.passedModule {
+  color:rgba(0, 0, 0, 0.54);
+  // TODO:
+  // color: theming.get-color-from-palette($foreground, secondary-text);
 }
