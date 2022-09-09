@@ -1,7 +1,24 @@
 {
   "name": "Mathematik",
-  "stex": ["Analysis", "Algebra"],
-  "wpf": 0,
+  "stex": [
+    {
+      "name": "Analysis",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Algebra",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Mathematik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
   "didaktik": [
     {
       "name": "Didaktik der Arithmetik",

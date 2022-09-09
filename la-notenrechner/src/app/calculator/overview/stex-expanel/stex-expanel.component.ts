@@ -11,52 +11,75 @@ import { degree, subject } from 'src/app/shared/degree-specs.service';
 })
 export class StexExpanelComponent implements OnChanges {
   @Input()
-  set degree(degree: degree) {
-    this._degree = degree;
-    Object.keys(degree.subjects).forEach((key: string) => {
-      let subject: subject = degree.subjects[key];
-      this.stexpruefungen = this.stexpruefungen.concat(subject.stex);
-    });
-    this.stexpruefungen.concat(degree.ews.stex);
-    console.log(degree, this.stexpruefungen);
+  // set degree(degree: degree) {
+  //   this._degree = degree;
+  //   Object.keys(degree.subjects).forEach((key: string) => {
+  //     let subject: subject = degree.subjects[key];
+  //     this.stexpruefungen = this.stexpruefungen.concat(subject.stex);
+  //   });
+  //   this.stexpruefungen.concat(degree.ews.stex);
+  //   console.log(degree, this.stexpruefungen);
 
-    // grades anlegen
-    this.stexpruefungen.forEach((name: string) => {
-      if (!this.stex_grades[name]) {
-        this.stex_grades[name] = '';
-      }
-    });
-  }
-  _degree!: degree;
+  // grades anlegen
+  // this.stexpruefungen.forEach((name: string) => {
+  //   if (!this.stex_grades[name]) {
+  //     this.stex_grades[name] = '';
+  //   }
+  // });
+  // }
+  degree!: degree;
 
-  stexpruefungen: string[] = [];
-  stex_grades: { [key: string]: '1' | '2' | '3' | '4' | '5' | '6' | '' } = {};
+  // stexpruefungen: string[] = [];
+  // stex_grades: { [key: string]: '1' | '2' | '3' | '4' | '5' | '6' | '' } = {};
   GRADES = ['1', '2', '3', '4', '5', '6'];
 
   displayedColumns = ['name', 'grade'];
 
-  dataSource = new MatTableDataSource(this.stexpruefungen);
+  dataSource = new MatTableDataSource(this.getAllStex());
 
   ngOnChanges() {
-    this.dataSource = new MatTableDataSource(this.stexpruefungen);
+    this.dataSource = new MatTableDataSource(this.getAllStex());
   }
+
+  getAllStex(): any[] {
+    if (!this.degree) {
+      return [];
+    }
+
+    let ret: any[] = [];
+    Object.keys(this.degree.subjects).forEach((key) => {
+      let subject = this.degree.subjects[key];
+      subject.stex.forEach((examen) => {
+        ret.push(examen);
+      });
+    });
+    this.degree.ews.stex.forEach((examen) => {
+      ret.push(examen);
+    });
+
+    return ret;
+  }
+
   constructor(private ren: Renderer2) {}
 
   log() {
     console.log(this);
   }
 
-  checkToggleOff(el: any, examName: string) {
-    const oldValue = this.stex_grades[examName];
+  checkToggleOff(button: any, examen: any) {
+    const oldValue = examen.grade;
     setTimeout(() => {
-      if (oldValue != '' && oldValue === el.value) {
-        el.checked = false;
-        this.ren.removeClass(el['_elementRef'].nativeElement, 'cdk-focused');
+      if (oldValue != '' && oldValue === button.value) {
+        button.checked = false;
         this.ren.removeClass(
-          el['_elementRef'].nativeElement,
+          button['_elementRef'].nativeElement,
+          'cdk-focused'
+        );
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
           'cdk-program-focused'
         );
-        this.stex_grades[examName] = '';
+        examen.grade = '';
       }
     });
   }

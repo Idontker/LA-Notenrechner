@@ -1,7 +1,14 @@
 {
   "name": "EWS",
-  "stex": ["EWS"],
-  "wpf": 0,
+  "stex": [
+    {
+      "name": "EWS Examen",
+      "grade": "",
+      "didaktik": false
+    }
+    ],
+  "wpf_ects": 0,
+  "wpfs": [],
   "didaktik": [],
   "modules": [
     {
@@ -49,7 +56,7 @@
       "ects": 5,
       "grade": "",
       "weight": 1,
-      "ba": "pflicht",
+      "ba": "nein",
       "options": ""
     },
     {

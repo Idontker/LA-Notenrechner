@@ -1,12 +1,29 @@
 {
   "name": "Informatik",
-  "stex": ["AuD/TI", "DB/SoSy"],
-  "wpf": 25,
+  "stex": [
+    {
+      "name": "AuD/TI",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "DB/SoSy",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Informatik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 27.5,
+  "wpfs": [],
   "didaktik": [
     {
       "name": "Didaktik der Informatik 1",
       "ects": 5,
-      "grade": "",
+      "grade": "1.0",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
@@ -14,7 +31,7 @@
     {
       "name": "Didaktik der Informatik 2",
       "ects": 5,
-      "grade": "",
+      "grade": "1.0",
       "weight": 1,
       "ba": "nein",
       "options": ""
@@ -24,7 +41,7 @@
     {
       "name": "Algorithmen und Datenstrukturen",
       "ects": 10,
-      "grade": "",
+      "grade": "1.0",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
@@ -32,7 +49,7 @@
     {
       "name": "Theoretische Informatik für Lehramtsstudierende",
       "ects": 5,
-      "grade": "",
+      "grade": "2.0",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
