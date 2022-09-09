@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { SubjectExpansionPanelComponent } from './overview/subject-expansion-panel/subject-expansion-panel.component';
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { StexExpanelComponent } from './overview/stex-expanel/stex-expanel.component';
 
 @NgModule({
-  declarations: [OverviewComponent, SubjectExpansionPanelComponent],
+  declarations: [OverviewComponent, SubjectExpansionPanelComponent, StexExpanelComponent],
   // declarations: [OverviewComponent],
   imports: [CommonModule, MaterialModule, FormsModule, SharedModule],
 })

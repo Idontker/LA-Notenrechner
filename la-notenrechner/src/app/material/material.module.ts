@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRadioModule } from '@angular/material/radio';
 
 const MaterialComponents = [
   MatCardModule,
@@ -23,6 +24,7 @@ const MaterialComponents = [
   MatExpansionModule,
   MatTableModule,
   MatSlideToggleModule,
+  MatRadioModule,
 ];
 
 @NgModule({

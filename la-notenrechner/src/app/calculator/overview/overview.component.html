@@ -9,6 +9,9 @@
   </div>
 
   <mat-accordion multi="true">
+    <ng-container>
+      <app-stex-expanel [degree]="degree"> </app-stex-expanel>
+    </ng-container>
     <ng-container *ngFor="let subject of getAllSubjects(this.degree)">
       <app-subject-expansion-panel
         [subject]="subject"
