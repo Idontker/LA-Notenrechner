@@ -88,6 +88,14 @@ export class SubjectExpansionPanelComponent implements OnChanges {
     return this.calc.getAvgGrade(this.subject, this.stexMode);
   }
 
+  getBestGrade() {
+    return this.calc.getAvgGrade(this.subject, this.stexMode, 1);
+  }
+
+  getWorstGrade() {
+    return this.calc.getAvgGrade(this.subject, this.stexMode, 4);
+  }
+
   log() {
     console.log(this);
   }

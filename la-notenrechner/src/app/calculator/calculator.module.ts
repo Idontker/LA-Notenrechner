@@ -6,9 +6,10 @@ import { SubjectExpansionPanelComponent } from './overview/subject-expansion-pan
 import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { StexExpanelComponent } from './overview/stex-expanel/stex-expanel.component';
+import { StaatsnoteTableComponent } from './overview/staatsnote-table/staatsnote-table.component';
 
 @NgModule({
-  declarations: [OverviewComponent, SubjectExpansionPanelComponent, StexExpanelComponent],
+  declarations: [OverviewComponent, SubjectExpansionPanelComponent, StexExpanelComponent, StaatsnoteTableComponent],
   // declarations: [OverviewComponent],
   imports: [CommonModule, MaterialModule, FormsModule, SharedModule],
 })

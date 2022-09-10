@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+  //   margin-top: 1rem;
+  //   margin-bottom: 1rem;
+  box-shadow: none;
+}
+
+.mat-expansion-panel {
+  margin-bottom: 1rem;
+}
+
+.mat-radio-button {
+  margin-right: 1rem;
+}
+
+.light-font {
+  opacity: 0.6;
+}
+
+// TODO: use variable
+.best-case {
+  color: rgb(0, 128, 0, 0.5);
+}
+
+// TODO: use variable
+.worst-case {
+  color: rgb(255, 0, 0, 0.5);
+}
+
+.total {
+  font-weight: 550;
+}
+
+// TODO: use variable
+.total .best-case {
+  color: rgb(0, 128, 0, 0.8);
+}
+
+// TODO: use variable
+.total .worst-case {
+  color: rgb(255, 0, 0, 0.8);
+}

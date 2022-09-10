@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import { LaGymConfigService } from './config/la-gym-config.service';
 export interface subject {
   name: string;
-  stex: string[];
+  stex: {
+    name: string;
+    grade: '1' | '2' | '3' | '4' | '5' | '6' | '';
+    didaktik: boolean;
+  }[];
   wpf_ects: number;
   wpfs: module[];
   didaktik: module[];
@@ -68,6 +72,15 @@ export interface degree {
     ects: number;
     grade: string;
   };
+  weights: {
+    uni: number;
+    stex: number;
+    fachwissenschaft_zu_did: number;
+    did_zu_fachwissenschaft: number;
+    fach: number;
+    ews: number;
+    zula: number;
+  };
 }
 
 @Injectable({
@@ -97,6 +110,15 @@ export class DegreeSpecsService {
         ects: 10,
         grade: '',
       },
+      weights: {
+        uni: 4 / 10,
+        stex: 6 / 10,
+        fachwissenschaft_zu_did: 8 / 9,
+        did_zu_fachwissenschaft: 1 / 9,
+        fach: 3 / 8,
+        ews: 1 / 8,
+        zula: 1 / 8,
+      },
       n: 2,
     },
     'Lehramt Realschule': {
@@ -118,6 +140,15 @@ export class DegreeSpecsService {
       ba: {
         ects: 10,
         grade: '',
+      },
+      weights: {
+        uni: 4 / 10,
+        stex: 6 / 10,
+        fachwissenschaft_zu_did: 8 / 9,
+        did_zu_fachwissenschaft: 1 / 9,
+        fach: 3 / 8,
+        ews: 1 / 8,
+        zula: 1 / 8,
       },
       n: 2,
     },
@@ -161,6 +192,7 @@ export class DegreeSpecsService {
       ba_ects: degree.ba_ects,
       n: degree.n,
       ba: degree.ba,
+      weights: degree.weights,
     };
   }
 

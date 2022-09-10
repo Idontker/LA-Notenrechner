@@ -9,7 +9,10 @@
   </div>
 
   <mat-accordion multi="true">
-    <ng-container>
+    <ng-container *ngIf="stexMode">
+      <app-staatsnote-table [degree]="degree"></app-staatsnote-table>
+    </ng-container>
+    <ng-container *ngIf="stexMode">
       <app-stex-expanel [degree]="degree"> </app-stex-expanel>
     </ng-container>
     <ng-container *ngFor="let subject of getAllSubjects(this.degree)">

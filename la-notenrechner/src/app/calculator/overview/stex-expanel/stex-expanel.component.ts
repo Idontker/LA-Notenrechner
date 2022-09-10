@@ -11,26 +11,8 @@ import { degree, subject } from 'src/app/shared/degree-specs.service';
 })
 export class StexExpanelComponent implements OnChanges {
   @Input()
-  // set degree(degree: degree) {
-  //   this._degree = degree;
-  //   Object.keys(degree.subjects).forEach((key: string) => {
-  //     let subject: subject = degree.subjects[key];
-  //     this.stexpruefungen = this.stexpruefungen.concat(subject.stex);
-  //   });
-  //   this.stexpruefungen.concat(degree.ews.stex);
-  //   console.log(degree, this.stexpruefungen);
-
-  // grades anlegen
-  // this.stexpruefungen.forEach((name: string) => {
-  //   if (!this.stex_grades[name]) {
-  //     this.stex_grades[name] = '';
-  //   }
-  // });
-  // }
   degree!: degree;
 
-  // stexpruefungen: string[] = [];
-  // stex_grades: { [key: string]: '1' | '2' | '3' | '4' | '5' | '6' | '' } = {};
   GRADES = ['1', '2', '3', '4', '5', '6'];
 
   displayedColumns = ['name', 'grade'];
@@ -61,10 +43,6 @@ export class StexExpanelComponent implements OnChanges {
   }
 
   constructor(private ren: Renderer2) {}
-
-  log() {
-    console.log(this);
-  }
 
   checkToggleOff(button: any, examen: any) {
     const oldValue = examen.grade;

@@ -2,16 +2,22 @@
   <mat-expansion-panel-header>
     <mat-panel-title> {{ subject.name }} </mat-panel-title>
     <mat-panel-description class="description">
-      <div>
-        <div *ngIf="subject.didaktik.length == 0">
-          {{ getAvgGrade() }} Fachnote
-        </div>
-        <div *ngIf="subject.didaktik.length > 0">
-          {{ getAvgGrade()[0] }} Fachnote
-        </div>
-        <div *ngIf="subject.didaktik.length > 0">
-          {{ getAvgGrade()[1] }} Didaktiknote
-        </div>
+      <div *ngIf="subject.didaktik.length == 0" class="grid-col-3">
+        <div>Fachnote:</div>
+        <div>{{ getAvgGrade() }}</div>
+        <div class="best">{{getBestGrade()}}</div>
+        <div class="worst">{{getWorstGrade()}}</div>
+      </div>
+
+      <div *ngIf="subject.didaktik.length > 0" class="grid-col-3">
+        <div>Fachnote:</div>
+        <div>{{ getAvgGrade()[0] }}</div>
+        <div class="best">{{ getBestGrade()[0] }}</div>
+        <div class="worst">{{ getWorstGrade()[0] }}</div>
+        <div>Didaktiknote:</div>
+        <div>{{ getAvgGrade()[1] }}</div>
+        <div class="best">{{ getBestGrade()[1] }}</div>
+        <div class="worst">{{ getWorstGrade()[1] }}</div>
       </div>
       <div>{{ getPassedECTS() }} von {{ getTotalECTS() }} ECTS</div>
     </mat-panel-description>

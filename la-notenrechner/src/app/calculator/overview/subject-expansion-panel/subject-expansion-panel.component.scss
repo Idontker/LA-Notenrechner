@@ -6,7 +6,7 @@
 .description {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 .openModule {
@@ -14,7 +14,22 @@
 }
 
 .passedModule {
-  color:rgba(0, 0, 0, 0.54);
+  color: rgba(0, 0, 0, 0.54);
   // TODO:
   // color: theming.get-color-from-palette($foreground, secondary-text);
+}
+
+.grid-col-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+
+// TODO: use variable
+.best {
+  color: rgb(0, 128, 0, 0.5);
+}
+
+// TODO: use variable
+.worst {
+  color: rgb(255, 0, 0, 0.5);
 }
