@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "ng build --base-href \"https://idontker.github.io/LA-Notenrechner/\" && "
   },
   "private": true,
   "dependencies": {

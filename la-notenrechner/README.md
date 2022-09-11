@@ -25,3 +25,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+# Deployment
+
+Use the following comand to build the app with a base dir. Change the URL if you have a custom domain.
+
+```
+    ng build --base-href "https://idontker.github.io/LA-Notenrechner/"
+```
+
+The following will deploy the app to the server:
+
+```
+    npx angular-cli-ghpages --dir dist/la-notenrechner
+```
+
+You can also use
+`npm deploy`
+to execute these comands with the given params.
