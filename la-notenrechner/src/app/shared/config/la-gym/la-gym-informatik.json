@@ -23,7 +23,7 @@
     {
       "name": "Didaktik der Informatik 1",
       "ects": 5,
-      "grade": "1.0",
+      "grade": "",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
@@ -31,7 +31,7 @@
     {
       "name": "Didaktik der Informatik 2",
       "ects": 5,
-      "grade": "1.0",
+      "grade": "",
       "weight": 1,
       "ba": "nein",
       "options": ""
@@ -41,7 +41,7 @@
     {
       "name": "Algorithmen und Datenstrukturen",
       "ects": 10,
-      "grade": "1.0",
+      "grade": "",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
@@ -49,7 +49,7 @@
     {
       "name": "Theoretische Informatik für Lehramtsstudierende",
       "ects": 5,
-      "grade": "2.0",
+      "grade": "",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
