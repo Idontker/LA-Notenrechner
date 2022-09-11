@@ -8,11 +8,7 @@ import { GRADES, module } from 'src/app/shared/degree-specs.service';
 })
 export class GradePickerComponent implements OnInit {
   @Input('module')
-  _module!: module;
-  // set module(module: any) {
-  //   console.log('set: ', module);
-  //   this._module = module;
-  // }
+  module!: module;
 
   grades = GRADES;
 
