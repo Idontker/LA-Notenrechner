@@ -17,27 +17,22 @@ export class SubjectExpensionPanelComponent implements OnChanges {
   ects!: number;
 
   ngOnChanges() {
-    this.dataSource = new MatTableDataSource(this.getPassedModules());
+    this.dataSource = new MatTableDataSource(this.getAllModules());
   }
 
   displayedColumns = ['name', 'grade', 'ects'];
-  dataSource = new MatTableDataSource(this.getPassedModules());
+  dataSource = new MatTableDataSource(this.getAllModules());
 
-  private getPassedModules(): module[] {
+  hidding(grade: any) {
+    return grade == '';
+  }
+
+  private getAllModules(): module[] {
     if (!this.subject) {
       return [];
     }
     let sub = this.subject;
-    let allModules: module[] = sub.modules.concat(
-      sub.didaktik.concat(sub.wpfs)
-    );
-    let passed: module[] = [];
-    allModules.forEach((m) => {
-      if (m.grade != '') {
-        passed.push(m);
-      }
-    });
-    return passed;
+    return sub.modules.concat(sub.didaktik.concat(sub.wpfs));
   }
 
   constructor(private calc: DegreeCalculatorService) {}
@@ -53,5 +48,4 @@ export class SubjectExpensionPanelComponent implements OnChanges {
   getAvgGrade() {
     return this.calc.getAvgGrade(this.subject);
   }
-
 }
