@@ -6,7 +6,7 @@
   "modules": [
     {
       "name": "Freier Bereich",
-      "ects": 7,
+      "ects": 10,
       "grade": "",
       "weight": 0,
       "ba": "nein",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Zulassungsarbeit",
-      "ects": 12.5,
+      "ects": 10,
       "grade": "",
       "weight": 1,
       "ba": "pflicht",
