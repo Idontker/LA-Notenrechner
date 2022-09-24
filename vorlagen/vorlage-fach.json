@@ -1,0 +1,58 @@
+{
+  "name": "Fachname",
+  "stex": [
+    {
+      "name": "StEx Prüfung 1",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "StEx Prüfung 2",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik Prüfung",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 15,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Didaktik Beispiel",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik Beispiel 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Beispielmodul",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Beispielmodul 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "EWS",
+  "stex": [
+    {
+      "name": "Prüfungsname",
+      "grade": "",
+      "didaktik": false
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [],
+  "modules": [
+    {
+      "name": "Beispielmodul",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Beispielmodul 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}
