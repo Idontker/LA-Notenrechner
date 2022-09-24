@@ -1,0 +1,138 @@
+{
+  "name": "Mathematik",
+  "stex": [
+    {
+      "name": "Analysis",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Algebra",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Mathematik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Didaktik der Zahlbereiche",
+      "ects": 3,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Algebra",
+      "ects": 3,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Didaktik Raum und Form",
+      "ects": 3,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Didaktik Daten und Zufall",
+      "ects": 3,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Elemente der Linearen Algebra 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Elemente der Lineare Algebra 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Elemente der Analysis 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Elemente der Analysis 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Analytische Geometrie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Aufbaumodul Analysis",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Elementare Stochastik (VL/Seminar)",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Elementargeometrie (VL/Seminar)",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Elementare Zahlentheorie (VL/Seminar)",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+	{
+      "name": "Stochastik/Geometrie/Zahlentheorie (VL/Seminar)",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    }
+  ]
+}

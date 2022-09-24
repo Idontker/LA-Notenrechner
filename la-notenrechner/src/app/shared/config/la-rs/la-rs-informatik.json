@@ -1,0 +1,106 @@
+{
+  "name": "Informatik",
+  "stex": [
+    {
+      "name": "AuD/TI",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "DB/SoSy",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Informatik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 15,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Didaktik der Informatik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Informatik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+	{
+      "name": "Seminar Didaktik der Informatik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Algorithmen und Datenstrukturen",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Theoretische Informatik für Lehramtsstudierende",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Parallele und Funktionale Programmierung",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Konzeptionelle Modellierung",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Implementierung von Datenbanksystemen",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Softwareentwicklung in Großprojekten",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Praktikum",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}
