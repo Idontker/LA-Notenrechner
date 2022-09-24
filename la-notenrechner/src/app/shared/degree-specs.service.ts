@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LaGymConfigService } from './config/la-gym-config.service';
+import { LaRsConfigService } from './config/la-rs-config.service';
 export interface subject {
   name: string;
   stex: {
@@ -122,14 +123,14 @@ export class DegreeSpecsService {
       n: 2,
     },
     'Lehramt Realschule': {
-      subjects: this.lagym.getSubjects(),
-      ews: this.lagym.getEWS(),
-      others: this.lagym.getOthers(),
+      subjects: this.lars.getSubjects(),
+      ews: this.lars.getEWS(),
+      others: this.lars.getOthers(),
       stex_ects: {
         subject_ects: 60,
         didaktik_ects: 12,
         ews_ects: 35,
-        other_ects: 30.5,
+        other_ects: 30,
       },
       ba_ects: {
         subject_ects: 70,
@@ -220,5 +221,8 @@ export class DegreeSpecsService {
     return undefined;
   }
 
-  constructor(private lagym: LaGymConfigService) {}
+  constructor(
+    private lagym: LaGymConfigService,
+    private lars: LaRsConfigService
+  ) {}
 }
