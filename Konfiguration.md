@@ -2,7 +2,7 @@
 
 Vorab zwei Sätze: Diese Anleitung wirkt sehr lang. Davon soll man sich bitte nicht abschrecken lassen, da die Länge primär aufgrund der vielen Beispiele zur Stande kommt.
 
-In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter /vorlagen/ hinterlegt (TODO: Verlinkung).
+In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) hinterlegt (TODO: Verlinkung).
 Diese müssen dann in den Code entsprechend eingepflegt werden.
 
 # JSON Format Erklärt
@@ -25,11 +25,13 @@ Die Schlüsselwerte und generell Text wird in Anführungszeichen geschrieben. Zw
 
 # Konfiguration einer Schulart
 
-Man beginne indem man die Vorlage Datei schulart-vorlage.json aus dem /vorlagen/ Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun
+Man beginne indem man die Vorlage Datei schulart-vorlage.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ... 
+**TODO** 
+
 
 # Konfiguration eines Fachs
 
-Man beginne indem man die Vorlage Datei vorlage-fach.json aus dem /vorlagen/ Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ein großes JSON Objekt.
+Man beginne indem man die Vorlage Datei vorlage-fach.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ein großes JSON Objekt.
 
 ## 1. Fachname eintragen
 
