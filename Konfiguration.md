@@ -46,8 +46,8 @@ Trage im Feld Name nun den Namen des Fachs ein, welcher später angezeigt werden
 
 ```json
 {
-    "name": "Informatik"
-    ...
+  "name": "Informatik"
+  // ...
 }
 ```
 
@@ -55,8 +55,8 @@ beziehungsweie
 
 ```json
 {
-    "name": "Informatik PO 2011"
-    ...
+  "name": "Informatik PO 2011"
+  // ...
 }
 ```
 
@@ -79,8 +79,8 @@ Nicht einzutragen ist das Feld `grade`. Dies wird später genutzt.
 
 ```json
 {
-    ...
-    "stex": [
+  // ...
+  "stex": [
     {
       "name": "Analysis",
       "grade": "",
@@ -96,8 +96,8 @@ Nicht einzutragen ist das Feld `grade`. Dies wird später genutzt.
       "grade": "",
       "didaktik": true
     }
-  ],
-  ...
+  ]
+  // ...
 }
 ```
 
@@ -111,10 +111,10 @@ Das andere Feld ist `wpfs`, welches eine Liste an möglichen Wahlpflichtmodulen 
 
 ```json
 {
-    ...
-    "wpf_ects": 0,
-    "wpfs": [],
-    ...
+  // ...
+  "wpf_ects": 0,
+  "wpfs": []
+  // ...
 }
 ```
 
@@ -122,10 +122,10 @@ beziehungsweie
 
 ```json
 {
-    ...
-    "wpf_ects": 27.5,
-    "wpfs": [],
-    ...
+  // ...
+  "wpf_ects": 27.5,
+  "wpfs": []
+  // ...
 }
 ```
 
@@ -187,5 +187,69 @@ oder
   "weight": 0,
   "ba": "nein",
   "options": ""
+}
+```
+
+## 5. Module für Didaktik eintragen
+
+Hierfür gibt es das Feld `didaktik`, welches eine Liste an Modulen (je ein JSON Objekt) enthält. Die einzelnen Module sollen, wie in
+[4. Module eintragen](https://github.com/Idontker/LA-Notenrechner/blob/main/Konfiguration.md#4-module-eintragen-didaktik-und-fachwissenschaft) erklärt, eingetragen werden.
+
+### Beispiel:
+
+```json
+{
+  // ...
+  "didaktik": [
+    {
+      "name": "Didaktik Beispiel",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik Beispiel 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+  // ...
+}
+```
+
+## 6. Module für das Fach eintragen
+
+Hierfür gibt es das Feld `modules`, welches eine Liste an Modulen (je ein JSON Objekt) enthält. Die einzelnen Module sollen, wie in
+[4. Module eintragen](https://github.com/Idontker/LA-Notenrechner/blob/main/Konfiguration.md#4-module-eintragen-didaktik-und-fachwissenschaft) erklärt, eingetragen werden.
+
+### Beispiel:
+
+```json
+{
+  // ...
+  "modules": [
+    {
+      "name": "Beispielmodul",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Beispielmodul 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    }
+  ]
+  // ...
 }
 ```
