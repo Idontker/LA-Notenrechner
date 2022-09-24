@@ -6,7 +6,7 @@ Deine Fächer-Kombi ist noch nicht enthalten? Dann erstelle doch mithilfe der [K
 
 ## Development und Deployment
 
-Siehe [hier](https://github.com/Idontker/LA-Notenrechner/blob/main/Konfiguration.md).
+Siehe [hier](https://github.com/Idontker/LA-Notenrechner/blob/main/la-notenrechner/README.md).
 
 ## Konfigurationen
 
