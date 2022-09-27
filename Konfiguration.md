@@ -2,10 +2,10 @@
 
 Vorab zwei Sätze: Diese Anleitung wirkt sehr lang. Davon soll man sich bitte nicht abschrecken lassen, da die Länge primär aufgrund der vielen Beispiele zur Stande kommt.
 
-In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) hinterlegt (TODO: Verlinkung).
+In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) hinterlegt.
 Diese müssen dann in den Code entsprechend eingepflegt werden.
 
-# JSON Format Erklärt
+## JSON Format Erklärt
 
 In .json Datein werden JSON Objekte gespeichert. JSON Objekte werden immer innerhalb von zwei {} definiert. Darin werden einzelne Einträge hinter sogenannten Schlüsseln hinterlegt. Zwischen zwei Einträgen wird je ein Komma gesetzt:
 
@@ -22,6 +22,11 @@ In .json Datein werden JSON Objekte gespeichert. JSON Objekte werden immer inner
 ```
 
 Die Schlüsselwerte und generell Text wird in Anführungszeichen geschrieben. Zwischen Schlüssel und dem Eintrag steht ein Doppelpunkt. Ein Wert kann auch eine Liste
+
+## Nützliche Links: 
+- Staatsexamens Organisation in der (bayernweiten) LPO: https://www.gesetze-bayern.de/Content/Document/BayLPO_I (hier funktioniert die Suchleiste nach Fächern recht gut)
+- Fachspezifische Bestimmungen aus der (bayernweiten) LPO: https://www.gesetze-bayern.de/Content/Document/BayLPO_I-G2_2_1
+- Fachspezifische Bestimmungen der Universität laut FPO: https://www.fau.de/fau/rechtsgrundlagen/pruefungsordnungen/lehramtsstudiengaenge/
 
 # Konfiguration einer Schulart
 
