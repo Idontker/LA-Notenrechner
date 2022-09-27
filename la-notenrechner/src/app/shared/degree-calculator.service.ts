@@ -59,7 +59,11 @@ export class DegreeCalculatorService {
   getPassedECTS(subject: subject, stexMode: boolean = true): number {
     let total: number = 0.0;
 
+    console.log('subject:', subject);
+    console.log('stexMode:', stexMode);
+
     let temp = [subject.modules, subject.didaktik, subject.wpfs];
+    console.log(temp);
     temp.forEach((arr) => {
       arr.forEach((m) => {
         if ((stexMode || m.ba != 'nein') && m.grade != '') {
