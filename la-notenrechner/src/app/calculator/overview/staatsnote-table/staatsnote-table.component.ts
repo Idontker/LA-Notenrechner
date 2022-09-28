@@ -139,4 +139,9 @@ export class StaatsnoteTableComponent implements OnChanges {
   getWorstGradeTotal() {
     return this.calc.getGradeTotal(this.degree, 4.0);
   }
+
+  formatWeight(weight: number): string {
+    let x: number = Math.round(weight * 10_000) / 100;
+    return x + '%';
+  }
 }
