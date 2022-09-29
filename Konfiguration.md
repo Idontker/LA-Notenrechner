@@ -21,7 +21,7 @@ In .json Datein werden JSON Objekte gespeichert. JSON Objekte werden immer inner
 }
 ```
 
-Die Schlüsselwerte und generell Text wird in Anführungszeichen geschrieben. Zwischen Schlüssel und dem Eintrag steht ein Doppelpunkt. Ein Wert kann auch eine Liste
+Die Schlüsselwerte und generell Text wird in Anführungszeichen geschrieben. Zwischen Schlüssel und dem Eintrag steht ein Doppelpunkt. Ein Wert kann auch eine Liste aus Schlüssel-Wert-Paaren sein.
 
 ## Nützliche Links: 
 - Staatsexamens Organisation in der (bayernweiten) LPO: https://www.gesetze-bayern.de/Content/Document/BayLPO_I (hier funktioniert die Suchleiste nach Fächern recht gut)
