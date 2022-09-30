@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as inf from './la-gym/la-gym-informatik.json';
 import * as mat from './la-gym/la-gym-mathematik.json';
+import * as physik from './la-gym/la-gym-physik.json';
+import * as physik20 from './la-gym/la-gym-physik20.json';
 import * as ews from './la-gym/la-gym-ews.json';
 import * as others from './la-gym/la-gym-others.json';
 import { subject } from 'src/app/shared/degree-specs.service';
@@ -11,6 +13,8 @@ import { subject } from 'src/app/shared/degree-specs.service';
 export class LaGymConfigService {
   informatik: subject = (inf as any).default;
   mathematik: subject = (mat as any).default;
+  physik: subject = (physik as any).default;
+  physik20: subject = (physik20 as any).default;
   ews: subject = (ews as any).default;
   others: subject = (others as any).default;
 
@@ -19,6 +23,8 @@ export class LaGymConfigService {
 
     ret[this.mathematik.name] = this.mathematik;
     ret[this.informatik.name] = this.informatik;
+    ret[this.physik.name] = this.physik;
+    ret[this.physik20.name] = this.physik20;
 
     return ret;
   }
