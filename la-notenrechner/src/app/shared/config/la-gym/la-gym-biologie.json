@@ -1,44 +1,36 @@
 {
-  "name": "Geographie",
+  "name": "Biologie",
   "stex": [
     {
-      "name": "Humangeographie",
+      "name": "Zoologie und Humanbiologie",
       "grade": "",
       "didaktik": false
     },
     {
-      "name": "Physiogeographie",
+      "name": "Botanik",
       "grade": "",
       "didaktik": false
     },
     {
-      "name": "Didaktik Geographie",
+      "name": "Didaktik der Biologie",
       "grade": "",
       "didaktik": true
     }
   ],
-  "wpf_ects": 0,
+  "wpf_ects": 15,
   "wpfs": [],
   "didaktik": [
     {
-      "name": "Einführung in die Geographiedidaktik",
-      "ects": 2.5,
+      "name": "Biologiedidaktik 1",
+      "ects": 5,
       "grade": "",
       "weight": 1,
       "ba": "pflicht",
       "options": ""
     },
     {
-      "name": "Einführung in die Planung 1 und Analyse von Geographieunterricht",
-      "ects": 2.5,
-      "grade": "",
-      "weight": 1,
-      "ba": "nein",
-      "options": ""
-    },
-    {
-      "name": "Geographie Didaktik 2",
-      "ects": 7,
+      "name": "Biologiedidaktik 2",
+      "ects": 5,
       "grade": "",
       "weight": 1,
       "ba": "nein",
@@ -47,79 +39,71 @@
   ],
   "modules": [
     {
-      "name": "Grundlagen der KG I",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Grundlagen der KG II",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Seminar KG mit Geländetag",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Grundlagen der PG I",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Grundlagen der PG II",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Seminar PG mit Geländetag",
-      "ects": 5,
-      "grade": "",
-      "weight": 1,
-      "ba": "pflicht",
-      "options": ""
-    },
-    {
-      "name": "Kartographie und Geoinformation",
-      "ects": 5,
+      "name": "Biologie 1: Zellbiologiesche Grundlagen",
+      "ects": 12.5,
       "grade": "",
       "weight": 0,
       "ba": "pflicht",
       "options": ""
     },
     {
-      "name": "Geländepraktikum",
-      "ects": 5,
+      "name": "Biologie II: Baupläne und Evolution",
+      "ects": 12.5,
       "grade": "",
-      "weight": 0,
+      "weight": 1,
       "ba": "pflicht",
       "options": ""
     },
     {
-      "name": "Regionale Geographie",
-      "ects": 5,
+      "name": "Biologie III: Biochemie und Physiologie",
+      "ects": 15,
       "grade": "",
-      "weight": 0,
+      "weight": 1,
       "ba": "pflicht",
       "options": ""
     },
     {
-      "name": "Regionale Geographie vertieft",
+      "name": "Biologie IV: Molekularbiologie der Zelle",
+      "ects": 15,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie und Diversität A",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie und Diversität A",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Humanbiologie",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Organismische Biologie für LAG (Prakikum)",
       "ects": 15,
       "grade": "",
       "weight": 1,

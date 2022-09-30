@@ -1,0 +1,106 @@
+{
+  "name": "Fachname",
+  "stex": [
+    {
+      "name": "Zoologie und Humanbiologie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Botanik",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik Biologie",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 15,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Biologiedidaktik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologiedidaktik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Biologiedidaktik 3",
+      "ects": 2,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Biologie der Tiere",
+      "ects": 12.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologie der Pflanzen",
+      "ects": 12.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Mikrobiologie, Genetik und Gentechnik",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Humanbiologie und Physiologie",
+      "ects": 12.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Physiologie der Pflanzen",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologie im Überblick",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    }
+  ]
+}
