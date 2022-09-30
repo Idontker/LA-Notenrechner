@@ -1,0 +1,186 @@
+{
+  "name": "Chemie",
+  "stex": [
+    {
+      "name": "Anorganische Chemie mit Analytik und Physikalische Chemie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Organischen und Bioorganischen Chemie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Chemie",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Didaktik der Chemie 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Chemie 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Allgemeine Chemie LAG",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG AC I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Qualitative Analytische Chemie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG PC I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Physik I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG OC I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG AC II",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Quantitative Analytische Chemie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG OC II",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG PC II",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Spektroskopische Methoden",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG OC III",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "LAG OC IV",
+      "ects": 7,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "AC/OC",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Übungen im Vortragen mit Demonstrationen",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Forschungsorietiertes Laborpraktikum",
+      "ects": 8,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Spezielle Anorganische Chemie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Staatsexamensvorbereitung",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}
