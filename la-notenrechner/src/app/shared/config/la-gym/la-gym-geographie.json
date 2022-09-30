@@ -1,0 +1,218 @@
+{
+  "name": "Geographie",
+  "stex": [
+    {
+      "name": "Humangeographie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Physiogeographie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik Prüfung",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Einführung in die Geographiedidaktik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Einführung in die Planung 1 und Analyse von Geographieunterricht",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Aktuelle Fragestellungen der Geographiedidaktik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Ausgewählte Fragestellungen der Geographiedidaktik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Grundlagen der KG I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundlagen der KG II",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundlagen der KG III",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Seminar KG mit Geländetag",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundlagen der PG I",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundlagen der PG II",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Seminar PG mit Geländetag",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Kartographie und Geoinformation",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Qualitative und quantitative Methoden",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Hauptseminar KG",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Kleines Geländeseminar 1",
+      "ects": 0,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Hauptseminar PG",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Kleines Geländeseminar 2",
+      "ects": 0,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Übung: Karteninterpretation",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    }, 
+    {
+      "name": "Geländepraktikum",
+      "ects": 0,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Spezielle Themenfelder der KG und der Regionalen Geographie I",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Spezielle Themenfelder der KG und der Regionalen Geographie II",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Spezielle Themenfelder der PG und der Regionalen Geographie I",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Spezielle Themenfelder der PG und der Regionalen Geographie II",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Regionale Geographie",
+      "ects": 15,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}
