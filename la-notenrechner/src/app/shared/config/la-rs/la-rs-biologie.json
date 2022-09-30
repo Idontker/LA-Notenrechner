@@ -1,5 +1,5 @@
 {
-  "name": "Fachname",
+  "name": "Biologie",
   "stex": [
     {
       "name": "Zoologie und Humanbiologie",
@@ -17,7 +17,7 @@
       "didaktik": true
     }
   ],
-  "wpf_ects": 15,
+  "wpf_ects": 0,
   "wpfs": [],
   "didaktik": [
     {
