@@ -7,7 +7,7 @@ import { ECTS, module } from 'src/app/shared/degree-specs.service';
   styleUrls: ['./ects-picker.component.scss'],
 })
 export class EctsPickerComponent implements OnInit {
-  @Input()
+  @Input('module')
   module!: module;
 
   ects = ECTS;

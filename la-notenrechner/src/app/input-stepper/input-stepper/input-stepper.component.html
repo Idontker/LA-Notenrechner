@@ -1,11 +1,12 @@
 <!-- <mat-stepper> -->
 <mat-card>
   <mat-card-title>Trage deine Noten ein</mat-card-title>
-  <mat-stepper linear>
+  <mat-stepper linear #stepper>
     <!--Step 1: Auswahl des Studiengangs  -->
     <mat-step [completed]="step1.completed()" [editable]="true">
       <ng-template matStepLabel>Studiengang</ng-template>
-      <app-studiengang #step1></app-studiengang>
+      <!--the event emitter attribute defines the callback function in the current component-->
+      <app-studiengang #step1 (eventEmitter)="emitterCallback($event)"></app-studiengang>
       <div class="actions">
         <!-- prettier-ignore -->
         <button mat-raised-button color="primary" matStepperNext [disabled]="!step1.completed()" >Next</button>

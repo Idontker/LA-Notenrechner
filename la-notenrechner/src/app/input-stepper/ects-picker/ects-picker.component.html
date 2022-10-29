@@ -1,6 +1,6 @@
 <mat-form-field class="module-ects-select">
   <mat-label>ECTS</mat-label>
-  <mat-select (selectionChange)="module.ects = $event.value ? $event.value : 0">
+  <mat-select (selectionChange)="module.ects = $event.value ? $event.value : 0" [(value)]="module.ects">
     <mat-option></mat-option>
     <mat-option *ngFor="let e of ects" [value]="e">
       {{ e }}
