@@ -1,0 +1,321 @@
+<mat-card>
+  <mat-card-title> Neues Fach erstellen:</mat-card-title>
+  <mat-card-subtitle>
+    Bitte wähle die Schulart, den fachnamen und das Jahr der FPO
+    (Fachprüfungsordnung) aus, auf die du dich beziehst:</mat-card-subtitle
+  >
+  <mat-card-content>
+    <div class="fach-po row">
+      <!-- Schulart -->
+      <mat-form-field appearance="outline">
+        <mat-label></mat-label>
+        <mat-select [(ngModel)]="schulart">
+          <mat-option value="gs">Grundschule</mat-option>
+          <mat-option value="ms">Mittelschule</mat-option>
+          <mat-option value="rs">Realschule</mat-option>
+          <mat-option value="gym">Gymnasium</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Fachname -->
+      <mat-form-field appearance="outline">
+        <mat-label>Fachname</mat-label>
+        <input matInput type="text" [(ngModel)]="fachname" />
+        <button
+          *ngIf="fachname"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="fachname = ''"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <!-- Prüfungsordnung -->
+      <mat-form-field appearance="outline" class="number-input">
+        <mat-label>Prüfungsordnung</mat-label>
+        <input matInput type="text" [(ngModel)]="po" />
+        <button
+          *ngIf="po"
+          matSuffix
+          mat-icon-button
+          aria-label="Clear"
+          (click)="po = '20XX'"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+
+    <!-- Stex Prüfungen -->
+    <mat-card-subtitle>
+      Bitte wähle die Anzahl und die Bezeichnungen der StEx-Prüfungen aus. Gib
+      auch an, ob die Prüfung der Didaktik oder der Fachwissenschaft zuzuordnen
+      ist. Dies solltest du in der LPO finden. Klick
+      <a href="https://www.gesetze-bayern.de/Content/Document/BayLPO_I-G2"
+        >hier</a
+      >
+      um zur LPO I weitergeleitet zu werden:</mat-card-subtitle
+    >
+    <div class="stex">
+      <!-- Stexprüfungen in loop -->
+      <div *ngFor="let item of stex; let index">
+        <!-- Stexprüfung -->
+        <div class="row">
+          <!-- Name -->
+          <section>
+            <mat-form-field appearance="outline">
+              <mat-label>Prüfungsname</mat-label>
+              <input matInput type="text" [(ngModel)]="item.name" />
+              <button
+                *ngIf="item.name"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="item.name = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+          <!-- Gewichtung -->
+          <section>
+            <mat-form-field appearance="outline" class="number-input">
+              <mat-label>Gewichtung</mat-label>
+              <input matInput type="text" [(ngModel)]="item.weight" />
+              <button
+                *ngIf="item.weight"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="item.weight = 1"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-slide-toggle
+              class="example-margin"
+              color="primary"
+              [checked]="item.didaktik"
+              [(ngModel)]="item.didaktik"
+            >
+              {{ item.didaktik ? "Prüfung des Didaktik" : "Prüfung des Fachs" }}
+            </mat-slide-toggle>
+          </section>
+        </div>
+      </div>
+      <!-- Stex Prüfung hinzufügen -->
+      <button mat-mini-fab color="primary" (click)="addStexElement()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <!-- Wahlpflicht Bereich -->
+    <mat-card-subtitle>
+      Bitte gib an, wie viele ECTS laut der FPO in diesem Fach im Wahlpflicht
+      Bereich einzubringen sind. (Format: 5.0 oder 7.5)</mat-card-subtitle
+    >
+    <div class="wpf">
+      <section>
+        <mat-form-field appearance="outline">
+          <mat-label>Gewichtung</mat-label>
+          <input matInput type="text" [(ngModel)]="wpf_ects" />
+          <button
+            *ngIf="wpf_ects"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="wpf_ects = 0.0"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </section>
+    </div>
+
+    <!-- "normale" Module -->
+    <mat-card-subtitle>
+      Nun sollen die einzelnen Module eingetragen werden. Jedes Modul besteht
+      aus
+      <ul>
+        <li>dem <b>Namen</b> des Moduls</li>
+        <li>den <b>ECTS</b> des Moduls</li>
+        <li>
+          der <b>Gewichtung</b> des Moduls bei der Berechung der Gesamtnote
+          Diese ist zumeist in der FPO für das jeweilige Fach definiert. Sollte
+          es keine Note auf das Modul geben (also nur zwischen bestanden und
+          nicht bestanden unterschieden werden), so ist hier eine 0 einzutragen
+        </li>
+        <li>
+          und einer Einstellung, beschreibt, ob das Modul
+          <b>für den Bachelor</b> geeignet ist und eingetragen werden kann bzw.
+          sogar muss. Dieser Wert ist
+          <ul>
+            <li><b>pflicht</b>, falls dieses Modul eingebracht werden muss</li>
+            <li>
+              <b>tauglich</b>, falls dieses Modul eingebracht werden kann,
+            </li>
+            <li>
+              und <b>nicht tauglich</b> falls dieses Modul nicht eingebracht
+              werden darf.
+            </li>
+          </ul>
+          <!-- <mat-expansion-panel
+            (opened)="ba_panel_open = true"
+            (closed)="ba_panel_open = false"
+          > -->
+          <details>
+            <summary>Details aus der Prüfungsordnungen</summary>
+            <!-- <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Details aus der Prüfungsordnungen
+                    </mat-panel-title>
+                </mat-expansion-panel-header> -->
+            Für welche Module was gilt, ist der FPO in Kombination mit der LAPO
+            der FAU zu entnehmen (LAPO 3. Erwerb des Bachelorgrades §31): Falls
+            nicht anders in der jeweiligen FPO des Fach spezifiziert, so gilt
+            folgendes:
+            <ul>
+              <li>
+                Verpflichtend sind Module einzubringen, die bis einschließlich
+                dem 6. Semester laut der FPO belegt werden sollen.
+              </li>
+              <li>
+                Es ist möglich Module einzubringen, die bis einschließlich dem
+                6. Semester laut der FPO belegt werden können. Dies ist meist
+                durch eine Klammerung kenntlich gemacht.
+              </li>
+              <li>
+                Es ist nicht möglich Module einzubringen, die nach dem 6.
+                Semester laut der FPO belegt werden sollen.
+              </li>
+            </ul>
+          </details>
+          <!-- </mat-expansion-panel> -->
+        </li>
+      </ul>
+    </mat-card-subtitle>
+
+    <div class="Module">
+      <!-- Module in loop -->
+      <div *ngFor="let item of module; let index">
+        <!-- einzelne Module -->
+        <div class="row">
+          <!-- Name -->
+          <section>
+            <mat-form-field appearance="outline">
+              <mat-label>Modulname</mat-label>
+              <input matInput type="text" [(ngModel)]="item.name" />
+              <button
+                *ngIf="item.name"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="item.name = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+          <!-- Gewichtung -->
+          <section>
+            <mat-form-field appearance="outline" class="number-input">
+              <mat-label>Gewichtung</mat-label>
+              <input matInput type="text" [(ngModel)]="item.weight" />
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-form-field appearance="outline" class="number-input">
+              <mat-label>ECTS</mat-label>
+              <input matInput type="text" [(ngModel)]="item.weight" />
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-radio-group
+              aria-label="Select an option"
+              [(ngModel)]="item.ba"
+            >
+              <mat-radio-button value="pflicht">pflicht</mat-radio-button>
+              <mat-radio-button value="tauglich">tauglich</mat-radio-button>
+              <mat-radio-button value="nein">nicht tauglich</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        </div>
+      </div>
+      <!-- Stex Prüfung hinzufügen -->
+      <button mat-mini-fab color="primary" (click)="addModuleItem()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <mat-card-subtitle>
+      Nun sollen die einzelnen <b>Didaktik Module</b> für das Fach festgelegt
+      werden. Diese werde analog zu den Modulen der Fachwissenschaft erstellt.
+      Sie haben daher (analog) einen <b>Namen</b>, <b>ECTS</b>, eine
+      <b>Gewichtung</b> und eine Einstellung für
+      <b>Einbringung in den Bachelorgrad</b>.
+    </mat-card-subtitle>
+
+    <div class="Didaktik">
+      <!-- Module in loop -->
+      <div *ngFor="let item of didaktik; let index">
+        <!-- einzelne Module -->
+        <div class="row">
+          <!-- Name -->
+          <section>
+            <mat-form-field appearance="outline">
+              <mat-label>Modulname</mat-label>
+              <input matInput type="text" [(ngModel)]="item.name" />
+              <button
+                *ngIf="item.name"
+                matSuffix
+                mat-icon-button
+                aria-label="Clear"
+                (click)="item.name = ''"
+              >
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </section>
+          <!-- Gewichtung -->
+          <section>
+            <mat-form-field appearance="outline" class="number-input">
+              <mat-label>Gewichtung</mat-label>
+              <input matInput type="text" [(ngModel)]="item.weight" />
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-form-field appearance="outline" class="number-input">
+              <mat-label>ECTS</mat-label>
+              <input matInput type="text" [(ngModel)]="item.weight" />
+            </mat-form-field>
+          </section>
+
+          <section>
+            <mat-radio-group
+              aria-label="Select an option"
+              [(ngModel)]="item.ba"
+            >
+              <mat-radio-button value="pflicht">pflicht</mat-radio-button>
+              <mat-radio-button value="tauglich">tauglich</mat-radio-button>
+              <mat-radio-button value="nein">nicht tauglich</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        </div>
+      </div>
+      <!-- Stex Prüfung hinzufügen -->
+      <button mat-mini-fab color="primary" (click)="addModuleItem()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+
+    <mat-card-actions></mat-card-actions>
+</mat-card>
