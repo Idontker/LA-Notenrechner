@@ -1,17 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface stex_item {
-  name: string;
-  weight: number;
-  didaktik: boolean;
-}
-
-interface modul_item {
-  name: string;
-  ects: number;
-  weight: number;
-  ba: 'pflicht' | 'tauglich' | 'nein';
-}
+import { modul_item, stex_item } from './create-config.module';
 
 @Component({
   selector: 'app-create-config',
@@ -22,7 +10,6 @@ export class CreateConfigComponent implements OnInit {
   fachname = '';
   // prüfungsordnung
   po = '20XX';
-  stex: stex_item[] = [{ name: '', weight: 1, didaktik: false }];
   schulart: 'gs' | 'ms' | 'rs' | 'gym' = 'gs';
   wpf_ects: number = 0.0;
 
@@ -49,13 +36,6 @@ export class CreateConfigComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addStexElement() {
-    this.stex.push({
-      name: '',
-      weight: 1,
-      didaktik: false,
-    });
-  }
 
   addModuleItem() {
     this.module.push({

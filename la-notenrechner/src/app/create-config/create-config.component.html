@@ -58,61 +58,11 @@
       >
       um zur LPO I weitergeleitet zu werden:</mat-card-subtitle
     >
-    <div class="stex">
+    <app-create-stex class="stex">
       <!-- Stexprüfungen in loop -->
-      <div *ngFor="let item of stex; let index">
-        <!-- Stexprüfung -->
-        <div class="row">
-          <!-- Name -->
-          <section>
-            <mat-form-field appearance="outline">
-              <mat-label>Prüfungsname</mat-label>
-              <input matInput type="text" [(ngModel)]="item.name" />
-              <button
-                *ngIf="item.name"
-                matSuffix
-                mat-icon-button
-                aria-label="Clear"
-                (click)="item.name = ''"
-              >
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
-          </section>
-          <!-- Gewichtung -->
-          <section>
-            <mat-form-field appearance="outline" class="number-input">
-              <mat-label>Gewichtung</mat-label>
-              <input matInput type="text" [(ngModel)]="item.weight" />
-              <button
-                *ngIf="item.weight"
-                matSuffix
-                mat-icon-button
-                aria-label="Clear"
-                (click)="item.weight = 1"
-              >
-                <mat-icon>close</mat-icon>
-              </button>
-            </mat-form-field>
-          </section>
-
-          <section>
-            <mat-slide-toggle
-              class="example-margin"
-              color="primary"
-              [checked]="item.didaktik"
-              [(ngModel)]="item.didaktik"
-            >
-              {{ item.didaktik ? "Prüfung des Didaktik" : "Prüfung des Fachs" }}
-            </mat-slide-toggle>
-          </section>
-        </div>
-      </div>
-      <!-- Stex Prüfung hinzufügen -->
-      <button mat-mini-fab color="primary" (click)="addStexElement()">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
+        <app-create-stex></app-create-stex>
+      
+    </app-create-stex>
 
     <!-- Wahlpflicht Bereich -->
     <mat-card-subtitle>

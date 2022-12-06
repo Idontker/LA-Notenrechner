@@ -1,0 +1,66 @@
+<div [formGroup]="form">
+  <ng-container formArrayName="stex">
+    <ng-container *ngFor="let stex_form of stex.controls; let i = index">
+      <!-- Stexprüfung -->
+      <div class="lesson-form-row" [formGroup]="stex_form">
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="title" placeholder="Lesson title" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="level" placeholder="Lesson level">
+            <mat-option value="beginner">Beginner</mat-option>
+            <mat-option value="intermediate">Intermediate</mat-option>
+            <mat-option value="advanced">Advanced</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Name -->
+        <!-- <mat-form-field appearance="outline">
+      <mat-label>Prüfungsname</mat-label>
+      <input matInput type="text" [(ngModel)]="item.name" />
+      <button
+      *ngIf="item.name"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="item.name = ''"
+      >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field> -->
+        <!-- Gewichtung -->
+        <!-- <mat-form-field appearance="outline" class="number-input">
+    <mat-label>Gewichtung</mat-label>
+    <input matInput type="text" [(ngModel)]="item.weight" />
+    <button
+    *ngIf="item.weight"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="item.weight = 1"
+    >
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+<mat-slide-toggle
+class="example-margin"
+color="primary"
+[checked]="item.didaktik"
+[(ngModel)]="item.didaktik"
+>
+{{ item.didaktik ? "Prüfung des Didaktik" : "Prüfung des Fachs" }}
+</mat-slide-toggle> -->
+        <mat-icon class="delete-btn" (click)="deleteForm(i)">
+          delete_forever</mat-icon
+        >
+      </div>
+
+      ></ng-container
+    >
+  </ng-container>
+  <!-- Stex Prüfung hinzufügen -->
+  <button mat-mini-fab color="primary" (click)="addStexElement()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
