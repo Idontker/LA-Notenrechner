@@ -1,0 +1,19 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+// mat-slide-toggle {
+// }
+
+.bot-margin {
+  margin-bottom: 1.5rem;
+  // margin-bottom: 2rem !important;
+}
+
+.number-input {
+  width: 8rem;
+}

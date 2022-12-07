@@ -1,0 +1,16 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  width: 100%;
+  align-items: center;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.number-input {
+  width: 8rem;
+}

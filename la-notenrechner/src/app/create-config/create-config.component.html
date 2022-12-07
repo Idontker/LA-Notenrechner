@@ -1,0 +1,187 @@
+<mat-card>
+  <mat-card-title> Neues Fach erstellen:</mat-card-title>
+  <mat-card-subtitle>
+    Bitte wähle die Schulart, den fachnamen und das Jahr der FPO
+    (Fachprüfungsordnung) aus, auf die du dich beziehst:</mat-card-subtitle
+  >
+  <mat-card-content>
+    <form [formGroup]="form">
+      <!-- Generelles -->
+      <div class="fach-po row">
+        <!-- Schulart -->
+        <mat-form-field appearance="outline">
+          <mat-select formControlName="schulart">
+            <mat-option value="gs">Grundschule</mat-option>
+            <mat-option value="ms">Mittelschule</mat-option>
+            <mat-option value="rs">Realschule</mat-option>
+            <mat-option value="gym">Gymnasium</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Fachname -->
+        <mat-form-field appearance="outline">
+          <mat-label>Fachname</mat-label>
+          <input matInput type="text" formControlName="fachname" />
+        </mat-form-field>
+
+        <!-- Prüfungsordnung -->
+        <mat-form-field appearance="outline" class="number-input">
+          <mat-label>Prüfungsordnung</mat-label>
+          <input matInput type="text" formControlName="po" />
+          <mat-hint>Format: 20ZZ wobei Z Ziffern sind</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <!-- Stex Prüfungen -->
+      <div class="stex">
+        <mat-card-subtitle>
+          Bitte wähle die Anzahl und die Bezeichnungen der StEx-Prüfungen aus.
+          Gib auch an, ob die Prüfung der Didaktik oder der Fachwissenschaft
+          zuzuordnen ist. Dies solltest du in der LPO finden. Klick
+          <a href="https://www.gesetze-bayern.de/Content/Document/BayLPO_I-G2"
+            >hier</a
+          >
+          um zur LPO I weitergeleitet zu werden:</mat-card-subtitle
+        >
+        <app-create-stex #create_stex></app-create-stex>
+      </div>
+
+      <!-- Wahlpflicht Bereich -->
+      <div class="wpf">
+        <mat-card-subtitle>
+          Bitte gib an, wie viele ECTS laut der FPO in diesem Fach im
+          Wahlpflicht Bereich einzubringen sind. (Format: 5.0 oder
+          7.5)</mat-card-subtitle
+        >
+        <mat-form-field appearance="outline">
+          <mat-label>ECTS</mat-label>
+          <input matInput type="text" formControlName="wpf_ects" />
+          <mat-hint
+            >Komma durch einen Punkt ersetzen z.B.: 10 oder 17.5</mat-hint
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="module">
+        <mat-card-subtitle>
+          Nun sollen die einzelnen Module eingetragen werden. Jedes Modul
+          besteht aus
+          <ul>
+            <li>dem <b>Namen</b> des Moduls</li>
+            <li>den <b>ECTS</b> des Moduls</li>
+            <li>
+              der <b>Gewichtung</b> des Moduls bei der Berechung der Gesamtnote
+              Diese ist zumeist in der FPO für das jeweilige Fach definiert.
+              Sollte es keine Note auf das Modul geben (also nur zwischen
+              bestanden und nicht bestanden unterschieden werden), so ist hier
+              eine 0 einzutragen
+            </li>
+            <li>
+              und einer Einstellung, beschreibt, ob das Modul
+              <b>für den Bachelor</b> geeignet ist und eingetragen werden kann
+              bzw. sogar muss. Dieser Wert ist
+              <ul>
+                <li>
+                  <b>pflicht</b>, falls dieses Modul eingebracht werden muss
+                </li>
+                <li>
+                  <b>tauglich</b>, falls dieses Modul eingebracht werden kann,
+                </li>
+                <li>
+                  und <b>nicht tauglich</b> falls dieses Modul nicht eingebracht
+                  werden darf.
+                </li>
+              </ul>
+              <!-- <mat-expansion-panel
+                (opened)="ba_panel_open = true"
+                (closed)="ba_panel_open = false"
+              > -->
+              <details>
+                <summary>Details aus der Prüfungsordnungen</summary>
+                <!-- <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Details aus der Prüfungsordnungen
+                        </mat-panel-title>
+                    </mat-expansion-panel-header> -->
+                Für welche Module was gilt, ist der FPO in Kombination mit der
+                LAPO der FAU zu entnehmen (LAPO 3. Erwerb des Bachelorgrades
+                §31): Falls nicht anders in der jeweiligen FPO des Fach
+                spezifiziert, so gilt folgendes:
+                <ul>
+                  <li>
+                    Verpflichtend sind Module einzubringen, die bis
+                    einschließlich dem 6. Semester laut der FPO belegt werden
+                    sollen.
+                  </li>
+                  <li>
+                    Es ist möglich Module einzubringen, die bis einschließlich
+                    dem 6. Semester laut der FPO belegt werden können. Dies ist
+                    meist durch eine Klammerung kenntlich gemacht.
+                  </li>
+                  <li>
+                    Es ist nicht möglich Module einzubringen, die nach dem 6.
+                    Semester laut der FPO belegt werden sollen.
+                  </li>
+                </ul>
+              </details>
+              <!-- </mat-expansion-panel> -->
+            </li>
+          </ul>
+        </mat-card-subtitle>
+        <app-create-module
+          [didaktik]="false"
+          #create_module
+        ></app-create-module>
+      </div>
+
+      <div class="didaktik">
+        <mat-card-subtitle>
+          Nun sollen die einzelnen <b>Didaktik Module</b> für das Fach
+          festgelegt werden. Diese werde analog zu den Modulen der
+          Fachwissenschaft erstellt. Sie haben daher (analog) einen
+          <b>Namen</b>, <b>ECTS</b>, eine <b>Gewichtung</b> und eine Einstellung
+          für <b>Einbringung in den Bachelorgrad</b>.
+        </mat-card-subtitle>
+        <app-create-module
+          [didaktik]="true"
+          #create_didaktik
+        ></app-create-module>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="formNotValid()"
+      (click)="onSubmit()"
+    >
+      Download Konfiguration.
+    </button>
+    <div style="color: red">
+      <h3 *ngIf="formNotValid()">
+        {{ form.errors }}
+        Folgende Felder beinhalten noch Fehler:
+        <ul>
+          <li *ngFor="let location of allgemeineFormFehler()">
+            {{ location }}
+          </li>
+          <li *ngFor="let location of create_stex.formFehler(); let i = index">
+            In der {{ i + 1 }}-ten Staatsexmensprüfung: {{ location }}
+          </li>
+          <li
+            *ngFor="let location of create_module.formFehler(); let i = index"
+          >
+            Im {{ i + 1 }}-ten Fachmodule: {{ location }}
+          </li>
+          <li
+            *ngFor="let location of create_didaktik.formFehler(); let i = index"
+          >
+            Im {{ i + 1 }}-ten Didaktikmodule {{ location }}
+          </li>
+        </ul>
+      </h3>
+    </div>
+  </mat-card-actions>
+</mat-card>

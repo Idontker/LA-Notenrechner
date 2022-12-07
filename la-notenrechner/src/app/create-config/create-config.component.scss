@@ -1,0 +1,27 @@
+mat-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem   ;
+}
+
+mat-card-subtitle {
+  margin-top: 2rem !important;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: center;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.number-input {
+    width: 8rem;
+}
