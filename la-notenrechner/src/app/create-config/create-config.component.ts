@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { modul_item, stex_item } from './create-config.module';
 
 export interface stex_item {
@@ -20,10 +21,22 @@ export interface modul_item {
   styleUrls: ['./create-config.component.scss'],
 })
 export class CreateConfigComponent implements OnInit {
-  fachname = '';
-  // prüfungsordnung
-  po = '20XX';
-  schulart: 'gs' | 'ms' | 'rs' | 'gym' = 'gs';
+  form = new FormGroup({
+    schulart: new FormControl('gs'),
+    fachname: new FormControl('', Validators.required),
+    // prüfungsordnung
+    po: new FormControl('20XX', [
+      Validators.required,
+      Validators.pattern('20[0-9][0-9]'),
+    ]),
+    wpf_ects: new FormControl('0', Validators.pattern('[0-9]*(.5)')),
+  });
+
+  log() {
+    console.log(this.form.value);
+  }
+
+  // schulart: 'gs' | 'ms' | 'rs' | 'gym' = 'gs';
   wpf_ects: number = 0.0;
 
   ba_panel_open = true;

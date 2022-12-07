@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormArray,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { stex_item } from '../create-config.module';
 
 @Component({
@@ -14,12 +8,10 @@ import { stex_item } from '../create-config.module';
   styleUrls: ['./create-stex.component.scss'],
 })
 export class CreateStexComponent implements OnInit {
-  // stex: stex_item[] = [{ name: '', weight: 1, didaktik: false }];
-
   form = new FormGroup({
     stex: new FormArray([]),
   });
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.addStexElement();
@@ -55,9 +47,5 @@ export class CreateStexComponent implements OnInit {
 
   deleteForm(idx: number) {
     this.stex.removeAt(idx);
-  }
-
-  log(idx: number) {
-    console.log(this.stex.at(idx), (<FormGroup>this.stex.at(idx))?.value);
   }
 }

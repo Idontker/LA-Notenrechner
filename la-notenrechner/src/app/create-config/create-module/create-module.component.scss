@@ -6,12 +6,9 @@
   align-items: center;
 }
 
-// mat-slide-toggle {
-// }
-
-.bot-margin {
-  margin-bottom: 1.5rem;
-  // margin-bottom: 2rem !important;
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
 }
 
 .number-input {

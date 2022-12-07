@@ -1,42 +1,45 @@
-<div>
-  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
-    <div formArrayName="stex">
-      <div *ngFor="let stex_group of stex.controls; index as idx">
-        <!-- Stex Prüfung -->
-        <div [formGroupName]="idx" class="row">
-          <mat-form-field appearance="outline">
-            <mat-label>Prüfungsname</mat-label>
-            <input matInput type="text" [formControlName]="'name'" />
-            <mat-hint *ngIf="stex_group.invalid" class="invalid">Invalid input.</mat-hint>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
-            <mat-label>Gewicht</mat-label>
-            <input matInput type="text" [formControlName]="'weight'" />
-          </mat-form-field>
-
-          <mat-slide-toggle
-            class="bot-margin"
-            color="primary"
-            [formControlName]="'didaktik'"
-            [checked]="isDidaktikExamen(idx)"
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+  <div formArrayName="stex">
+    <div *ngFor="let stex_group of stex.controls; index as idx">
+      <!-- Stex Prüfung -->
+      <div [formGroupName]="idx" class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Prüfungsname</mat-label>
+          <input matInput type="text" formControlName="name" />
+          <mat-hint *ngIf="stex_group.invalid" class="invalid"
+            >Invalid input.</mat-hint
           >
-            {{
-              isDidaktikExamen(idx)
-                ? "Prüfung des Didaktik"
-                : "Prüfung des Fachs"
-            }}
-          </mat-slide-toggle>
+        </mat-form-field>
 
-          <button mat-icon-button (click)="deleteForm(idx)" class="bot-margin">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-        <!-- Stex Prüfung Ende -->
+        <mat-form-field appearance="outline" class="number-input">
+          <mat-label>Gewichtung</mat-label>
+          <input matInput type="text" formControlName="weight" />
+        </mat-form-field>
+
+        <mat-slide-toggle
+          class="bot-margin"
+          color="primary"
+          [formControlName]="'didaktik'"
+          [checked]="isDidaktikExamen(idx)"
+        >
+          {{
+            isDidaktikExamen(idx) ? "Prüfung des Didaktik" : "Prüfung des Fachs"
+          }}
+        </mat-slide-toggle>
+
+        <button mat-icon-button (click)="deleteForm(idx)" class="bot-margin">
+          <mat-icon>delete</mat-icon>
+        </button>
       </div>
+      <!-- Stex Prüfung Ende -->
     </div>
-  </form>
-  <button mat-icon-button type="button" (click)="addStexElement()">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
+  </div>
+</form>
+<button
+  mat-icon-button
+  type="button"
+  color="primary"
+  (click)="addStexElement()"
+>
+  <mat-icon>add</mat-icon>
+</button>
