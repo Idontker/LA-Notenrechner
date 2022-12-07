@@ -48,4 +48,30 @@ export class CreateStexComponent implements OnInit {
   deleteForm(idx: number) {
     this.stex.removeAt(idx);
   }
+
+  public formFehler() {
+    let arr: any[] = [];
+    for (let i = 0; i < this.stex.controls.length; i++) {
+      let control = this.stex.at(i);
+
+      if (control.invalid) {
+        let tmp = '';
+
+        if (control.get('name')?.invalid) {
+          tmp += ', Prüfnungname';
+        }
+        if (control.get('weight')?.invalid) {
+          tmp += ', Gewichtung';
+        }
+        if (control.get('didaktik')?.invalid) {
+          tmp += ', Zuordnung zur Didaktik bzw. Fachwissenschaft';
+        }
+
+        // remove first comma
+        tmp = tmp.slice(1);
+        arr.push(tmp);
+      }
+    }
+    return arr;
+  }
 }

@@ -43,7 +43,7 @@
           >
           um zur LPO I weitergeleitet zu werden:</mat-card-subtitle
         >
-        <app-create-stex></app-create-stex>
+        <app-create-stex #create_stex></app-create-stex>
       </div>
 
       <!-- Wahlpflicht Bereich -->
@@ -128,7 +128,10 @@
             </li>
           </ul>
         </mat-card-subtitle>
-        <app-create-module [didaktik]="true"></app-create-module>
+        <app-create-module
+          [didaktik]="false"
+          #create_module
+        ></app-create-module>
       </div>
 
       <div class="didaktik">
@@ -139,12 +142,41 @@
           <b>Namen</b>, <b>ECTS</b>, eine <b>Gewichtung</b> und eine Einstellung
           für <b>Einbringung in den Bachelorgrad</b>.
         </mat-card-subtitle>
-        <app-create-module [didaktik]="true"></app-create-module>
+        <app-create-module
+          [didaktik]="true"
+          #create_didaktik
+        ></app-create-module>
       </div>
-
-      <button (click)="log()">log</button>
     </form>
   </mat-card-content>
 
-  <mat-card-actions></mat-card-actions>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="formNotValid()">
+      Download Konfiguration.
+    </button>
+    <div style="color: red">
+      <h3 *ngIf="formNotValid()">
+        {{ form.errors }}
+        Folgende Felder beinhalten noch Fehler:
+        <ul>
+          <li *ngFor="let location of allgemeineFormFehler()">
+            {{ location }}
+          </li>
+          <li *ngFor="let location of create_stex.formFehler(); let i = index">
+            In der {{ i + 1 }}-ten Staatsexmensprüfung: {{ location }}
+          </li>
+          <li
+            *ngFor="let location of create_module.formFehler(); let i = index"
+          >
+            Im {{ i + 1 }}-ten Fachmodule: {{ location }}
+          </li>
+          <li
+            *ngFor="let location of create_didaktik.formFehler(); let i = index"
+          >
+            Im {{ i + 1 }}-ten Didaktikmodule {{ location }}
+          </li>
+        </ul>
+      </h3>
+    </div>
+  </mat-card-actions>
 </mat-card>

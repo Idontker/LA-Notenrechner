@@ -47,4 +47,33 @@ export class CreateModuleComponent implements OnInit {
   deleteForm(idx: number) {
     this.module.removeAt(idx);
   }
+
+  public formFehler() {
+    let arr: any[] = [];
+    for (let i = 0; i < this.module.controls.length; i++) {
+      let control = this.module.at(i);
+
+      if (control.invalid) {
+        let tmp = '';
+
+        if (control.get('name')?.invalid) {
+          tmp += ', Modulename';
+        }
+        if (control.get('weight')?.invalid) {
+          tmp += ', Gewichtung';
+        }
+        if (control.get('ects')?.invalid) {
+          tmp += ', ECTS';
+        }
+        if (control.get('ba')?.invalid) {
+          tmp += ', Einstellung zur BA-Einbringung';
+        }
+
+        // remove first comma
+        tmp = tmp.slice(1);
+        arr.push(tmp);
+      }
+    }
+    return arr;
+  }
 }

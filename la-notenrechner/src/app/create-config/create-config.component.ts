@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-// import { modul_item, stex_item } from './create-config.module';
 
 export interface stex_item {
   name: string;
@@ -29,7 +28,7 @@ export class CreateConfigComponent implements OnInit {
       Validators.required,
       Validators.pattern('20[0-9][0-9]'),
     ]),
-    wpf_ects: new FormControl('0', Validators.pattern('[0-9]*(.5)')),
+    wpf_ects: new FormControl('0', Validators.pattern('[0-9]*(.5)?')),
   });
 
   log() {
@@ -69,5 +68,27 @@ export class CreateConfigComponent implements OnInit {
       ects: 5.0,
       ba: 'pflicht',
     });
+  }
+
+  formNotValid() {
+    return this.form.invalid;
+  }
+
+  allgemeineFormFehler() {
+    let locations: any[] = [];
+
+    if (this.form.controls.schulart.valid == false) {
+      locations.push('Schulart');
+    }
+    if (this.form.controls.fachname.valid == false) {
+      locations.push('Fachnamen');
+    }
+    if (this.form.controls.po.valid == false) {
+      locations.push('Prüfungsordnung');
+    }
+    if (this.form.controls.wpf_ects.valid == false) {
+      locations.push('ECTS Angabe für den Wahlpflichtbereich');
+    }
+    return locations;
   }
 }
