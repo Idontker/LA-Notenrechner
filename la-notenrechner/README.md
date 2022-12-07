@@ -41,5 +41,6 @@ The following will deploy the app to the server:
 ```
 
 You can also use
-`npm deploy`
-to execute these comands with the given params.
+`npm run deploy`
+to execute these comands with the given params. Make sure to execute from the /la-notenrechner folder.
+
