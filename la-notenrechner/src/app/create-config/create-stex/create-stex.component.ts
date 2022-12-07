@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { stex_item } from '../create-config.module';
 
 @Component({
@@ -10,39 +16,48 @@ import { stex_item } from '../create-config.module';
 export class CreateStexComponent implements OnInit {
   // stex: stex_item[] = [{ name: '', weight: 1, didaktik: false }];
 
-  form = this.fb.group({
-    stex: this.fb.array([]),
-
-    lessons: this.fb.array([]),
+  form = new FormGroup({
+    stex: new FormArray([]),
   });
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.addStexElement();
+  }
 
   get stex() {
-    return this.form.controls['stex'] as FormArray;
+    return this.form.get('stex') as FormArray;
+  }
+
+  onFormSubmit(): void {
+    for (let i = 0; i < this.stex.length; i++) {
+      console.log(this.stex.at(i).value);
+    }
   }
 
   addStexElement() {
-    // this.stex.push({
-    //   name: '',
-    //   weight: 1,
-    //   didaktik: false,
-    // });
+    this.stex.push(
+      new FormGroup({
+        name: new FormControl('', Validators.required),
+        weight: new FormControl('1', [
+          Validators.required,
+          Validators.min(0),
+          Validators.pattern('[0-9]*'),
+        ]),
+        didaktik: new FormControl(false, Validators.required),
+      })
+    );
+  }
 
-    const stexForm = this.fb.group({
-      name: ['', Validators.required],
-      weight: ['1', [Validators.required, Validators.min(0)]],
-      didaktik: [false, Validators.required],
-    });
-
-    this.stex.push(stexForm);
+  isDidaktikExamen(idx: number) {
+    return this.stex.at(idx).value['didaktik'];
   }
 
   deleteForm(idx: number) {
     this.stex.removeAt(idx);
   }
+
   log(idx: number) {
-    console.log(this.stex.at(idx));
+    console.log(this.stex.at(idx), (<FormGroup>this.stex.at(idx))?.value);
   }
 }

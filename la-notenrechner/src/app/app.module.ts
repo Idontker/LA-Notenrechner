@@ -10,7 +10,7 @@ import { CreateConfigModule } from './create-config/create-config.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    // CreateConfigModule,
+    CreateConfigModule,
     SharedModule,
     BrowserModule,
     InputStepperModule,
