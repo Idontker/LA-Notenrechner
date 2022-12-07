@@ -1,5 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { modul_item, stex_item } from './create-config.module';
+// import { modul_item, stex_item } from './create-config.module';
+
+export interface stex_item {
+  name: string;
+  weight: number;
+  didaktik: boolean;
+}
+
+export interface modul_item {
+  name: string;
+  ects: number;
+  weight: number;
+  ba: 'pflicht' | 'tauglich' | 'nein';
+}
 
 @Component({
   selector: 'app-create-config',
@@ -35,7 +48,6 @@ export class CreateConfigComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
 
   addModuleItem() {
     this.module.push({

@@ -1,44 +1,16 @@
-<div [formGroup]="form">
-  <ng-container formArrayName="stex">
-    <ng-container *ngFor="let stex_form of stex.controls; let i = index">
-      <!-- Stexprüfung -->
-
-      <!-- Name -->
-      <mat-form-field appearance="outline">
-        <mat-label>Prüfungsname</mat-label>
-        <input matInput type="text" />
-      </mat-form-field>
-      <!-- Gewichtung -->
-      <!-- <mat-form-field appearance="outline" class="number-input">
-    <mat-label>Gewichtung</mat-label>
-    <input matInput type="text" [(ngModel)]="item.weight" />
-    <button
-    *ngIf="item.weight"
-    matSuffix
-    mat-icon-button
-    aria-label="Clear"
-    (click)="item.weight = 1"
-    >
-    <mat-icon>close</mat-icon>
-  </button>
-</mat-form-field>
-
-<mat-slide-toggle
-class="example-margin"
-color="primary"
-[checked]="item.didaktik"
-[(ngModel)]="item.didaktik"
->
-{{ item.didaktik ? "Prüfung des Didaktik" : "Prüfung des Fachs" }}
-</mat-slide-toggle> -->
-      <mat-icon class="delete-btn" (click)="deleteForm(i)">
-        delete_forever</mat-icon
-      >
-      <button mat-raised-button (click)="log(i)">log</button>
-    </ng-container>
-  </ng-container>
-  <!-- Stex Prüfung hinzufügen -->
-  <button mat-mini-fab color="primary" (click)="addStexElement()">
-    <mat-icon>add</mat-icon>
-  </button>
+<div>
+  <h3>Angular FormArray Example</h3>
+  <form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+    <div formArrayName="stex">
+      <div *ngFor="let name of stex.controls; index as idx">
+        <input [formControlName]="idx" placeholder="Enter a Name" />
+        <label *ngIf="name.invalid"> Name is required. </label>
+        <button (click)="deleteForm(idx)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+  <button type="button" (click)="addStexElement()">Add More Names</button>
 </div>
