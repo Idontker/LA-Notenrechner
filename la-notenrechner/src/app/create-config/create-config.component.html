@@ -151,7 +151,12 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button color="primary" [disabled]="formNotValid()">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="formNotValid()"
+      (click)="onSubmit()"
+    >
       Download Konfiguration.
     </button>
     <div style="color: red">

@@ -1,25 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
-export interface stex_item {
-  name: string;
-  weight: number;
-  didaktik: boolean;
-}
-
-export interface modul_item {
-  name: string;
-  ects: number;
-  weight: number;
-  ba: 'pflicht' | 'tauglich' | 'nein';
-}
+import { ConfigBuilderService } from './controller/config-builder.service';
+import { DownloadConfigService } from './controller/download-config.service';
+import { CreateModuleComponent } from './create-module/create-module.component';
+import { CreateStexComponent } from './create-stex/create-stex.component';
 
 @Component({
   selector: 'app-create-config',
   templateUrl: './create-config.component.html',
   styleUrls: ['./create-config.component.scss'],
 })
-export class CreateConfigComponent implements OnInit {
+export class CreateConfigComponent implements AfterViewInit {
   form = new FormGroup({
     schulart: new FormControl('gs'),
     fachname: new FormControl('', Validators.required),
@@ -28,8 +19,15 @@ export class CreateConfigComponent implements OnInit {
       Validators.required,
       Validators.pattern('20[0-9][0-9]'),
     ]),
-    wpf_ects: new FormControl('0', Validators.pattern('[0-9]*(.5)?')),
+    wpf_ects: new FormControl('0', Validators.pattern('[0-9]*(|\\.5)')),
   });
+
+  @ViewChild('create_stex')
+  create_stex!: CreateStexComponent;
+  @ViewChild('create_module')
+  create_module!: CreateModuleComponent;
+  @ViewChild('create_didaktik')
+  create_didaktik!: CreateModuleComponent;
 
   log() {
     console.log(this.form.value);
@@ -39,39 +37,59 @@ export class CreateConfigComponent implements OnInit {
   wpf_ects: number = 0.0;
 
   ba_panel_open = true;
+  constructor(
+    private builder: ConfigBuilderService,
+    private saver: DownloadConfigService
+  ) {}
 
-  didaktik: modul_item[] = [
-    {
-      name: '',
-      ects: 5,
-      weight: 1,
-      ba: 'pflicht',
-    },
-  ];
-  module: modul_item[] = [
-    {
-      name: '',
-      ects: 5,
-      weight: 1,
-      ba: 'pflicht',
-    },
-  ];
+  ngAfterViewInit(): void {
+    this.formNotValid = this._formNotValid;
+  }
 
-  constructor() {}
+  onSubmit() {
+    let obj: object = this.buildConfigObject();
+    this.saveConfigObject(obj);
+  }
 
-  ngOnInit(): void {}
+  buildConfigObject() {
+    let controls = this.form.controls;
 
-  addModuleItem() {
-    this.module.push({
-      name: '',
-      weight: 1,
-      ects: 5.0,
-      ba: 'pflicht',
-    });
+    // casting in order to fix cases, when controls are not accessible
+    let schulart = controls.schulart.value as any as string;
+    let fachname = controls.fachname.value as any as string;
+    let po = controls.po.value as any as number;
+    let wpf_ects = controls.wpf_ects.value as any as number;
+
+    return this.builder.buildObject(
+      schulart,
+      fachname,
+      po,
+      wpf_ects,
+      this.create_stex.getItems(),
+      this.create_module.getItems(),
+      this.create_didaktik.getItems()
+    );
+  }
+
+  saveConfigObject(obj: any) {
+    console.log(obj);
+    // this.saver.saveConfigAsJSON(obj['filename'], obj);
+    // TODO: remove testing filename
+    this.saver.saveConfigAsJSON('constant-filename', obj);
   }
 
   formNotValid() {
-    return this.form.invalid;
+    // dummy will be replaced after ngAfterViewInit
+    return true;
+  }
+
+  private _formNotValid() {
+    return (
+      this.form.invalid ||
+      this.create_stex?.isInvalid() ||
+      this.create_module?.isInvalid() ||
+      this.create_didaktik?.isInvalid()
+    );
   }
 
   allgemeineFormFehler() {

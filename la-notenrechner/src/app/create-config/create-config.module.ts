@@ -7,19 +7,6 @@ import { MaterialModule } from '../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { CreateModuleComponent } from './create-module/create-module.component';
 
-export interface stex_item {
-  name: string;
-  weight: number;
-  didaktik: boolean;
-}
-
-export interface modul_item {
-  name: string;
-  ects: number;
-  weight: number;
-  ba: 'pflicht' | 'tauglich' | 'nein';
-}
-
 @NgModule({
   declarations: [CreateConfigComponent, CreateStexComponent, CreateModuleComponent],
   imports: [CommonModule, MaterialModule, FormsModule, SharedModule],

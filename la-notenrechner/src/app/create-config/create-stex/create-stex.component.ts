@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { stex_item } from '../create-config.module';
+import { stex_item } from '../models/stex_item';
 
 @Component({
   selector: 'app-create-stex',
@@ -47,6 +47,26 @@ export class CreateStexComponent implements OnInit {
 
   deleteForm(idx: number) {
     this.stex.removeAt(idx);
+  }
+
+  public getItems(): stex_item[] {
+    let arr: stex_item[] = [];
+    for (let i = 0; i < this.stex.controls.length; i++) {
+      let values = this.stex.at(i).value;
+
+      let object: stex_item = {
+        name: values['name'],
+        weight: values['weight'],
+        didaktik: values['didaktik'],
+      };
+      arr.push(object);
+    }
+
+    return arr;
+  }
+
+  public isInvalid() {
+    return this.form.invalid;
   }
 
   public formFehler() {

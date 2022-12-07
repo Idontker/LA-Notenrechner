@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { module_item } from '../models/module_item';
 
 @Component({
   selector: 'app-create-module',
@@ -38,7 +39,7 @@ export class CreateModuleComponent implements OnInit {
           Validators.min(0),
           Validators.pattern('[0-9]*'),
         ]),
-        ects: new FormControl('0', Validators.pattern('[0-9]*(.5)')),
+        ects: new FormControl('0', Validators.pattern('[0-9]*(|\\.5)')),
         ba: new FormControl('pflicht', Validators.required),
       })
     );
@@ -46,6 +47,27 @@ export class CreateModuleComponent implements OnInit {
 
   deleteForm(idx: number) {
     this.module.removeAt(idx);
+  }
+
+  public getItems(): module_item[] {
+    let arr: module_item[] = [];
+    for (let i = 0; i < this.module.controls.length; i++) {
+      let values = this.module.at(i).value;
+
+      let object: module_item = {
+        name: values['name'],
+        weight: values['weight'],
+        ects: values['ects'],
+        ba: values['ba'],
+      };
+      arr.push(object);
+    }
+
+    return arr;
+  }
+
+  public isInvalid() {
+    return this.form.invalid;
   }
 
   public formFehler() {
