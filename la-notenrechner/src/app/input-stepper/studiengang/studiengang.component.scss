@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
 }
+mat-divider {
+  margin-top: 5rem;
+}
 
 /*for the dnd-area, applied while the user is dragging a file over it*/
 #dnd-area.dropping {

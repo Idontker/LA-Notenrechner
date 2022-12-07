@@ -2,7 +2,11 @@
 <div class="flex-col">
   <mat-form-field appearance="fill">
     <mat-label>Studiengang</mat-label>
-    <mat-select (selectionChange)="selectedDegree = $event.value" [value]="this.selectedDegree" required>
+    <mat-select
+      (selectionChange)="selectedDegree = $event.value"
+      [value]="this.selectedDegree"
+      required
+    >
       <mat-option *ngFor="let degree of getDegrees()" [value]="degree">
         {{ degree }}
       </mat-option>
@@ -37,16 +41,33 @@
   Die einzelnen Fächer müssen sich unterscheiden
 </div>
 
+<ng-content></ng-content>
+
 <mat-divider></mat-divider>
 <!--dnd-area = drag and drop area-->
 <div id="dnd-area">
-  <mat-card-subtitle style="margin-top: 0.5rem">Daten importieren</mat-card-subtitle>
+  <mat-card-subtitle style="margin-top: 0.5rem"
+    >Daten importieren</mat-card-subtitle
+  >
   <div>
-    Wähle die Datei aus, die du beim Export heruntergeladen hast und klicke auf den "Importieren"-Button oder nutze Drag and Drop, um die Datei zu laden.
+    Wähle die Datei aus, die du beim Export heruntergeladen hast und klicke auf
+    den "Importieren"-Button oder nutze Drag and Drop, um die Datei zu laden.
   </div>
   <div style="display: flex">
-    <button mat-raised-button color="primary" (click)="uploadButton()" style="margin:0.5rem">Importieren</button>
-    <input id="fileInput" type="file" accept="application/json" style="margin: 0.5rem"/>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="uploadButton()"
+      style="margin: 0.5rem"
+    >
+      Importieren
+    </button>
+    <input
+      id="fileInput"
+      type="file"
+      accept="application/json"
+      style="margin: 0.5rem"
+    />
   </div>
   <div id="uploadInfo"></div>
 </div>

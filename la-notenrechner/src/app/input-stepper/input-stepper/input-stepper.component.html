@@ -6,11 +6,12 @@
     <mat-step [completed]="step1.completed()" [editable]="true">
       <ng-template matStepLabel>Studiengang</ng-template>
       <!--the event emitter attribute defines the callback function in the current component-->
-      <app-studiengang #step1 (eventEmitter)="emitterCallback($event)"></app-studiengang>
-      <div class="actions">
-        <!-- prettier-ignore -->
-        <button mat-raised-button color="primary" matStepperNext [disabled]="!step1.completed()" >Next</button>
-      </div>
+      <app-studiengang #step1 (eventEmitter)="emitterCallback($event)">
+        <div class="actions">
+          <!-- prettier-ignore -->
+          <button mat-raised-button color="primary" matStepperNext [disabled]="!step1.completed()" >Next</button>
+        </div>
+      </app-studiengang>
     </mat-step>
 
     <!--Step 2: Auswahl der Leistungen für das Hauptfächer  -->
