@@ -44,10 +44,10 @@ export const LA_RS: degree = {
     other_ects: 30,
   },
   ba_ects: {
-    subject_ects: 70,
-    didaktik_ects: 5,
-    ews_ects: 15,
-    other_ects: 16,
+    subject_ects: -1,
+    didaktik_ects: -1,
+    ews_ects: -1,
+    other_ects: -1,
   },
   ba: {
     ects: 10,
@@ -70,16 +70,17 @@ export const LA_MS: degree = {
   ews: subject_dummy,
   others: subject_dummy,
   stex_ects: {
-    subject_ects: 60,
+    subject_ects: 54,
     didaktik_ects: 12,
     ews_ects: 35,
-    other_ects: 30,
+    // Gesellschaftwissenshcaften 8 + Praktika 14 + Freier Bereich 3 + zula 10
+    other_ects: 35,
   },
   ba_ects: {
-    subject_ects: 70,
-    didaktik_ects: 5,
-    ews_ects: 15,
-    other_ects: 16,
+    subject_ects: -1,
+    didaktik_ects: -1,
+    ews_ects: -1,
+    other_ects: -1,
   },
   ba: {
     ects: 10,
@@ -94,7 +95,8 @@ export const LA_MS: degree = {
     ews: 2 / 9,
     zula: 1 / 9,
   },
-  n: 2,
+  n: 1,
+  // TODO: Mittelschulbereich einfügen 74 + 0/3 LP
 };
 
 export const LA_GS: degree = {
@@ -102,21 +104,24 @@ export const LA_GS: degree = {
   ews: subject_dummy,
   others: subject_dummy,
   stex_ects: {
-    subject_ects: 60,
+    subject_ects: 54,
     didaktik_ects: 12,
     ews_ects: 35,
-    other_ects: 30,
+    // Gesellschaftswissenschaft 8 + Praktika 11 + Freier Bereich 10 + ZuLa 10
+    other_ects: 39,
   },
+  // TODO: ??
   ba_ects: {
-    subject_ects: 70,
-    didaktik_ects: 5,
-    ews_ects: 15,
-    other_ects: 16,
+    subject_ects: -1,
+    didaktik_ects: -1,
+    ews_ects: -1,
+    other_ects: -1,
   },
   ba: {
     ects: 10,
     grade: '',
   },
+  // TODO: ??
   weights: {
     uni: 4 / 10,
     stex: 6 / 10,
@@ -126,5 +131,6 @@ export const LA_GS: degree = {
     ews: 2 / 9,
     zula: 1 / 9,
   },
-  n: 2,
+  n: 1,
+  // TODO: Didaktik der Grundschule einfügen 77 LP
 };
