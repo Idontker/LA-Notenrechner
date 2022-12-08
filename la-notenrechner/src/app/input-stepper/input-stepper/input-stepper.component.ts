@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  degree,
-  DegreeSpecsService,
-} from 'src/app/shared/degree-specs.service';
+import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
 import { StudiengangComponent } from '../studiengang/studiengang.component';
-import {MatStepper} from "@angular/material/stepper";
+import { MatStepper } from '@angular/material/stepper';
+import { degree } from 'src/app/shared/models/degree';
 
 @Component({
   selector: 'app-input-stepper',
@@ -19,7 +17,7 @@ export class InputStepperComponent implements OnInit {
    * Reference to the stepper
    * @private
    */
-  @ViewChild("stepper")
+  @ViewChild('stepper')
   private stepper!: MatStepper;
 
   constructor(private degSpec: DegreeSpecsService) {}
@@ -53,6 +51,6 @@ export class InputStepperComponent implements OnInit {
   emitterCallback(value: string) {
     //"next" value to move to the next step
     //NOTE: the delay is used, as in testing a direct call would do nothing (because the current compoenent will be reloaded after the data changed)
-    if (value === "next") setTimeout(() => this.stepper.next(), 500);
+    if (value === 'next') setTimeout(() => this.stepper.next(), 500);
   }
 }

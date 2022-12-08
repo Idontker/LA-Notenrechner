@@ -1,7 +1,8 @@
 import { Component, Input, OnChanges, Renderer2 } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatTableDataSource } from '@angular/material/table';
-import { degree, subject } from 'src/app/shared/degree-specs.service';
+import { degree } from 'src/app/shared/models/degree';
+import { stex_pr } from 'src/app/shared/models/stex_pr';
 
 @Component({
   selector: 'app-stex-expanel',
@@ -31,11 +32,11 @@ export class StexExpanelComponent implements OnChanges {
     let ret: any[] = [];
     Object.keys(this.degree.subjects).forEach((key) => {
       let subject = this.degree.subjects[key];
-      subject.stex.forEach((examen) => {
+      subject.stex.forEach((examen: stex_pr) => {
         ret.push(examen);
       });
     });
-    this.degree.ews.stex.forEach((examen) => {
+    this.degree.ews.stex.forEach((examen: stex_pr) => {
       ret.push(examen);
     });
 

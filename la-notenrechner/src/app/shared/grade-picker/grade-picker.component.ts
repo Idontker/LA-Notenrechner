@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GRADES, module } from 'src/app/shared/degree-specs.service';
+import { GRADES } from '../models/grades';
+import { module } from '../models/module';
 
 @Component({
   selector: 'app-grade-picker',

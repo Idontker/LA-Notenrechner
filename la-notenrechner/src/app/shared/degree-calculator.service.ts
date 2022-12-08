@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { degree, module, subject } from './degree-specs.service';
+import { degree } from './models/degree';
+import { module } from './models/module';
+import { stex_pr } from './models/stex_pr';
+import { subject } from './models/subject';
 
 @Injectable({
   providedIn: 'root',
@@ -65,7 +68,7 @@ export class DegreeCalculatorService {
     let temp = [subject.modules, subject.didaktik, subject.wpfs];
     // console.log(temp);
     temp.forEach((arr) => {
-      arr.forEach((m) => {
+      arr.forEach((m: module) => {
         if ((stexMode || m.ba != 'nein') && m.grade != '') {
           total += m.ects;
         }
@@ -226,7 +229,7 @@ export class DegreeCalculatorService {
     // stex fachwissenschaft
     let sum: number = 0;
     let i = 0;
-    subject.stex.forEach((ele) => {
+    subject.stex.forEach((ele: stex_pr) => {
       if (ele.didaktik == false) {
         if (ele.grade != '') {
           // grade eingetragen
@@ -266,7 +269,7 @@ export class DegreeCalculatorService {
     // stex didaktik
     let sum: number = 0;
     let i = 0;
-    subject.stex.forEach((ele) => {
+    subject.stex.forEach((ele: stex_pr) => {
       if (ele.didaktik == true) {
         if (ele.grade != '') {
           // grade eingetragen

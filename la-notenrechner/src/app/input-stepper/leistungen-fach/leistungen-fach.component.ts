@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  DegreeSpecsService,
-  module,
-  subject,
-} from 'src/app/shared/degree-specs.service';
+import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
+import { module } from 'src/app/shared/models/module';
+import { subject } from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-leistungen-fach',

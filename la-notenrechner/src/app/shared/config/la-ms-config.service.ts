@@ -6,7 +6,7 @@ import { LaSchulartConfig } from './la-schulart-config';
 @Injectable({
   providedIn: 'root',
 })
-export class LaGymConfigService {
+export class LaMsConfigService {
   config: LaSchulartConfig;
 
   getSubjects(): { [key: string]: subject } {
@@ -23,6 +23,6 @@ export class LaGymConfigService {
 
   constructor(private http: HttpService) {
     this.config = new LaSchulartConfig(http);
-    this.config.setSchulart('gym');
+    this.config.setSchulart('ms');
   }
 }

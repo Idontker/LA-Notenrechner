@@ -1,88 +1,13 @@
 import { Injectable } from '@angular/core';
+import { LaGsConfigService } from './config/la-gs-config.service';
 import { LaGymConfigService } from './config/la-gym-config.service';
+import { LaMsConfigService } from './config/la-ms-config.service';
 import { LaRsConfigService } from './config/la-rs-config.service';
-export interface subject {
-  name: string;
-  stex: {
-    name: string;
-    grade: '1' | '2' | '3' | '4' | '5' | '6' | '';
-    didaktik: boolean;
-  }[];
-  wpf_ects: number;
-  wpfs: module[];
-  didaktik: module[];
-  modules: module[];
-}
-
-export interface module {
-  name: string;
-  ects: 0 | 2.5 | 5 | 7.5 | 10;
-  grade:
-    | '1.0'
-    | '1.3'
-    | '1.7'
-    | '2.0'
-    | '2.3'
-    | '2.7'
-    | '3.0'
-    | '3.3'
-    | '3.7'
-    | '4.0'
-    | '4.3'
-    | 'bestanden'
-    | '';
-  weight: number;
-  ba: 'pflicht' | 'tauglich' | 'nein';
-  options: string;
-}
+import { LA_GS, LA_GYM, LA_MS, LA_RS } from './config/supported_degrees';
+import { degree } from './models/degree';
+import { subject } from './models/subject';
 
 export const ECTS = [2.5, 5, 7.5, 10];
-
-export const GRADES = [
-  '1.0',
-  '1.3',
-  '1.7',
-  '2.0',
-  '2.3',
-  '2.7',
-  '3.0',
-  '3.3',
-  '3.7',
-  '4.0',
-  '4.3',
-];
-
-export interface degree {
-  subjects: { [key: string]: subject };
-  ews: subject;
-  others: subject;
-  stex_ects: {
-    subject_ects: number;
-    didaktik_ects: number;
-    ews_ects: number;
-    other_ects: number;
-  };
-  ba_ects: {
-    subject_ects: number;
-    didaktik_ects: number;
-    ews_ects: number;
-    other_ects: number;
-  };
-  n: number;
-  ba: {
-    ects: number;
-    grade: string;
-  };
-  weights: {
-    uni: number;
-    stex: number;
-    fachwissenschaft_zu_did: number;
-    did_zu_fachwissenschaft: number;
-    fach: number;
-    ews: number;
-    zula: number;
-  };
-}
 
 @Injectable({
   providedIn: 'root',
@@ -91,68 +16,10 @@ export class DegreeSpecsService {
   degrees: {
     [key: string]: degree;
   } = {
-    'Lehramt Gymnasium': {
-      subjects: this.lagym.getSubjects(),
-      ews: this.lagym.getEWS(),
-      others: this.lagym.getOthers(),
-      stex_ects: {
-        subject_ects: 95,
-        didaktik_ects: 10,
-        ews_ects: 35,
-        other_ects: 26,
-      },
-      ba_ects: {
-        subject_ects: 70,
-        didaktik_ects: 5,
-        ews_ects: 15,
-        other_ects: 16,
-      },
-      ba: {
-        ects: 10,
-        grade: '',
-      },
-      weights: {
-        uni: 4 / 10,
-        stex: 6 / 10,
-        fachwissenschaft_zu_did: 8 / 9,
-        did_zu_fachwissenschaft: 1 / 9,
-        fach: 3 / 8,
-        ews: 1 / 8,
-        zula: 1 / 8,
-      },
-      n: 2,
-    },
-    'Lehramt Realschule': {
-      subjects: this.lars.getSubjects(),
-      ews: this.lars.getEWS(),
-      others: this.lars.getOthers(),
-      stex_ects: {
-        subject_ects: 60,
-        didaktik_ects: 12,
-        ews_ects: 35,
-        other_ects: 30,
-      },
-      ba_ects: {
-        subject_ects: 70,
-        didaktik_ects: 5,
-        ews_ects: 15,
-        other_ects: 16,
-      },
-      ba: {
-        ects: 10,
-        grade: '',
-      },
-      weights: {
-        uni: 4 / 10,
-        stex: 6 / 10,
-        fachwissenschaft_zu_did: 3 / 4,
-        did_zu_fachwissenschaft: 1 / 4,
-        fach: 3 / 9,
-        ews: 2 / 9,
-        zula: 1 / 9,
-      },
-      n: 2,
-    },
+    'Lehramt Gymnasium': LA_GYM,
+    'Lehramt Realschule': LA_RS,
+    'Lehramt Mittelschule': LA_MS,
+    'Lehramt Grundschule': LA_GS,
   };
 
   getDegreeNames(): string[] {
@@ -223,6 +90,29 @@ export class DegreeSpecsService {
 
   constructor(
     private lagym: LaGymConfigService,
-    private lars: LaRsConfigService
-  ) {}
+    private lars: LaRsConfigService,
+    private lams: LaMsConfigService,
+    private lags: LaGsConfigService
+  ) {
+    let gym = this.degrees['Lehramt Gymnasium'];
+    let rs = this.degrees['Lehramt Realschule'];
+    let ms = this.degrees['Lehramt Mittelschule'];
+    let gs = this.degrees['Lehramt Grundschule'];
+
+    gym.subjects = this.lagym.getSubjects();
+    gym.ews = this.lagym.getEWS();
+    gym.others = this.lagym.getOthers();
+
+    rs.subjects = this.lars.getSubjects();
+    rs.ews = this.lars.getEWS();
+    rs.others = this.lars.getOthers();
+
+    ms.subjects = this.lams.getSubjects();
+    ms.ews = this.lams.getEWS();
+    ms.others = this.lams.getOthers();
+
+    gs.subjects = this.lags.getSubjects();
+    gs.ews = this.lags.getEWS();
+    gs.others = this.lags.getOthers();
+  }
 }

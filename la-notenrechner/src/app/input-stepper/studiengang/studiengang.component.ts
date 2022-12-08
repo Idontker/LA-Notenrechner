@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
-import {DegreeSpecsService, subject} from 'src/app/shared/degree-specs.service';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
+import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
+import { subject } from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-studiengang',
@@ -31,31 +32,31 @@ export class StudiengangComponent implements AfterViewInit {
     return this.degSpec.getSubjectNames(degree);
   }
 
-  constructor(private degSpec: DegreeSpecsService) {
-  }
+  constructor(private degSpec: DegreeSpecsService) {}
 
   ngAfterViewInit() {
     //set drag and drop events
-    let dndArea = document.getElementById("dnd-area");
+    let dndArea = document.getElementById('dnd-area');
 
     dndArea?.addEventListener('dragover', (e) => {
       e.stopPropagation();
       e.preventDefault();
-      dndArea?.classList.add("dropping");
+      dndArea?.classList.add('dropping');
     });
-    dndArea?.addEventListener("dragleave", (e) => {
+    dndArea?.addEventListener('dragleave', (e) => {
       e.stopPropagation();
       e.preventDefault();
-      dndArea?.classList.remove("dropping");
-    })
+      dndArea?.classList.remove('dropping');
+    });
     dndArea?.addEventListener('drop', (e) => {
       e.stopPropagation();
       e.preventDefault();
-      dndArea?.classList.remove("dropping");
+      dndArea?.classList.remove('dropping');
 
       //return, if no files available
       if (e.dataTransfer === null || e.dataTransfer.files.length === 0) {
-        document.getElementById("uploadInfo")!.innerText = "Ein Fehler ist aufgetreten!";
+        document.getElementById('uploadInfo')!.innerText =
+          'Ein Fehler ist aufgetreten!';
         return;
       }
 
@@ -80,7 +81,7 @@ export class StudiengangComponent implements AfterViewInit {
     if (this.duplicatedSubject()) return false;
 
     //save selected degree name for later usage in exported file
-    localStorage.setItem("degreeName", this.selectedDegree);
+    localStorage.setItem('degreeName', this.selectedDegree);
     return true;
   }
 
@@ -116,9 +117,12 @@ export class StudiengangComponent implements AfterViewInit {
    */
   uploadButton(): void {
     //get file list and check, if a file is available
-    let files: FileList | null = (<HTMLInputElement>document.getElementById("fileInput")).files;
+    let files: FileList | null = (<HTMLInputElement>(
+      document.getElementById('fileInput')
+    )).files;
     if (files === null || files.length === 0) {
-      document.getElementById("uploadInfo")!.innerText = "Ein Fehler ist aufgetreten!";
+      document.getElementById('uploadInfo')!.innerText =
+        'Ein Fehler ist aufgetreten!';
       return;
     }
 
@@ -130,24 +134,24 @@ export class StudiengangComponent implements AfterViewInit {
    * @param file
    */
   uploadData(file: File): void {
-    let infoDiv = document.getElementById("uploadInfo");
+    let infoDiv = document.getElementById('uploadInfo');
 
     //check for .json type
-    if (!file.type || file.type !== "application/json") {
-      infoDiv!.innerText = "Nur .json Dateien werden akzeptiert!";
+    if (!file.type || file.type !== 'application/json') {
+      infoDiv!.innerText = 'Nur .json Dateien werden akzeptiert!';
       return;
     }
 
     //setup file reader with events
     let reader = new FileReader();
-    reader.addEventListener("progress", (e) => {
+    reader.addEventListener('progress', (e) => {
       //displays file loading progress in percent
-      infoDiv!.innerText = `${Math.round(e.loaded / e.total * 100)} / 100 %`;
+      infoDiv!.innerText = `${Math.round((e.loaded / e.total) * 100)} / 100 %`;
     });
-    reader.addEventListener("loadend", () => {
+    reader.addEventListener('loadend', () => {
       //check that file data is not binary (array, blob etc.)
-      if (typeof reader.result !== "string") {
-        infoDiv!.innerText = "Fehler beim Laden der Datei!"
+      if (typeof reader.result !== 'string') {
+        infoDiv!.innerText = 'Fehler beim Laden der Datei!';
         return;
       }
 
@@ -156,7 +160,7 @@ export class StudiengangComponent implements AfterViewInit {
       try {
         jsonData = JSON.parse(reader.result);
       } catch (e) {
-        infoDiv!.innerText = "Datei ist nicht im json-Format!";
+        infoDiv!.innerText = 'Datei ist nicht im json-Format!';
         return;
       }
 
@@ -168,7 +172,8 @@ export class StudiengangComponent implements AfterViewInit {
       //as the json file contains only contains the selected subject values (the other options are lost during the steps and I don't want to search where),
       //each subject from the json file will override the subject in degree-spec and all not selected subject will be left untouched, so they are still available as select option
       let jsonSubjects: { [key: string]: subject } = jsonData.data.subjects;
-      let degreeSubjects: { [key: string]: subject } = this.degSpec.degrees[this.selectedDegree].subjects;
+      let degreeSubjects: { [key: string]: subject } =
+        this.degSpec.degrees[this.selectedDegree].subjects;
 
       //loop through the subject key of the json subject
       let i = 0;
@@ -187,8 +192,9 @@ export class StudiengangComponent implements AfterViewInit {
       this.degSpec.degrees[this.selectedDegree] = jsonData.data;
 
       //emit data, which causes the stepper to go to the next step
-      infoDiv!.innerText = "Du wirst zum nächsten Schritt weitergeleitet, bitte warten...";
-      this.eventEmitter.emit("next");//send data to parent (input-stepper)
+      infoDiv!.innerText =
+        'Du wirst zum nächsten Schritt weitergeleitet, bitte warten...';
+      this.eventEmitter.emit('next'); //send data to parent (input-stepper)
     });
 
     //read file, which causes the above event to fire

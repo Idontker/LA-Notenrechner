@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ECTS, module } from 'src/app/shared/degree-specs.service';
+import { ECTS } from 'src/app/shared/degree-specs.service';
+import { module } from 'src/app/shared/models/module';
 
 @Component({
   selector: 'app-ects-picker',

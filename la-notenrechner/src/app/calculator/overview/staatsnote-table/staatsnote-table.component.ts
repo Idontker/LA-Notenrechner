@@ -1,7 +1,8 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
-import { degree, subject } from 'src/app/shared/degree-specs.service';
+import { degree } from 'src/app/shared/models/degree';
+import { subject } from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-staatsnote-table',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
-import { degree, subject } from 'src/app/shared/degree-specs.service';
+import { degree } from 'src/app/shared/models/degree';
+import { subject } from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-overview',

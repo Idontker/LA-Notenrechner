@@ -2,7 +2,8 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { MatTableDataSource } from '@angular/material/table';
 import { DegreeCalculatorService } from 'src/app/shared/degree-calculator.service';
-import { module, subject } from 'src/app/shared/degree-specs.service';
+import { module } from 'src/app/shared/models/module';
+import { subject } from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-subject-expension-panel',
