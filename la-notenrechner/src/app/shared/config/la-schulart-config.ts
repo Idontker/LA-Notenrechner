@@ -31,14 +31,10 @@ export class LaSchulartConfig {
   constructor(private http: HttpService) {
     http.silent = true;
 
-    console.log('load data for schulart', this.schulart);
     // get dict to look up all config filenames
     this.getAsset('config_data.json').then((response) => {
-      console.log(response);
       let data = response.body[this.schulart];
-      console.log(data);
 
-      console.log('load data for schulart', this.schulart);
       // pull config for each filename
       data.forEach((filename: string) => {
         let fname = 'la-' + this.schulart + '/' + filename;

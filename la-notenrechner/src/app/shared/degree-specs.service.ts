@@ -23,7 +23,7 @@ export class DegreeSpecsService {
   };
 
   getDegreeNames(): string[] {
-    return Object.keys(this.degrees).sort();
+    return Object.keys(this.degrees);
   }
 
   getDegreeSubjectCount(degreeName: string): number {
