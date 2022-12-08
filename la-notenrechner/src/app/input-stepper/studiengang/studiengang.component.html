@@ -1,9 +1,9 @@
-<mat-card-subtitle> Wähle deinen Studiengang </mat-card-subtitle>
+<mat-card-subtitle> Wähle deinen Studiengang</mat-card-subtitle>
 <div class="flex-col">
   <mat-form-field appearance="fill">
     <mat-label>Studiengang</mat-label>
     <mat-select
-      (selectionChange)="selectedDegree = $event.value; this.selectedSubjects = []"
+      (selectionChange)="selectedDegree = $event.value; this.selectedSubjects = []; this.selectedSubjectNames=[]"
       [value]="this.selectedDegree"
       required
     >
@@ -30,7 +30,7 @@
           </div>
         </mat-label>
         <!-- Optionen -->
-        <mat-select (selectionChange)="selectedSubjects[i - 1] = $event.value" [(ngModel)]="selectedSubjects[i - 1]">
+        <mat-select (selectionChange)="setSubjectSelection(i,$event.value)" [(ngModel)]="selectedSubjectNames[i - 1]">
           <mat-option
             *ngFor="let subject of getSubjects(selectedDegree)"
             [value]="subject"
@@ -39,6 +39,24 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+    <div *ngFor="let subjectName of selectedSubjectNames; index as i" [(ngModel)]="selectedSubjectNames">
+      <div *ngIf="multiplePOVersionsAvailable(subjectName)">
+        Für {{subjectName}} stehen mehrere POen zur Verfügung, wähle eine davon aus:<br>
+        <mat-form-field appearance="fill">
+          <mat-label>
+            <div>PO-Version</div>
+          </mat-label>
+          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value; log(selectedSubjects);log(i)">
+            <mat-option
+              *ngFor="let version of getPOVersionsOfSubject(subjectName)"
+              [value]="version"
+            >
+              {{ version }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </div>
@@ -52,7 +70,8 @@
 <!--dnd-area = drag and drop area-->
 <div id="dnd-area">
   <mat-card-subtitle style="margin-top: 0.5rem"
-    >Daten importieren</mat-card-subtitle
+  >Daten importieren
+  </mat-card-subtitle
   >
   <div>
     Wähle die Datei aus, die du beim Export heruntergeladen hast und klicke auf

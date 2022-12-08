@@ -12,6 +12,7 @@ export class StudiengangComponent implements AfterViewInit {
   selectedDegree: string = '';
   @Output()
   selectedSubjects: string[] = [];
+  selectedSubjectNames: string[] = [];
 
   /**
    * Used to be able to communicate with the parent component (which has access to the stepper)
@@ -65,6 +66,36 @@ export class StudiengangComponent implements AfterViewInit {
     });
   }
 
+  multiplePOVersionsAvailable(subjectName: string): boolean {
+    let poVersionCount = 0;
+    for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
+      if (key.indexOf(subjectName) !== -1) poVersionCount++;
+      if (poVersionCount > 1) return true;
+    }
+    return false;
+  }
+
+  getPOVersionsOfSubject(subjectName: string): number[] {
+    let versions: number[] = []
+    for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
+      if (key.indexOf(subjectName) !== -1) versions.push(this.degSpec.degrees[this.selectedDegree].subjects[key].po);
+    }
+    return versions;
+  }
+
+  setSubjectSelection(index: number, subjectName: string) {
+    this.selectedSubjectNames[index - 1] = subjectName
+    if (!this.multiplePOVersionsAvailable(subjectName)) {
+      this.selectedSubjects[index - 1] = subjectName;
+    }
+    console.log(this.selectedSubjectNames);
+    console.log(this.selectedSubjects);
+  }
+
+  log(msg: any) {
+    console.log(msg)
+  }
+
   isNotSupported() {
     if (
       this.selectedDegree.indexOf('Mittelschule') != -1 ||
@@ -85,7 +116,8 @@ export class StudiengangComponent implements AfterViewInit {
     }
 
     for (let i = 0; i < n; i++) {
-      if (this.selectedSubjects[i] == '') {
+      //null: to check for empty slots
+      if (this.selectedSubjects[i] == '' || this.selectedSubjects[i] == null) {
         return false;
       }
     }

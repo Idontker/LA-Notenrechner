@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { LaGsConfigService } from './config/la-gs-config.service';
-import { LaGymConfigService } from './config/la-gym-config.service';
-import { LaMsConfigService } from './config/la-ms-config.service';
-import { LaRsConfigService } from './config/la-rs-config.service';
-import { LA_GS, LA_GYM, LA_MS, LA_RS } from './config/supported_degrees';
-import { degree } from './models/degree';
-import { subject } from './models/subject';
+import {Injectable} from '@angular/core';
+import {LaGsConfigService} from './config/la-gs-config.service';
+import {LaGymConfigService} from './config/la-gym-config.service';
+import {LaMsConfigService} from './config/la-ms-config.service';
+import {LaRsConfigService} from './config/la-rs-config.service';
+import {LA_GS, LA_GYM, LA_MS, LA_RS} from './config/supported_degrees';
+import {degree} from './models/degree';
+import {subject} from './models/subject';
 
 export const ECTS = [2.5, 5, 7.5, 10];
 
@@ -35,7 +35,19 @@ export class DegreeSpecsService {
 
   getSubjectNames(degreeName: string): string[] {
     if (this.degrees[degreeName]) {
-      return Object.keys(this.degrees[degreeName].subjects);
+      let names: string[] = [];
+
+      let subject: subject;
+      for (let key in this.degrees[degreeName].subjects) {
+        subject = this.degrees[degreeName].subjects[key];
+
+        //only one version (po set to -1) => add name like before
+        if (subject.po === -1) names.push(subject.name);
+        //valid value for po (not -1) => multiple versions available, only add subject name if not already there
+        else if (names.indexOf(subject.name) === -1) names.push(subject.name);
+      }
+      return names;
+      //return Object.keys(this.degrees[degreeName].subjects);
     }
     return [];
   }

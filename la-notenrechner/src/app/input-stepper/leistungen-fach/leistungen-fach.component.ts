@@ -38,6 +38,7 @@ export class LeistungenFachComponent implements OnInit {
   }
 
   getSubjectConfig(): subject | undefined {
+    console.log(this.degSpec);//todo debug
     return this.degSpec.getSubjectObject(this.degreeName, this.subjectName);
   }
 
