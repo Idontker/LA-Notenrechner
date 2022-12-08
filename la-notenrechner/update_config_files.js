@@ -2,7 +2,7 @@ const fs = require("fs");
 
 CONFIG_PATH = "src/assets/config/";
 DATA_FILE_PATH = CONFIG_PATH + "config_data.json";
-schularten = ["gym", "rs"];
+schularten = ["gym", "rs", "ms", "gs"];
 
 function read_dir(path) {
   arr = [];
