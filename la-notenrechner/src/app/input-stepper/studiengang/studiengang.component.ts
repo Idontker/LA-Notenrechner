@@ -64,6 +64,16 @@ export class StudiengangComponent implements AfterViewInit {
     });
   }
 
+  isNotSupported() {
+    if (
+      this.selectedDegree.indexOf('Mittelschule') != -1 ||
+      this.selectedDegree.indexOf('Grundschule') != -1
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   completed(): boolean {
     if (!this.selectedDegree) {
       return false;

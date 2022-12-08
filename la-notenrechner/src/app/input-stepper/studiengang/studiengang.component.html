@@ -12,7 +12,12 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div *ngIf="selectedDegree != ''">
+  <div *ngIf="isNotSupported()" style="color: red; max-width: 55rem">
+    Der Studiengang{{ selectedDegree }} ist noch nicht unterstützt. Es wird
+    daran gearbeitet ihn einzubauen. Es ist sehr wahrscheinlich, dass dies nicht
+    vor Februar 2023 hinzugefügt bzw. freigeschalten wird.
+  </div>
+  <div *ngIf="selectedDegree != '' && !isNotSupported()">
     <div *ngFor="let i of range(1, getDegreeSubjectCount(selectedDegree))">
       <mat-form-field appearance="fill">
         <!-- Titel -->
