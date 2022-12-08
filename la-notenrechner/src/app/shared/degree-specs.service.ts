@@ -156,7 +156,7 @@ export class DegreeSpecsService {
   };
 
   getDegreeNames(): string[] {
-    return Object.keys(this.degrees);
+    return Object.keys(this.degrees).sort();
   }
 
   getDegreeSubjectCount(degreeName: string): number {
