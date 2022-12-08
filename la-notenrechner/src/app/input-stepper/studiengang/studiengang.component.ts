@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
-import { DegreeSpecsService } from 'src/app/shared/degree-specs.service';
-import { subject } from 'src/app/shared/models/subject';
+import {AfterViewInit, Component, EventEmitter, Output} from '@angular/core';
+import {DegreeSpecsService} from 'src/app/shared/degree-specs.service';
+import {subject} from 'src/app/shared/models/subject';
 
 @Component({
   selector: 'app-studiengang',
@@ -32,7 +32,8 @@ export class StudiengangComponent implements AfterViewInit {
     return this.degSpec.getSubjectNames(degree);
   }
 
-  constructor(private degSpec: DegreeSpecsService) {}
+  constructor(private degSpec: DegreeSpecsService) {
+  }
 
   ngAfterViewInit() {
     //set drag and drop events
