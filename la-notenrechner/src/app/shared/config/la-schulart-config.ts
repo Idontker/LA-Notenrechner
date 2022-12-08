@@ -30,6 +30,14 @@ export class LaSchulartConfig {
 
   constructor(private http: HttpService) {
     http.silent = true;
+  }
+
+  loadData() {
+    // TODO: remove if it works
+    if (this.schulart == 'ms' || this.schulart == 'gs') {
+      console.log(this.schulart, 'killed');
+      return;
+    }
 
     // get dict to look up all config filenames
     this.getAsset('config_data.json').then((response) => {

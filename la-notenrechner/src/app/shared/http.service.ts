@@ -103,7 +103,8 @@ export class HttpService {
   ): Observable<HttpResponse<any>> {
     return <Observable<HttpResponse<any>>>this.http.get<any>(
       // environment.serverURL + path,
-      '/' + path,
+      // '/'  path,
+      path,
       {
         headers: headers,
         observe: 'response',
@@ -120,8 +121,8 @@ export class HttpService {
   ): Observable<HttpResponse<any>> {
     return <Observable<HttpResponse<any>>>this.http.post<any>(
       // environment.serverURL + path,
-      '/' + path,
-
+      // '/' + path,
+      path,
       body,
       {
         headers: headers,

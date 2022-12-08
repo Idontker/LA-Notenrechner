@@ -23,6 +23,7 @@ export class LaRsConfigService {
 
   constructor(private http: HttpService) {
     this.config = new LaSchulartConfig(http);
-    this.config.setSchulart('ms');
+    this.config.setSchulart('rs');
+    this.config.loadData();
   }
 }
