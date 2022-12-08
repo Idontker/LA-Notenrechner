@@ -21,6 +21,8 @@ export class ConfigBuilderService {
     // Fachname und Filename
     obj['name'] = fachname + '-' + po;
     obj['filename'] = 'la-' + schulart + '-' + fachname + '-' + po;
+    obj['fachname'] = fachname;
+    obj['po'] = po;
 
     // WPFs
     obj['wpf_ects'] = wpf_ects;
