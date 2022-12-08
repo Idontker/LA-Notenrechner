@@ -1,0 +1,154 @@
+{
+  "name": "Mathematik",
+  "stex": [
+    {
+      "name": "Analysis",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Algebra",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Mathematik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Didaktik der Arithmetik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Stochastik",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Geometrie",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Didaktik der Analysis",
+      "ects": 2.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Lineare Algebra 1",
+      "ects": 10,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Lineare Algebra 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 0.5,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Analysis 1",
+      "ects": 10,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Analysis 2",
+      "ects": 10,
+      "grade": "",
+      "weight": 0.5,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Algebra",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Körpertheorie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Geometrie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Analysis für Lehramt",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Funktionentheorie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Angewandte Mathematik",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Stochastische Modellbildung",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Mathematisches Seminar",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    }
+  ]
+}

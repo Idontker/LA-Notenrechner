@@ -1,0 +1,71 @@
+{
+  "name": "EWS",
+  "stex": [
+    {
+      "name": "EWS Examen",
+      "grade": "",
+      "didaktik": false
+    }
+    ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [],
+  "modules": [
+    {
+      "name": "Allgemeine Pädagogik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Allgemeine Pädagogik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Schulpädagogik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Schulpädagogik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Psychologie für Lehramt 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Psychologie für Lehramt 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Psychologie für Lehramt 3",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}

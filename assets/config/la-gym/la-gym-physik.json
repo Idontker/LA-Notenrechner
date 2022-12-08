@@ -1,0 +1,138 @@
+{
+  "name": "Physik 2018",
+  "stex": [
+    {
+      "name": "Experimentalphysik",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Theoretischen Physik",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Physik",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 10,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Einführung Fachdidaktik Physik",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Hauptseminar",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Experimentalphysik 1&2",
+      "ects": 15,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Experimentalphysik 3",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Integrierter Kurs: Theo2 + EP4",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Experimentalphysik 5",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Experimentalphysik 6",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "tauglich",
+      "options": ""
+    },
+    {
+      "name": "Theoretische Physik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Theoretische Physik 3",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Theoretische Physik 4",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Rechenmethoden der Physik",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundpraktikum",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Grundpraktikum 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Physikalisches Experimentieren (F-Prakt)",
+      "ects": 7.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}

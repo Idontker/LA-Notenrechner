@@ -1,0 +1,41 @@
+{
+  "name": "Sonstiges",
+  "stex": [],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [],
+  "modules": [
+    {
+      "name": "Freier Bereich",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Pädagogisch-didaktisches Schulpraktikum",
+      "ects": 6,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Studienbegleitendes fachdidaktisches Praktikum",
+      "ects": 5,
+      "grade": "",
+      "weight": 0,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Zulassungsarbeit",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    }
+  ]
+}

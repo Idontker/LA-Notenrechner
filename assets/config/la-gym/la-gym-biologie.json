@@ -1,0 +1,114 @@
+{
+  "name": "Biologie",
+  "stex": [
+    {
+      "name": "Zoologie und Humanbiologie",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Botanik",
+      "grade": "",
+      "didaktik": false
+    },
+    {
+      "name": "Didaktik der Biologie",
+      "grade": "",
+      "didaktik": true
+    }
+  ],
+  "wpf_ects": 0,
+  "wpfs": [],
+  "didaktik": [
+    {
+      "name": "Biologiedidaktik 1",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologiedidaktik 2",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ],
+  "modules": [
+    {
+      "name": "Biologie 1: Zellbiologiesche Grundlagen",
+      "ects": 12.5,
+      "grade": "",
+      "weight": 0,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologie II: Baupläne und Evolution",
+      "ects": 12.5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologie III: Biochemie und Physiologie",
+      "ects": 15,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Biologie IV: Molekularbiologie der Zelle",
+      "ects": 15,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie und Diversität A",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie und Diversität A",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Ökologie",
+      "ects": 5,
+      "grade": "",
+      "weight": 1,
+      "ba": "pflicht",
+      "options": ""
+    },
+    {
+      "name": "Humanbiologie",
+      "ects": 10,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    },
+    {
+      "name": "Organismische Biologie für LAG (Prakikum)",
+      "ects": 15,
+      "grade": "",
+      "weight": 1,
+      "ba": "nein",
+      "options": ""
+    }
+  ]
+}
