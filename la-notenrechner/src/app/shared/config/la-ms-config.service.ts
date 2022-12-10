@@ -22,7 +22,6 @@ export class LaMsConfigService {
   }
 
   constructor(private http: HttpService) {
-    this.config = new LaSchulartConfig(http);
-    this.config.setSchulart('ms');
+    this.config = new LaSchulartConfig(http, 'ms');
   }
 }

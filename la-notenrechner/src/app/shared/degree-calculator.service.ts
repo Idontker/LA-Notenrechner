@@ -159,7 +159,6 @@ export class DegreeCalculatorService {
     var rounded = Math.round(grade * 100) / 100;
     var s = '' + rounded;
     if (s.indexOf('.') == -1) {
-      console.log(grade, s);
 
       return s + '.00';
     } else if (s.split('.')[1].length == 1) {

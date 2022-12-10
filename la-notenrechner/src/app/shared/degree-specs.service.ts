@@ -94,25 +94,24 @@ export class DegreeSpecsService {
     private lams: LaMsConfigService,
     private lags: LaGsConfigService
   ) {
-    let gym = this.degrees['Lehramt Gymnasium'];
-    let rs = this.degrees['Lehramt Realschule'];
-    let ms = this.degrees['Lehramt Mittelschule'];
-    let gs = this.degrees['Lehramt Grundschule'];
+    this.loadSchulart('Lehramt Gymnasium', lagym);
+    this.loadSchulart('Lehramt Realschule', lars);
+  }
 
-    gym.subjects = this.lagym.getSubjects();
-    gym.ews = this.lagym.getEWS();
-    gym.others = this.lagym.getOthers();
+  async loadSchulart(
+    key: 'Lehramt Gymnasium' | 'Lehramt Realschule',
+    // | 'Lehramt Mittelschule'
+    // | 'Lehramt Grundschule',
+    service: LaGymConfigService | LaRsConfigService
+    // | LaMsConfigService
+    // | LaGsConfigService
+  ) {
+    await service.loadData();
 
-    rs.subjects = this.lars.getSubjects();
-    rs.ews = this.lars.getEWS();
-    rs.others = this.lars.getOthers();
+    let degree = this.degrees[key];
 
-    ms.subjects = this.lams.getSubjects();
-    ms.ews = this.lams.getEWS();
-    ms.others = this.lams.getOthers();
-
-    gs.subjects = this.lags.getSubjects();
-    gs.ews = this.lags.getEWS();
-    gs.others = this.lags.getOthers();
+    degree.subjects = service.getSubjects();
+    degree.ews = service.getEWS();
+    degree.others = service.getOthers();
   }
 }

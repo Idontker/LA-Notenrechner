@@ -22,7 +22,6 @@ export class LaGsConfigService {
   }
 
   constructor(private http: HttpService) {
-    this.config = new LaSchulartConfig(http);
-    this.config.setSchulart('gs');
+    this.config = new LaSchulartConfig(http, 'gs');
   }
 }

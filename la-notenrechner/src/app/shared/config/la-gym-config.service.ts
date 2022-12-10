@@ -22,8 +22,10 @@ export class LaGymConfigService {
   }
 
   constructor(private http: HttpService) {
-    this.config = new LaSchulartConfig(http);
-    this.config.setSchulart('gym');
-    this.config.loadData();
+    this.config = new LaSchulartConfig(http, 'gym');
+  }
+
+  async loadData() {
+    await this.config.loadData();
   }
 }
