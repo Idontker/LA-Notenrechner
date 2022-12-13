@@ -14,8 +14,11 @@ export class LaSchulartConfig {
 
   subjects: { [key: string]: subject } = {};
 
-  ews: subject = subject_dummy;
-  others: subject = subject_dummy;
+  // ews: subject = subject_dummy(this.schulart);
+  // others: subject = subject_dummy(this.schulart);
+
+  ews: subject;
+  others: subject;
 
   getSubjects(): { [key: string]: subject } {
     return this.subjects;
@@ -29,27 +32,30 @@ export class LaSchulartConfig {
     return this.others;
   }
 
-  constructor(private http: HttpService) {
+  constructor(
+    private http: HttpService,
+    _schulart: 'gym' | 'rs' | 'ms' | 'gs'
+  ) {
     http.silent = true;
+    this.setSchulart(_schulart);
+
+    this.ews = subject_dummy();
+    this.others = subject_dummy();
   }
 
-  loadData() {
-    // TODO: remove if it works
-    if (this.schulart == 'ms' || this.schulart == 'gs') {
-      console.log(this.schulart, 'killed');
-      return;
-    }
+  async loadData() {
+    // look up config file to get all the filenames saved in assets
+    let data: any[] = [];
+    await this.getAsset('config_data.json').then((response) => {
+      data = response.body[this.schulart];
+    });
 
-    // get dict to look up all config filenames
-    this.getAsset('config_data.json').then((response) => {
-      let data = response.body[this.schulart];
+    // look up config file to get all the filenames saved in assets
+    for (let filename of data) {
+      let fname = 'la-' + this.schulart + '/' + filename;
 
-      // pull config for each filename
-      data.forEach((filename: string) => {
-        let fname = 'la-' + this.schulart + '/' + filename;
-
-        this.getAsset(fname).then((response) => {
-          let config = response.body;
+      await this.getAsset(fname).then((response) => {
+        let config = response.body;
 
           //for compatibility with files without po-version
           if (config.po === undefined) config.po = -1;//-1 = only one version available

@@ -3,8 +3,8 @@ import { subject_dummy } from '../models/subject';
 
 export const LA_GYM: degree = {
   subjects: {},
-  ews: subject_dummy,
-  others: subject_dummy,
+  ews: subject_dummy(),
+  others: subject_dummy(),
   stex_ects: {
     subject_ects: 95,
     didaktik_ects: 10,
@@ -35,8 +35,8 @@ export const LA_GYM: degree = {
 
 export const LA_RS: degree = {
   subjects: {},
-  ews: subject_dummy,
-  others: subject_dummy,
+  ews: subject_dummy(),
+  others: subject_dummy(),
   stex_ects: {
     subject_ects: 60,
     didaktik_ects: 12,
@@ -67,8 +67,8 @@ export const LA_RS: degree = {
 
 export const LA_MS: degree = {
   subjects: {},
-  ews: subject_dummy,
-  others: subject_dummy,
+  ews: subject_dummy(),
+  others: subject_dummy(),
   stex_ects: {
     subject_ects: 54,
     didaktik_ects: 12,
@@ -101,8 +101,8 @@ export const LA_MS: degree = {
 
 export const LA_GS: degree = {
   subjects: {},
-  ews: subject_dummy,
-  others: subject_dummy,
+  ews: subject_dummy(),
+  others: subject_dummy(),
   stex_ects: {
     subject_ects: 54,
     didaktik_ects: 12,
