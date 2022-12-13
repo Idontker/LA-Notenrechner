@@ -41,9 +41,9 @@ export class DegreeSpecsService {
       for (let key in this.degrees[degreeName].subjects) {
         subject = this.degrees[degreeName].subjects[key];
 
-        //only one version (po set to -1) => add name like before
+        //no po version specified => add name like before
         if (subject.po === -1) names.push(subject.name);
-        //valid value for po (not -1) => multiple versions available, only add subject name if not already there
+        //valid value for po (not -1) => >=1 version available, only add subject name if not already there
         else if (names.indexOf(subject.name) === -1) names.push(subject.name);
       }
       return names;

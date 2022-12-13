@@ -7,6 +7,7 @@
       [value]="this.selectedDegree"
       required
     >
+      <!--also delete array contents when degree is changed-->
       <mat-option *ngFor="let degree of getDegrees()" [value]="degree">
         {{ degree }}
       </mat-option>
@@ -47,7 +48,7 @@
           <mat-label>
             <div>PO-Version</div>
           </mat-label>
-          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value; log(selectedSubjects);log(i)">
+          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value;">
             <mat-option
               *ngFor="let version of getPOVersionsOfSubject(subjectName)"
               [value]="version"

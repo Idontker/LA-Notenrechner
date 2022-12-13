@@ -12,6 +12,10 @@ export class StudiengangComponent implements AfterViewInit {
   selectedDegree: string = '';
   @Output()
   selectedSubjects: string[] = [];
+
+  /**
+   * This arrays stores only the names of the selected subjects
+   */
   selectedSubjectNames: string[] = [];
 
   /**
@@ -66,15 +70,28 @@ export class StudiengangComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Checks if multiple po versions for a given subject are available
+   * @param subjectName subject name
+   * @return true, if multiple versions available
+   */
   multiplePOVersionsAvailable(subjectName: string): boolean {
-    let poVersionCount = 0;
+    let poVersionCount = 0;//counter for versions
+
     for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
       if (key.indexOf(subjectName) !== -1) poVersionCount++;
+
+      //as we only want to know whether multiple versions are available, exit after counter is >1
       if (poVersionCount > 1) return true;
     }
     return false;
   }
 
+  /**
+   * Gets all available PO versions for a subject
+   * @param subjectName subject name
+   * @return array with versions
+   */
   getPOVersionsOfSubject(subjectName: string): number[] {
     let versions: number[] = []
     for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
@@ -83,17 +100,23 @@ export class StudiengangComponent implements AfterViewInit {
     return versions;
   }
 
+  /**
+   * Sets the subject selection for usage in next step
+   * @param index the index of the subject which should be changed
+   * @param subjectName new subject name
+   */
   setSubjectSelection(index: number, subjectName: string) {
+    //save in name array, if multiple po versions are available, the ngIf condition in the html with display the input field
     this.selectedSubjectNames[index - 1] = subjectName
-    if (!this.multiplePOVersionsAvailable(subjectName)) {
-      this.selectedSubjects[index - 1] = subjectName;
-    }
-    console.log(this.selectedSubjectNames);
-    console.log(this.selectedSubjects);
-  }
 
-  log(msg: any) {
-    console.log(msg)
+    //only save to selected subjects, if one po version available
+    if (!this.multiplePOVersionsAvailable(subjectName)) {
+      //only one version available, as condition above is true
+      let version: number = this.getPOVersionsOfSubject(subjectName)[0];
+
+      //add version to name, if not -1
+      this.selectedSubjects[index - 1] = subjectName + (version === -1 ? "" : " " + version);
+    }
   }
 
   isNotSupported() {
@@ -144,10 +167,19 @@ export class StudiengangComponent implements AfterViewInit {
     if (n <= 1) {
       return false;
     }
-    let sub = this.selectedSubjects;
+
+
+    let sub = this.selectedSubjects.filter(s => s !== null && s !== "").map(s => {
+      let sp: string[] = s.split(" ");
+      if (sp.length === 1) return s;
+
+      return isNaN(parseInt(<string>sp.pop())) ? s : sp.join(" ");
+    });
+
+    console.log(sub);
     for (let i = 0; i < n; i++) {
       for (let j = i + 1; j < n; j++) {
-        if (sub[i] == sub[j] && sub[i] != '') {
+        if (sub[i] == sub[j]) {
           return true;
         }
       }
@@ -208,7 +240,6 @@ export class StudiengangComponent implements AfterViewInit {
       }
 
       //set the degree name and override the degree spec with data from file
-      console.log(this.degSpec.degrees);
       this.selectedDegree = jsonData.degreeName;
 
       //get subjects from json and degree subjects

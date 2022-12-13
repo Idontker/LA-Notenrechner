@@ -3,6 +3,9 @@ import {stex_pr} from './stex_pr';
 
 export interface subject {
   name: string;
+  /**
+   * Po version
+   */
   po: number;
   stex: stex_pr[];
   wpf_ects: number;
