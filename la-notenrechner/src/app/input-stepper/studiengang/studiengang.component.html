@@ -41,14 +41,14 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <div *ngFor="let subjectName of selectedSubjectNames; index as i" [(ngModel)]="selectedSubjectNames">
+    <div *ngFor="let subjectName of selectedSubjectNames; index as i" [(ngModel)]="selectedSubjectNames" ngDefaultControl>
       <div *ngIf="multiplePOVersionsAvailable(subjectName)">
-        Für {{subjectName}} stehen mehrere POen zur Verfügung, wähle eine davon aus:<br>
+        Für Fach {{i+1}} ({{subjectName}}) stehen mehrere POen zur Verfügung, wähle eine davon aus:<br>
         <mat-form-field appearance="fill">
           <mat-label>
-            <div>PO-Version</div>
+            <div>PO-Version Fach {{i+1}}</div>
           </mat-label>
-          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value;">
+          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value;" >
             <mat-option
               *ngFor="let version of getPOVersionsOfSubject(subjectName)"
               [value]="version"

@@ -109,14 +109,11 @@ export class StudiengangComponent implements AfterViewInit {
     //save in name array, if multiple po versions are available, the ngIf condition in the html with display the input field
     this.selectedSubjectNames[index - 1] = subjectName
 
-    //only save to selected subjects, if one po version available
-    if (!this.multiplePOVersionsAvailable(subjectName)) {
-      //only one version available, as condition above is true
-      let version: number = this.getPOVersionsOfSubject(subjectName)[0];
+    let versions: number[] = this.getPOVersionsOfSubject(subjectName);
+    if (versions.length > 1) this.selectedSubjects[index - 1] = "";//reset selection
 
-      //add version to name, if not -1
-      this.selectedSubjects[index - 1] = subjectName + (version === -1 ? "" : " " + version);
-    }
+    //only one version available (if versions.length is 0, then a subject exists without a config or sb messed with the array)
+    else this.selectedSubjects[index - 1] = subjectName + (versions[0] === -1 ? "" : ` ${versions[0]}`);//add version to name, if not -1
   }
 
   isNotSupported() {
@@ -168,7 +165,6 @@ export class StudiengangComponent implements AfterViewInit {
       return false;
     }
 
-
     let sub = this.selectedSubjects.filter(s => s !== null && s !== "").map(s => {
       let sp: string[] = s.split(" ");
       if (sp.length === 1) return s;
@@ -176,7 +172,6 @@ export class StudiengangComponent implements AfterViewInit {
       return isNaN(parseInt(<string>sp.pop())) ? s : sp.join(" ");
     });
 
-    console.log(sub);
     for (let i = 0; i < n; i++) {
       for (let j = i + 1; j < n; j++) {
         if (sub[i] == sub[j]) {
