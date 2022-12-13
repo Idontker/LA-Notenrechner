@@ -57,22 +57,22 @@ export class LaSchulartConfig {
       await this.getAsset(fname).then((response) => {
         let config = response.body;
 
-          //for compatibility with files without po-version
-          if (config.po === undefined) config.po = -1;//-1 = only one version available
+        //for compatibility with files without po-version
+        if (config.po === undefined) config.po = -1;//-1 = only one version available
 
-          // sort config into correct variable
-          if (filename.indexOf('ews') != -1) {
-            this.ews = config;
-            console.log(this.ews);
-          } else if (filename.indexOf('others') != -1) {
-            this.others = config;
-          } else {
-            //key will be: <subjectName> if only one po-version available and <subjectName PO-Version> for multiple versions
-            this.subjects[config.po === -1 ? config.name : `${config.name} ${config.po}`] = config;
-          }
-        });
+        // sort config into correct variable
+        if (filename.indexOf('ews') !== -1) {
+          this.ews = config;
+          console.log(this.ews);
+        } else if (filename.indexOf('others') !== -1) {
+          this.others = config;
+        } else {
+          //key will be: <subjectName> if only one po-version available and <subjectName PO-Version> for multiple versions
+          this.subjects[config.po === -1 ? config.name : `${config.name} ${config.po}`] = config;
+        }
       });
-    });
+    }
+
   }
 
   private getAsset(name: string) {

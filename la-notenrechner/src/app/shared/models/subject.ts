@@ -11,12 +11,14 @@ export interface subject {
   modules: module[];
 }
 
-export const subject_dummy: subject = {
-  name: 'dummy',
-  po: -1,
-  stex: [],
-  wpf_ects: 0,
-  wpfs: [],
-  didaktik: [],
-  modules: [],
-};
+export function subject_dummy(): subject {
+  return {
+    name: 'dummy',
+    po: -1,
+    stex: [],
+    wpf_ects: 0,
+    wpfs: [],
+    didaktik: [],
+    modules: [],
+  };
+}
