@@ -7,7 +7,7 @@
           <mat-label>Prüfungsname</mat-label>
           <input matInput type="text" formControlName="name" />
           <mat-hint *ngIf="stex_group.invalid" class="invalid"
-            >Invalid input.</mat-hint
+            >Ungültige Eingabe</mat-hint
           >
         </mat-form-field>
 
@@ -23,7 +23,7 @@
           [checked]="isDidaktikExamen(idx)"
         >
           {{
-            isDidaktikExamen(idx) ? "Prüfung des Didaktik" : "Prüfung des Fachs"
+            isDidaktikExamen(idx) ? "Prüfung der Didaktik" : "Prüfung des Fachs"
           }}
         </mat-slide-toggle>
 

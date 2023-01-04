@@ -78,7 +78,7 @@ export class CreateStexComponent implements OnInit {
         let tmp = '';
 
         if (control.get('name')?.invalid) {
-          tmp += ', Prüfnungname';
+          tmp += ', Prüfungsname';
         }
         if (control.get('weight')?.invalid) {
           tmp += ', Gewichtung';

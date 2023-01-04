@@ -14,6 +14,11 @@ export class StudiengangComponent implements AfterViewInit {
   selectedSubjects: string[] = [];
 
   /**
+   * This arrays stores only the names of the selected subjects
+   */
+  selectedSubjectNames: string[] = [];
+
+  /**
    * Used to be able to communicate with the parent component (which has access to the stepper)
    * Primarily used to signal the stepper to go to the next step, after importing the file
    */
@@ -65,6 +70,52 @@ export class StudiengangComponent implements AfterViewInit {
     });
   }
 
+  /**
+   * Checks if multiple po versions for a given subject are available
+   * @param subjectName subject name
+   * @return true, if multiple versions available
+   */
+  multiplePOVersionsAvailable(subjectName: string): boolean {
+    let poVersionCount = 0;//counter for versions
+
+    for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
+      if (key.indexOf(subjectName) !== -1) poVersionCount++;
+
+      //as we only want to know whether multiple versions are available, exit after counter is >1
+      if (poVersionCount > 1) return true;
+    }
+    return false;
+  }
+
+  /**
+   * Gets all available PO versions for a subject
+   * @param subjectName subject name
+   * @return array with versions
+   */
+  getPOVersionsOfSubject(subjectName: string): number[] {
+    let versions: number[] = []
+    for (let key in this.degSpec.degrees[this.selectedDegree].subjects) {
+      if (key.indexOf(subjectName) !== -1) versions.push(this.degSpec.degrees[this.selectedDegree].subjects[key].po);
+    }
+    return versions;
+  }
+
+  /**
+   * Sets the subject selection for usage in next step
+   * @param index the index of the subject which should be changed
+   * @param subjectName new subject name
+   */
+  setSubjectSelection(index: number, subjectName: string) {
+    //save in name array, if multiple po versions are available, the ngIf condition in the html with display the input field
+    this.selectedSubjectNames[index - 1] = subjectName
+
+    let versions: number[] = this.getPOVersionsOfSubject(subjectName);
+    if (versions.length > 1) this.selectedSubjects[index - 1] = "";//reset selection
+
+    //only one version available (if versions.length is 0, then a subject exists without a config or sb messed with the array)
+    else this.selectedSubjects[index - 1] = subjectName + (versions[0] === -1 ? "" : ` ${versions[0]}`);//add version to name, if not -1
+  }
+
   isNotSupported() {
     if (
       this.selectedDegree.indexOf('Mittelschule') != -1 ||
@@ -85,7 +136,8 @@ export class StudiengangComponent implements AfterViewInit {
     }
 
     for (let i = 0; i < n; i++) {
-      if (this.selectedSubjects[i] == '') {
+      //null: to check for empty slots
+      if (this.selectedSubjects[i] == '' || this.selectedSubjects[i] == null) {
         return false;
       }
     }
@@ -112,15 +164,36 @@ export class StudiengangComponent implements AfterViewInit {
     if (n <= 1) {
       return false;
     }
-    let sub = this.selectedSubjects;
+
+    let sub = this.selectedSubjects.filter(s => s !== null && s !== "").map(s => {
+      let sp: string[] = s.split(" ");
+      if (sp.length === 1) return s;
+
+      return isNaN(parseInt(<string>sp.pop())) ? s : sp.join(" ");
+    });
+
     for (let i = 0; i < n; i++) {
       for (let j = i + 1; j < n; j++) {
-        if (sub[i] == sub[j] && sub[i] != '') {
+        if (sub[i] == sub[j]) {
           return true;
         }
       }
     }
     return false;
+  }
+
+
+  checkForInputFile(): boolean {
+    //get file list and check, if a file is ready for upload
+    let files: FileList | null = (<HTMLInputElement>(
+      document.getElementById('fileInput')
+    )).files;
+    if (files === null || files.length === 0) {
+      return false;
+    }
+    else {
+      return true;
+    }
   }
 
   /**
@@ -139,6 +212,15 @@ export class StudiengangComponent implements AfterViewInit {
 
     this.uploadData(files[0]);
   }
+
+
+  checkForImportChanges(): void {
+    const importButton = document.getElementById("importButton") as HTMLInputElement;
+    if (importButton != null) {
+      importButton.disabled = !this.checkForInputFile();
+    }
+  }
+
 
   /**
    * Reads the data from the given file, sets all required data and goes to next step in stepper.
@@ -176,7 +258,6 @@ export class StudiengangComponent implements AfterViewInit {
       }
 
       //set the degree name and override the degree spec with data from file
-      console.log(this.degSpec.degrees);
       this.selectedDegree = jsonData.degreeName;
 
       //get subjects from json and degree subjects

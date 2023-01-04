@@ -1,12 +1,13 @@
-<mat-card-subtitle> Wähle deinen Studiengang </mat-card-subtitle>
+<mat-card-subtitle> Wähle deinen Studiengang</mat-card-subtitle>
 <div class="flex-col">
   <mat-form-field appearance="fill">
     <mat-label>Studiengang</mat-label>
     <mat-select
-      (selectionChange)="selectedDegree = $event.value; this.selectedSubjects = []"
+      (selectionChange)="selectedDegree = $event.value; this.selectedSubjects = []; this.selectedSubjectNames=[]"
       [value]="this.selectedDegree"
       required
     >
+      <!--also delete array contents when degree is changed-->
       <mat-option *ngFor="let degree of getDegrees()" [value]="degree">
         {{ degree }}
       </mat-option>
@@ -30,7 +31,7 @@
           </div>
         </mat-label>
         <!-- Optionen -->
-        <mat-select (selectionChange)="selectedSubjects[i - 1] = $event.value" [(ngModel)]="selectedSubjects[i - 1]">
+        <mat-select (selectionChange)="setSubjectSelection(i,$event.value)" [(ngModel)]="selectedSubjectNames[i - 1]">
           <mat-option
             *ngFor="let subject of getSubjects(selectedDegree)"
             [value]="subject"
@@ -39,6 +40,24 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
+    <div *ngFor="let subjectName of selectedSubjectNames; index as i" [(ngModel)]="selectedSubjectNames" ngDefaultControl>
+      <div *ngIf="multiplePOVersionsAvailable(subjectName)">
+        Für Fach {{i+1}} ({{subjectName}}) stehen mehrere PO-Versionen zur Verfügung, wähle eine davon aus:<br>
+        <mat-form-field appearance="fill">
+          <mat-label>
+            <div>PO-Version Fach {{i+1}}</div>
+          </mat-label>
+          <mat-select (selectionChange)="selectedSubjects[i] = subjectName+' '+ $event.value;" >
+            <mat-option
+              *ngFor="let version of getPOVersionsOfSubject(subjectName)"
+              [value]="version"
+            >
+              {{ version }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </div>
@@ -52,27 +71,33 @@
 <!--dnd-area = drag and drop area-->
 <div id="dnd-area">
   <mat-card-subtitle style="margin-top: 0.5rem"
-    >Daten importieren</mat-card-subtitle
+  >Daten importieren
+  </mat-card-subtitle
   >
   <div>
     Wähle die Datei aus, die du beim Export heruntergeladen hast und klicke auf
     den "Importieren"-Button oder nutze Drag and Drop, um die Datei zu laden.
   </div>
   <div style="display: flex">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="uploadButton()"
-      style="margin: 0.5rem"
-    >
-      Importieren
-    </button>
     <input
       id="fileInput"
       type="file"
       accept="application/json"
       style="margin: 0.5rem"
+      (change)="checkForImportChanges()"
     />
+  </div>
+  <div style="display: flex">
+    <button
+      mat-raised-button
+      id="importButton"
+      color="primary"
+      (click)="uploadButton()"
+      style="margin: 0.5rem"
+      [disabled]="!checkForInputFile()"
+    >
+      Importieren
+    </button>
   </div>
   <div id="uploadInfo"></div>
 </div>

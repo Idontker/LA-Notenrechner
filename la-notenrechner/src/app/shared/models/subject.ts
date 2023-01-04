@@ -1,8 +1,12 @@
-import { module } from './module';
-import { stex_pr } from './stex_pr';
+import {module} from './module';
+import {stex_pr} from './stex_pr';
 
 export interface subject {
   name: string;
+  /**
+   * Po version
+   */
+  po: number;
   stex: stex_pr[];
   wpf_ects: number;
   wpfs: module[];
@@ -13,6 +17,7 @@ export interface subject {
 export function subject_dummy(): subject {
   return {
     name: 'dummy',
+    po: -1,
     stex: [],
     wpf_ects: 0,
     wpfs: [],
