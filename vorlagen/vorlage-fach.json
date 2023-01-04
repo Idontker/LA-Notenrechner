@@ -25,7 +25,7 @@
       "ects": 5,
       "grade": "",
       "weight": 1,
-      "ba": "pflicht",
+      "ba": "verpflichtend",
       "options": ""
     },
     {
@@ -51,7 +51,7 @@
       "ects": 10,
       "grade": "",
       "weight": 0,
-      "ba": "pflicht",
+      "ba": "verpflichtend",
       "options": ""
     }
   ]
