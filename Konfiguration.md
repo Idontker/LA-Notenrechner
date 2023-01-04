@@ -1,8 +1,8 @@
 # Konfiguration
 
-Vorab zwei Sätze: Diese Anleitung wirkt sehr lang. Davon soll man sich bitte nicht abschrecken lassen, da die Länge primär aufgrund der vielen Beispiele zur Stande kommt.
+Vorab zwei Sätze: Diese Anleitung wirkt sehr lang. Davon soll man sich bitte nicht abschrecken lassen, da die Länge primär aufgrund der vielen Beispiele zustande kommt.
 
-In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) hinterlegt.
+In dieser Datei soll kurz erklärt werden, wie eine Konfiguration für eine Schulart (z.B. Realschule) oder ein Schulfach (z.B. Englisch Gymnasium) erstellt werden kann. Der Notenrechner selbst ist so entwickelt, dass er mit der richtigen Konfiguration die Studiengänge adäquat beschreibt. Diese Konfigurationen werden in einem .json Format hinterlegt. Hierzu wurden Vorlagedatein unter [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) hinterlegt.
 Diese müssen dann in den Code entsprechend eingepflegt werden.
 
 ## JSON Format Erklärt
@@ -30,24 +30,25 @@ Die Schlüsselwerte und generell Text wird in Anführungszeichen geschrieben. Zw
 
 # Konfiguration einer Schulart
 
-Man beginne indem man die Vorlage Datei schulart-vorlage.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ... 
-**TODO** 
+Man beginne, indem man die Vorlage Datei schulart-vorlage.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ein großes JSON Objekt. 
+...
+**TODO** (Anmerkung: gibt es das überhaupt noch?)
 
 
 # Konfiguration eines Fachs
 
-Man beginne indem man die Vorlage Datei vorlage-fach.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ein großes JSON Objekt.
+Man beginne, indem man die Vorlage Datei vorlage-fach.json aus dem [/vorlagen/](https://github.com/Idontker/LA-Notenrechner/tree/main/vorlagen) Ordner kopiert. Öffnet man das json mit einem beliebigen Texteditor (Word ist kein klassischer Texteditor), so sieht man nun ein großes JSON Objekt.
 
 ## 1. Fachname eintragen
 
-Ändere nun den Namen der kopierten Datei zu `la-schulart-fachname.json`. Nutze hierbei bitte die gänigen Abkürzungen für die Schularten (gs, ms, rs, gym). Achte darauf, dass alles kleingeschrieben ist :)
+Ändere nun den Namen der kopierten Datei zu `la-schulart-fachname.json`. Nutze hierbei bitte die gänigen Abkürzungen für die Schularten (gs, ms, rs, gym). Achte darauf, dass alles klein geschrieben ist :)
 Beispiel
 
 ```
-    la-gym-informatk.json
+    la-gym-informatik.json
 ```
 
-Trage im Feld Name nun den Namen des Fachs ein, welcher später angezeigt werden soll. Soll neben dem Namen auch die Prüfungsordnung zu sehen sein, so muss dies auch eingetragen werden.
+Trage im Feld Name nun den Namen des Fachs ein, welcher später angezeigt werden soll. Soll neben dem Namen auch die Prüfungsordnung zu sehen sein, so muss dies auch eingetragen werden (-> mittlerweile überholt).
 
 ### Beispiele:
 
@@ -80,7 +81,7 @@ Einzutragen sind
 - `name` (selbsterklärend) und
 - `didaktik`: Handelt es sich hier um eine Didaktikprüfung, so trage `true` ein, andernfalls `false`.
 
-Nicht einzutragen ist das Feld `grade`. Dies wird später genutzt.
+Nicht einzutragen ist das Feld `grade`. Dies wird erst später genutzt.
 
 ### Beispiel:
 
@@ -146,7 +147,7 @@ Nun sollen die einzelnen Module eingetragen werden. Jedes Module ist, wie auch b
 - `weight`: die Gewichtung des Moduls bei der Berechnung der Gesamtnote. Diese ist zumeist in der FPO für das jeweilige Fach definiert. Sollte es keine Note auf das Modul geben (also nur zwischen bestanden und nicht bestanden unterschieden werden), so ist hier eine 0 einzutragen.
 - `ba`: beschreibt, ob es für den Bachelor eingetragen werden kann oder sogar muss. Dieser Wert ist
 
-  - `pflicht`, falls dieses Modul eingebracht werden **muss**.
+  - `verpflichtend`, falls dieses Modul eingebracht werden **muss**.
   - `tauglich`, falls dieses Modul eingebracht werden **kann**.
   - `nein`, falls dieses Modul **nicht** eingebracht werden darf.
 
