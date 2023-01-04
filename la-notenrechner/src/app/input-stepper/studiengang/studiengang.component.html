@@ -43,7 +43,7 @@
     </div>
     <div *ngFor="let subjectName of selectedSubjectNames; index as i" [(ngModel)]="selectedSubjectNames" ngDefaultControl>
       <div *ngIf="multiplePOVersionsAvailable(subjectName)">
-        Für Fach {{i+1}} ({{subjectName}}) stehen mehrere POen zur Verfügung, wähle eine davon aus:<br>
+        Für Fach {{i+1}} ({{subjectName}}) stehen mehrere PO-Versionen zur Verfügung, wähle eine davon aus:<br>
         <mat-form-field appearance="fill">
           <mat-label>
             <div>PO-Version Fach {{i+1}}</div>
@@ -79,20 +79,25 @@
     den "Importieren"-Button oder nutze Drag and Drop, um die Datei zu laden.
   </div>
   <div style="display: flex">
-    <button
-      mat-raised-button
-      color="primary"
-      (click)="uploadButton()"
-      style="margin: 0.5rem"
-    >
-      Importieren
-    </button>
     <input
       id="fileInput"
       type="file"
       accept="application/json"
       style="margin: 0.5rem"
+      (change)="checkForImportChanges()"
     />
+  </div>
+  <div style="display: flex">
+    <button
+      mat-raised-button
+      id="importButton"
+      color="primary"
+      (click)="uploadButton()"
+      style="margin: 0.5rem"
+      [disabled]="!checkForInputFile()"
+    >
+      Importieren
+    </button>
   </div>
   <div id="uploadInfo"></div>
 </div>

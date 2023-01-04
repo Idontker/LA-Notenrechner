@@ -182,6 +182,20 @@ export class StudiengangComponent implements AfterViewInit {
     return false;
   }
 
+
+  checkForInputFile(): boolean {
+    //get file list and check, if a file is ready for upload
+    let files: FileList | null = (<HTMLInputElement>(
+      document.getElementById('fileInput')
+    )).files;
+    if (files === null || files.length === 0) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+
   /**
    * Called from the import button, gets the file reference from the input element and starts uploading
    */
@@ -198,6 +212,15 @@ export class StudiengangComponent implements AfterViewInit {
 
     this.uploadData(files[0]);
   }
+
+
+  checkForImportChanges(): void {
+    const importButton = document.getElementById("importButton") as HTMLInputElement;
+    if (importButton != null) {
+      importButton.disabled = !this.checkForInputFile();
+    }
+  }
+
 
   /**
    * Reads the data from the given file, sets all required data and goes to next step in stepper.
