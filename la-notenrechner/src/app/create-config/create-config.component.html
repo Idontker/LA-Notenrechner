@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title> Neues Fach erstellen:</mat-card-title>
   <mat-card-subtitle>
-    Bitte wähle die Schulart, den fachnamen und das Jahr der FPO
+    Bitte wähle die Schulart, den Fachnamen und das Jahr der FPO
     (Fachprüfungsordnung) aus, auf die du dich beziehst:</mat-card-subtitle
   >
   <mat-card-content>
@@ -28,7 +28,7 @@
         <mat-form-field appearance="outline" class="number-input">
           <mat-label>Prüfungsordnung</mat-label>
           <input matInput type="text" formControlName="po" />
-          <mat-hint>Format: 20ZZ wobei Z Ziffern sind</mat-hint>
+          <mat-hint>Format: 20ZZ, wobei Z Ziffern sind</mat-hint>
         </mat-form-field>
       </div>
 
@@ -37,9 +37,9 @@
         <mat-card-subtitle>
           Bitte wähle die Anzahl und die Bezeichnungen der StEx-Prüfungen aus.
           Gib auch an, ob die Prüfung der Didaktik oder der Fachwissenschaft
-          zuzuordnen ist. Dies solltest du in der LPO finden. Klick
+          zuzuordnen ist. Dies solltest du in der LPO finden. Klicke
           <a href="https://www.gesetze-bayern.de/Content/Document/BayLPO_I-G2"
-            >hier</a
+            target="_blank" rel="noopener noreferrer">hier</a
           >
           um zur LPO I weitergeleitet zu werden:</mat-card-subtitle
         >
@@ -50,8 +50,8 @@
       <div class="wpf">
         <mat-card-subtitle>
           Bitte gib an, wie viele ECTS laut der FPO in diesem Fach im
-          Wahlpflicht Bereich einzubringen sind. (Format: 5.0 oder
-          7.5)</mat-card-subtitle
+          Wahlpflicht Bereich einzubringen sind (Format: 5.0 oder
+          7.5). </mat-card-subtitle
         >
         <mat-form-field appearance="outline">
           <mat-label>ECTS</mat-label>
@@ -82,7 +82,7 @@
               bzw. sogar muss. Dieser Wert ist
               <ul>
                 <li>
-                  <b>pflicht</b>, falls dieses Modul eingebracht werden muss
+                  <b>verpflichtend</b>, falls dieses Modul eingebracht werden muss
                 </li>
                 <li>
                   <b>tauglich</b>, falls dieses Modul eingebracht werden kann,
@@ -139,7 +139,7 @@
           Nun sollen die einzelnen <b>Didaktik Module</b> für das Fach
           festgelegt werden. Diese werde analog zu den Modulen der
           Fachwissenschaft erstellt. Sie haben daher (analog) einen
-          <b>Namen</b>, <b>ECTS</b>, eine <b>Gewichtung</b> und eine Einstellung
+          <b>Namen</b>, eine <b>Gewichtung</b>, <b>ECTS</b> und eine Einstellung
           für <b>Einbringung in den Bachelorgrad</b>.
         </mat-card-subtitle>
         <app-create-module
@@ -168,17 +168,17 @@
             {{ location }}
           </li>
           <li *ngFor="let location of create_stex.formFehler(); let i = index">
-            In der {{ i + 1 }}-ten Staatsexmensprüfung: {{ location }}
+            In der {{ i + 1 }}. Staatsexamensprüfung: {{ location }}
           </li>
           <li
             *ngFor="let location of create_module.formFehler(); let i = index"
           >
-            Im {{ i + 1 }}-ten Fachmodul: {{ location }}
+            Im {{ i + 1 }}. Fachmodul: {{ location }}
           </li>
           <li
             *ngFor="let location of create_didaktik.formFehler(); let i = index"
           >
-            Im {{ i + 1 }}-ten Didaktikmodul {{ location }}
+            Im {{ i + 1 }}. Didaktikmodul {{ location }}
           </li>
         </ul>
       </h3>

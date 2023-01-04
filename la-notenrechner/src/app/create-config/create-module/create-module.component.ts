@@ -40,7 +40,7 @@ export class CreateModuleComponent implements OnInit {
           Validators.pattern('[0-9]*'),
         ]),
         ects: new FormControl('0', Validators.pattern('[0-9]*(|\\.5)')),
-        ba: new FormControl('pflicht', Validators.required),
+        ba: new FormControl('verpflichtend', Validators.required),
       })
     );
   }
@@ -79,7 +79,7 @@ export class CreateModuleComponent implements OnInit {
         let tmp = '';
 
         if (control.get('name')?.invalid) {
-          tmp += ', Modulename';
+          tmp += ', Modulname';
         }
         if (control.get('weight')?.invalid) {
           tmp += ', Gewichtung';

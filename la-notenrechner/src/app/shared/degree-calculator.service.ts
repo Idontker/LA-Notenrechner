@@ -127,11 +127,11 @@ export class DegreeCalculatorService {
     let ects = 0;
     let total = 0.0;
     modules.forEach((m) => {
-      // Überspringe das Modul, falls nicht alle angezeigt werden (stexModus) oder ba == "tauglich" oder "pflicht"
+      // Überspringe das Modul, falls nicht alle angezeigt werden (stexModus) oder ba == "tauglich" oder "verpflichtend"
       if (!(stexMode || m.ba != 'nein')) {
         return;
       }
-      // Überspringe das Modul falls es das Gewicht 0 hat
+      // Überspringe das Modul falls es die Gewichtung 0 hat
       if (m.weight == 0) {
         return;
       }

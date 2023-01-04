@@ -7,12 +7,12 @@
           <mat-label>Prüfungsname</mat-label>
           <input matInput type="text" formControlName="name" />
           <mat-hint *ngIf="module_group.invalid" class="invalid"
-            >Invalid input.</mat-hint
+            >Ungültige Eingabe</mat-hint
           >
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="number-input">
-          <mat-label>Gewicht</mat-label>
+          <mat-label>Gewichtung</mat-label>
           <input matInput type="text" formControlName="weight" />
         </mat-form-field>
 
@@ -25,7 +25,7 @@
         </mat-form-field>
 
         <mat-radio-group aria-label="Select an option" formControlName="ba">
-          <mat-radio-button value="pflicht">pflicht</mat-radio-button>
+          <mat-radio-button value="verpflichtend">verpflichtend</mat-radio-button>
           <mat-radio-button value="tauglich">tauglich</mat-radio-button>
           <mat-radio-button value="nein">nicht tauglich</mat-radio-button>
         </mat-radio-group>
