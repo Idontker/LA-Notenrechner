@@ -57,6 +57,9 @@ export class LaSchulartConfig {
       await this.getAsset(fname).then((response) => {
         let config = response.body;
 
+        //for compatibility with files without po-version
+        if (config.po === undefined) config.po = -1;//-1 = po version not specified
+
         // sort config into correct variable
         // indexOf can be used to check whether a string contains a substring
         if (filename.indexOf('ews') != -1) {
