@@ -67,7 +67,8 @@ export class LaSchulartConfig {
         } else if (filename.indexOf('others') != -1) {
           this.others = config;
         } else {
-          this.subjects[config.name] = config;
+          //key will be: <subjectName> if po-version not set and <subjectName PO-Version> for multiple versions
+          this.subjects[config.po === -1 ? config.name : `${config.name} ${config.po}`] = config;
         }
       });
     }
