@@ -69,7 +69,7 @@ export class ConfigBuilderService {
       });
     });
 
-    obj['didaktiks'] = didaktik_arr;
+    obj['didaktik'] = didaktik_arr;
 
     return obj;
   }

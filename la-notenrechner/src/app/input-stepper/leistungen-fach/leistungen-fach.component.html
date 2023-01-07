@@ -69,7 +69,8 @@
 
 <div *ngIf="getSubjectConfig()?.didaktik?.length != 0">
   <mat-card-subtitle>
-    Trage deine Leistungen der Didaktik der {{ subjectName }}</mat-card-subtitle
+    Trage deine Leistungen aus der Didaktik der {{ subjectName }} ein. Trage hier noch nicht
+    spekulative Noten ein, sondern nur bereits abgeschlossene Prüfungen:</mat-card-subtitle
   >
   <mat-list>
     <div *ngFor="let module of getSubjectConfig()?.didaktik; let i = index">
