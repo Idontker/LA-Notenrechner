@@ -1,6 +1,6 @@
 <mat-expansion-panel>
   <mat-expansion-panel-header>
-    <mat-panel-title> {{ subject.po === -1 ? subject.name : subject.name + " " + subject.po }} </mat-panel-title>
+    <mat-panel-title> {{ subject.po === -1 ? subject.fachname : subject.fachname + " " + subject.po }} </mat-panel-title>
     <mat-panel-description class="description">
       <div>
         <div *ngIf="subject.didaktik.length == 0">

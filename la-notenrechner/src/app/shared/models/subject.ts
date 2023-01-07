@@ -3,6 +3,7 @@ import {stex_pr} from './stex_pr';
 
 export interface subject {
   name: string;
+  fachname: string;
   /**
    * Po version
    */
@@ -17,6 +18,7 @@ export interface subject {
 export function subject_dummy(): subject {
   return {
     name: 'dummy',
+    fachname: 'dummy',
     po: -1,
     stex: [],
     wpf_ects: 0,
