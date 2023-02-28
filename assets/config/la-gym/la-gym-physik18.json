@@ -1,5 +1,7 @@
 {
-  "name": "Physik 2018",
+  "name": "Physik",
+  "fachname": "Physik",
+  "po": 2018,
   "stex": [
     {
       "name": "Experimentalphysik",

@@ -1,5 +1,6 @@
 {
-  "name": "Fachname",
+  "name": "Konfigurationsname",
+  "fachname": "Fachname",
   "stex": [
     {
       "name": "Zoologie und Humanbiologie",
